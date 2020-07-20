@@ -1,0 +1,23 @@
+GitHub
+
+git clone ссылка - копировать 
+git status
+git ..
+git 
+git add .
+git commit -m "любое сообщение"
+git push
+
+как сделать и залить ветку
+
+git checkout -b <название ветки>
+-b это ключ, означает создать ветку
+
+git add .
+git commit -m "любое сообщение"
+git push --set-upstream origin <название ветки>
+залить ветку на репозиторий
+
+git checkout <name> - переключиться на ветку
+
+git pull - перетащить состояние из github (после слияния) себе на комп
