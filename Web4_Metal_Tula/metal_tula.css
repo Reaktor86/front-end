@@ -1,0 +1,344 @@
+p, a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 48px;
+    font-weight: normal;
+    color: #303030;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    border: none;
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    color: white;
+    background: #FF4545;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/*Шапка*/
+
+.header-black {
+    width: 100%;
+    height: 40px;
+    background: black;
+}
+
+.header-black__border-box {
+    width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-black__border-box p {
+    font-size: 12px;
+    color: white;
+}
+
+.header-black__border-box a {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.img-mail {
+    margin-right: 10px;
+}
+
+.img-visa {
+    margin-right: 15px;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+}
+
+.header-white {
+    width: 100%;
+    height: 163px;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav-container {
+    width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 83px;
+    border-bottom: 3px solid #FF4545;
+}
+
+.nav-container nav {
+    display: flex;
+    justify-content: space-between;
+    width: 516px;
+}
+
+.nav-container button {
+    width: 211px;
+    height: 50px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1140px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.button-price {
+    width: 101px;
+    height: 50px;
+}
+
+.buttons-transparent {
+    width: 211px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #FF4545;
+    color: #FF4545;
+}
+
+.buttons-container__phone {
+    display: flex;
+    align-items: center;
+}
+
+.buttons-container__phone p {
+    font-weight: bold;
+    font-size: 35px;
+    color: #303030;
+    margin-left: 8px;
+}
+
+/*Главная*/
+
+.main-screen {
+    width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    height: 502px;
+    background-image: url("images/metal-bg.png");
+    position: relative;
+    padding: 60px 0 0 65px;
+}
+
+.main-screen img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.main-screen h1 {
+    color: white;
+    margin: 0 0 50px 0;
+    width: 632px;
+}
+
+.main-screen button {
+    width: 195px;
+    height: 70px;
+    font-size: 25px;
+}
+
+.pink-warning {
+    width: 1170px;
+    height: 340px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    background: #FFA2A2;
+    padding: 10px;
+}
+
+.pink-warning__level-2 {
+    width: 1150px;
+    height: 320px;
+    border: 10px solid white;
+    background: url("images/metal-shield.png") center no-repeat #FFA2A2;
+    padding-top: 40px;
+}
+
+.pink-warning__level-2 > p, h2 {
+    color: #303030;
+}
+
+.pink-warning__level-2--h2 {
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.pink-warning__level-2--p1 {
+    margin: 20px 0 30px 0;
+    text-align: center;
+}
+
+.pink-warning__level-2--p2 {
+    margin-left: 227px;
+}
+
+/*Каталог металлопроката*/
+
+.section-heading {
+    width: 1030px;
+    height: 233px;
+    margin: 0 auto;
+}
+
+.section-heading p {
+    color: #303030;
+    width: 971px;
+}
+
+.catalogs {
+    width: 1170px;
+    height: 328px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 15px 0 0 70px;
+}
+
+.catalogs p {
+    color: #303030;
+    font-weight: bold;
+    text-align: center;
+}
+
+.catalogs__h2 {
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+.catalogs--sort {
+    background-image: url("images/catalog-bg-sort.png");
+}
+
+.catalogs--tube {
+    background-image: url("images/catalog-bg-tube.png");
+}
+
+.catalogs--list {
+    background-image: url("images/catalog-bg-list.png");
+}
+
+.catalogs__flexbox {
+    width: 1029px;
+    height: 245px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.catalogs__flexbox--block {
+    width: 240px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.catalogs__flexbox--block:hover {
+    background: #FF4545;
+}
+
+.catalogs__flexbox--block p:hover {
+    color: white;
+}
+
+/*Спецпредложения*/
+
+.section-heading--spec {
+    height: 147px;
+}
+
+.section-heading--spec h1 {
+    margin: 107px 0;
+}
+
+.spec-carousel {
+    width: 1140px;
+    height: 380px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spec-card {
+    width: 250px;
+    height: 380px;
+    border: 2px solid #FF4545;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.spec-card__items {
+    width: 250px;
+    height: 312px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spec-card__heading {
+    font-weight: bold;
+    font-style: normal;
+    margin: 15px 0 10px 0;
+}
+
+.spec-card__size {
+    margin: 0 0 10px 0;
+}
+
+.spec-card__price {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 20px 0 25px 0;
+}
+
+.spec-card__price::after {
+    content: " ₽/м";
+}
+
+.spec-card__button {
+    width: 250px;
+    height: 68px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    position: absolute;
+    bottom: 0;
+}
