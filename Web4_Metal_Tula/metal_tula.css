@@ -20,6 +20,14 @@ h2 {
     font-size: 30px;
 }
 
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100%;
+    color: #303030;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -277,7 +285,7 @@ button:hover {
     color: white;
 }
 
-/*Спецпредложения*/
+/*Спецпредложения и буллеты*/
 
 .section-heading--spec {
     height: 147px;
@@ -291,6 +299,7 @@ button:hover {
     width: 1140px;
     height: 380px;
     margin: 0 auto;
+    margin-bottom: 120px;
     display: flex;
     justify-content: space-between;
 }
@@ -304,8 +313,8 @@ button:hover {
 }
 
 .spec-card__items {
-    width: 250px;
-    height: 312px;
+    width: 246px;
+    height: 308px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -333,7 +342,7 @@ button:hover {
 }
 
 .spec-card__button {
-    width: 250px;
+    width: 246px;
     height: 68px;
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
@@ -342,3 +351,141 @@ button:hover {
     position: absolute;
     bottom: 0;
 }
+
+.spec-metal-tula {
+    width: 1170px;
+    height: 640px;
+    background: url("images/metal-tula-bg.png") no-repeat center;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    padding-top: 100px;
+}
+
+.spec-metal-tula h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.spec-metal-tula > p {
+    text-align: center;
+    color: rgba(48, 48, 48, 0.8);
+    margin-bottom: 90px;
+}
+
+.spec-metal-tula__bullets {
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+}
+
+.spec-metal-tula__bullets p {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100%;
+    text-align: center;
+    color: #303030;
+    margin: 20px 0 0 0;
+}
+
+.spec-metal-tula__item {
+    width: 230px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Новости*/
+
+.section-heading--news {
+    height: 120px;
+}
+
+.news {
+    display: flex;
+    width: 1170px;
+    height: 470px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.news__item h3 {
+    width: 350px;
+    margin: 10px 0 5px 0;
+}
+
+.news__item p {
+    font-size: 14px;
+    line-height: 40%;
+    color: rgba(48, 48, 48, 0.6);
+}
+
+.look-all {
+    width: 1170px;
+    height: 130px;
+    margin: 0 auto;
+}
+
+.look-all__a {
+    font-size: 14px;
+    line-height: 40%;
+    color: rgba(48, 48, 48, 0.6);
+    text-decoration: underline;
+}
+
+/*Контакты*/
+
+.section-heading--contacts {
+    height: 90px;
+}
+
+.section-heading--contacts h1 {
+    margin: 0;
+}
+
+.contacts {
+    height: 650px;
+    width: 1170px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.contacts__container {
+    width: 300px;
+    height: 445px;
+    margin: 0 0 0 72px;
+    padding-top: 70px;
+}
+
+.contacts__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+}
+
+.contacts__item p {
+    color: #303030;
+    margin: 0;
+    width: 235px;
+}
+
+.contacts__item img {
+    margin-right: 10px;
+}
+
+.contacts__we {
+    color: #303030;
+    margin: 0 0 23px 0;
+    font-weight: bold;
+}
+
+.contacts__socials img {
+    display: inline;
+    margin-right: 16px;
+}
+
+.contacts__map {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
