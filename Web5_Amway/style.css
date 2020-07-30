@@ -63,18 +63,13 @@ button:hover {
     box-shadow: 0 2px 4px rgba(61, 61, 64, 0.1);
 }
 
-.header__container--blue {
+.header__container-blue {
     width: 1200px;
     height: 80px;
     margin: 0 auto;
     position: relative;
     display: flex;
     align-items: center;
-}
-
-.header__container--white {
-    width: 1200px;
-    margin: 0 auto;
 }
 
 .header__logo {
@@ -86,7 +81,7 @@ button:hover {
     right: 0;
 }
 
-.header__container--white {
+.header__container-white {
     width: 1200px;
     height: 46px;
     margin: 0 auto;
@@ -100,9 +95,10 @@ nav a {
     text-transform: uppercase;
     color: #034580;
     margin-right: 30px;
+    position: relative;
 }
 
-.header__container--white img {
+.header__container-white img {
     margin: 0 15px;
 }
 
