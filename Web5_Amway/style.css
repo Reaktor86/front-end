@@ -179,6 +179,10 @@ nav a {
     height: 567px;
 }
 
+.constructor__items4 {
+    width: 500px;
+}
+
 .constructor__items4 h1 {
     width: 435px;
     color: white;
@@ -196,11 +200,20 @@ nav a {
 }
 
 .constructor__items6 {
+    width: 480px;
+}
+
+.constructor__items6 h1, p {
     width: 340px;
 }
 
 .constructor__containers--easy {
     height: 400px;
+}
+
+.constructor__containers--analyse {
+    height: 400px;
+    margin-bottom: 70px;
 }
 
 /*Присоединяйтесь*/
@@ -209,4 +222,171 @@ nav a {
     width: 100%;
     height: 374px;
     background: url("images/project-bg.png");
+    position: relative;
+    padding-top: 74px;
+}
+
+.project__img-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.project__img-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.project__items {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project__text {
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.project__text--h1 {
+    margin: 0;
+}
+
+.project__text--p1 {
+    font-weight: 600;
+    width: 465px;
+    margin: 20px 0 10px 0;
+}
+
+.project__text--p2 {
+    margin: 10px 0 30px 0;
+}
+
+.join {
+    height: 321px;
+    width: 100%;
+}
+
+.join__h1 {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.join__h1 h1 {
+    text-align: center;
+    margin: 60px 0 30px 0;
+}
+
+.join__bullets {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bullets {
+    display: flex;
+    align-items: center;
+}
+
+.bullets img {
+    margin-right: 30px;
+}
+
+.bullets--visitors .bullets__p1 {
+    color: #37A04C;
+}
+
+.bullets--partners .bullets__p1 {
+    color: #701D70;
+}
+
+.bullets__p1 {
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 88px;
+    color: #0490C6;
+    margin: 0;
+}
+
+.bullets__p2 {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #222222;
+    margin: 0px 0 5px 0;
+}
+
+.bullets__p3 {
+    font-size: 16px;
+    color: #444444;
+    margin: 0;
+}
+
+.call-to-action {
+    width: 100%;
+    height: 412px;
+    background: #407FFE;
+    position: relative;
+    padding-top: 85px;
+}
+
+.call-to-action__image-left {
+    position: absolute;
+    top: 0;
+    left: 131px;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+}
+
+.call-to-action__image-right {
+    position: absolute;
+    top: 0;
+    right: 70px;
+    mix-blend-mode: lighten;
+    opacity: 0.8;
+}
+
+.call-to-action__flex {
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.call-to-action__items h1 {
+    margin: 0 0 20px 0;
+    width: 360px;
+    color: white;
+}
+
+.call-to-action__items p {
+    width: 325px;
+    margin: 20px 0 62px 96px;
+    color: white;
+}
+
+.call-to-action__items--right p {
+    margin-bottom: 40px;
+}
+
+.call-to-action__items button {
+    margin-left: 96px;
+}
+
+.call-to-action__items--left:before {
+    content: url("images/cta-question.png");
+    float: left;
+    margin-right: 30px;
+}
+
+.call-to-action__items--right:before {
+    content: url("images/cta-plus.png");
+    float: left;
+    margin-right: 30px;
 }
