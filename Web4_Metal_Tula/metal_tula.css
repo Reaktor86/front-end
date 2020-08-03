@@ -398,6 +398,7 @@ nav a {
 .spec-metal-tula > p {
     text-align: center;
     margin-bottom: 90px;
+    color: rgba(48, 48, 48, 0.8);
 }
 
 .spec-metal-tula__bullets {
