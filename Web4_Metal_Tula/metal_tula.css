@@ -207,7 +207,7 @@ nav a {
     display: inline-block;
 }
 
-.main-screen__pages a:nth-child(3) div {
+.main-screen__dot--active {
     border-color: #FF4545;
 }
 
