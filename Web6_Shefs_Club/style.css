@@ -1,29 +1,29 @@
 @font-face {
     font-family: 'Circe';
-    src: local('Circe Bold'), local('Circe-Bold'),
-    url('Circe-Bold.woff2') format('woff2'),
-    url('Circe-Bold.woff') format('woff'),
-    url('Circe-Bold.ttf') format('truetype');
+    src: local('fonts/Circe Bold'), local('fonts/Circe-Bold'),
+    url('fonts/Circe-Bold.woff2') format('woff2'),
+    url('fonts/Circe-Bold.woff') format('woff'),
+    url('fonts/Circe-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Circe';
-    src: local('Circe Regular'), local('Circe-Regular'),
-    url('Circe-Regular.woff2') format('woff2'),
-    url('Circe-Regular.woff') format('woff'),
-    url('Circe-Regular.ttf') format('truetype');
+    src: local('fonts/Circe Regular'), local('fonts/Circe-Regular'),
+    url('fonts/Circe-Regular.woff2') format('woff2'),
+    url('fonts/Circe-Regular.woff') format('woff'),
+    url('fonts/Circe-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'TT Norms';
-    src: local('TT Norms Bold'), local('TT-Norms-Bold'),
-    url('TTNorms-Bold.woff2') format('woff2'),
-    url('TTNorms-Bold.woff') format('woff'),
-    url('TTNorms-Bold.ttf') format('truetype');
+    src: local('fonts/TT Norms Bold'), local('fonts/TT-Norms-Bold'),
+    url('fonts/TTNorms-Bold.woff2') format('woff2'),
+    url('fonts/TTNorms-Bold.woff') format('woff'),
+    url('fonts/TTNorms-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -54,6 +54,10 @@ button {
     color: #333333;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 h1 {
     font-family: TT Norms, sans-serif;
     font-style: normal;
@@ -72,11 +76,33 @@ h2 {
     color: #131315;
 }
 
+/*Адаптив*/
+
+@media all and (max-width: 1023px) {
+    .header__description {
+        display: none;
+    }
+
+    .header__container {
+        width: 1024px;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .header__description {
+        display: none;
+    }
+
+    .header__container {
+        width: 768px;
+    }
+
+}
+
 /*Хэдер*/
 
 .header {
-    border: 1px solid #E8EAE7;
-    border-color: transparent;
+    border: 1px solid transparent;
     border-bottom-color: #E8EAE7;
 }
 
@@ -89,27 +115,12 @@ h2 {
     align-items: center;
 }
 
-.header__container > div {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    align-items: center;
-}
-
-.header__logo-description {
-    width: 270px;
-}
-
-.header__phone-button {
-    width: 310px;
-}
-
 .header__description {
     font-size: 14px;
     line-height: 20px;
     color: #333333;
     width: 164px;
-    margin: 0;
+    margin: 0 0 0 -105px;
 }
 
 nav {
@@ -126,7 +137,7 @@ nav a {
     font-weight: bold;
     font-size: 18px;
     color: #333333;
-    margin: 0;
+    margin: 0 -90px 0 0;
 }
 
 .header__button {
