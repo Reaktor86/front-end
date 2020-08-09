@@ -129,6 +129,14 @@ nav a {
     padding: 0 26px;
 }
 
+.header__mobile {
+    display: none;
+}
+
+.header__mobile--call {
+    margin-left: 50px;
+}
+
 /*Адаптив*/
 
 @media all and (max-width: 1023px) {
@@ -138,22 +146,31 @@ nav a {
     }
 
     .header__container {
-        width: 1024px;
+        width: 768px;
     }
 
     nav {
         width: 262px;
     }
+
+    .header__phone {
+        margin: 0 -30px 0 0;
+    }
+
 }
 
 @media all and (max-width: 767px) {
 
-    .header__description {
+    .header__description, nav, .header__phone, .header__button {
         display: none;
     }
 
     .header__container {
-        width: 768px;
+        width: 320px;
+    }
+
+    .header__mobile {
+        display: inline-block;
     }
 
 }
