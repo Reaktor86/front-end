@@ -76,29 +76,6 @@ h2 {
     color: #131315;
 }
 
-/*Адаптив*/
-
-@media all and (max-width: 1023px) {
-    .header__description {
-        display: none;
-    }
-
-    .header__container {
-        width: 1024px;
-    }
-}
-
-@media all and (max-width: 767px) {
-    .header__description {
-        display: none;
-    }
-
-    .header__container {
-        width: 768px;
-    }
-
-}
-
 /*Хэдер*/
 
 .header {
@@ -150,4 +127,33 @@ nav a {
     align-items: center;
     justify-content: space-between;
     padding: 0 26px;
+}
+
+/*Адаптив*/
+
+@media all and (max-width: 1023px) {
+
+    .header__description {
+        display: none;
+    }
+
+    .header__container {
+        width: 1024px;
+    }
+
+    nav {
+        width: 262px;
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    .header__description {
+        display: none;
+    }
+
+    .header__container {
+        width: 768px;
+    }
+
 }
