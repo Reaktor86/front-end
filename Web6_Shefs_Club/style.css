@@ -81,6 +81,7 @@ h2 {
 .header {
     border: 1px solid transparent;
     border-bottom-color: #E8EAE7;
+    margin-bottom: 30px;
 }
 
 .header__container {
@@ -137,6 +138,168 @@ nav a {
     margin-left: 50px;
 }
 
+/*Карусель*/
+
+.carousel {
+    width: 1170px;
+    height: 500px;
+    background-image: url("images/main-product1.jpg");
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    padding: 40px 70px;
+    position: relative;
+}
+
+.carousel__action {
+    width: 74px;
+    height: 30px;
+    background: #FF794F;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.carousel__action p {
+    color: white;
+    font-size: 14px;
+}
+
+.carousel__items h1 {
+    width: 470px;
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+.carousel__items > p {
+    font-size: 18px;
+    color: #F0F1EE;
+    margin-bottom: 30px;
+}
+
+.carousel__button {
+    width: 200px;
+    height: 60px;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 134px;
+}
+
+.carousel__button--buy {
+    color: #333333;
+    background-color: white;
+    margin: 0 20px 40px 0;
+}
+
+.carousel__button--menu {
+    color: white;
+    background-color: transparent;
+}
+
+.sliders {
+    width: 105px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel__sliders .sliders__dot {
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+.carousel__sliders .sliders__dot--selected {
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.carousel_arrows {
+    width: 48px;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+}
+
+.carousel_arrows--left {
+    left: -24px;
+}
+
+.carousel_arrows--right {
+    right: -24px;
+}
+
+/*Как это работает*/
+
+.how-it-works {
+    width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 160px;
+}
+
+.how-it-works h1 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.how-it-works__container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.how-it-works__item {
+    display: flex;
+    width: 232px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.how-it-works__item h2 {
+    margin: 16px 0 7px 0;
+}
+
+.how-it-works__item p {
+    color: #6D7077;
+    margin: 0;
+    text-align: center;
+}
+
+.how-it-works__sliders {
+    width: 40px;
+    display: none;
+    margin: 40px auto 160px;
+}
+
+.how-it-works__sliders .sliders__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #DDDEDB;
+}
+
+.how-it-works__sliders .sliders__dot--selected {
+    background: #A1A75C;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+}
+
+
 /*Адаптив*/
 
 @media all and (max-width: 1023px) {
@@ -157,6 +320,59 @@ nav a {
         margin: 0 -30px 0 0;
     }
 
+    .carousel {
+        width: 728px;
+        background-image: url("images/main-product1-tablet.jpg");
+        padding: 40px;
+    }
+
+    .carousel__items h1 {
+        width: 300px;
+        font-size: 40px;
+        line-height: 47px;
+    }
+
+    .carousel__items > p {
+        width: 265px;
+    }
+
+    .carousel_arrows--left {
+        left: -15px;
+    }
+
+    .carousel_arrows--right {
+        right: -15px;
+    }
+
+    .how-it-works {
+        width: 768px;
+        margin-bottom: 0;
+    }
+
+    .how-it-works__item {
+        width: 207px;
+    }
+
+    .how-it-works h1 {
+        font-size: 40px;
+    }
+
+    .how-it-works__item h2 {
+        font-size: 16px;
+    }
+
+    .how-it-works__item p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .how-it-works__item--hidden {
+        display: none;
+    }
+
+    .how-it-works__sliders {
+        display: flex;
+    }
 }
 
 @media all and (max-width: 767px) {
@@ -166,11 +382,91 @@ nav a {
     }
 
     .header__container {
-        width: 320px;
+        width: 300px;
     }
 
     .header__mobile {
         display: inline-block;
     }
 
+    .header__logo {
+        margin: -10px;
+    }
+
+    .carousel {
+        width: 300px;
+        height: 400px;
+        background-image: url("images/main-product1-mobile.jpg");
+        padding: 20px;
+    }
+
+    .carousel__action {
+        margin-bottom: 10px;
+    }
+
+    .carousel__items h1 {
+        font-size: 30px;
+        line-height: 35px;
+        width: 260px;
+        margin: 0 0 5px 0;
+    }
+
+    .carousel__items > p {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 0 0 0;
+    }
+
+    .carousel__button {
+        display: none;
+    }
+
+    .carousel_arrows--left {
+        left: 5px;
+        top: 420px;
+    }
+
+    .carousel_arrows--right {
+        right: 5px;
+        top: 420px;
+    }
+
+    .carousel__sliders {
+        margin: 0 auto;
+        margin-top: 223px;
+    }
+
+    .carousel__sliders .sliders__dot {
+        background: #DDDEDB;
+    }
+
+    .carousel__sliders .sliders__dot--selected {
+        background: #A1A75C;
+    }
+
+    .how-it-works__sliders {
+        display: none;
+    }
+
+    .how-it-works {
+        margin-bottom: 120px;
+        width: 250px;
+    }
+
+    .how-it-works h1 {
+        font-size: 30px;
+        margin: 60px 0 40px 0;
+    }
+
+    .how-it-works__container {
+        display: block;
+    }
+
+    .how-it-works__item--hidden {
+        display: flex;
+    }
+
+    .how-it-works__item {
+        margin-bottom: 40px;
+    }
 }
