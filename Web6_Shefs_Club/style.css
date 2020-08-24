@@ -216,6 +216,10 @@ nav a {
     border-radius: 5px;
 }
 
+.sliders__dot:hover {
+    cursor: pointer;
+}
+
 .carousel__sliders .sliders__dot--selected {
     width: 15px;
     height: 15px;
@@ -236,6 +240,10 @@ nav a {
     top: 45%;
 }
 
+.carousel_arrows:hover {
+    cursor: pointer;
+}
+
 .carousel_arrows--left {
     left: -24px;
 }
@@ -249,7 +257,7 @@ nav a {
 .how-it-works {
     width: 1170px;
     margin: 0 auto;
-    margin-bottom: 160px;
+    margin-bottom: 80px;
 }
 
 .how-it-works h1 {
@@ -282,7 +290,7 @@ nav a {
 .how-it-works__sliders {
     width: 40px;
     display: none;
-    margin: 40px auto 160px;
+    margin: 40px auto;
 }
 
 .how-it-works__sliders .sliders__dot {
@@ -299,6 +307,276 @@ nav a {
     border-radius: 6px;
 }
 
+/*Меню*/
+
+.menu {
+    width: 100%;
+    height: 851px;
+    background: #F9FCF9;
+    padding-top: 80px;
+}
+
+.menu__heading {
+    width: 1170px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.menu__heading h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.menu__heading p {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0 30px 0;
+}
+
+.menu_arrows {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid #DDDEDB;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+}
+
+.menu_arrows:hover {
+    cursor: pointer;
+}
+
+.menu_arrows--top-left {
+    left: 0;
+}
+
+.menu_arrows--top-right {
+    right: 0;
+}
+
+.menu__food-categories {
+    display: flex;
+    justify-content: space-between;
+    width: 950px;
+    margin: 0 auto 25px;
+}
+
+.menu__button {
+    width: 174px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid #CECFCD;
+    border-radius: 74px;
+    color: #A1A75C;
+    font-size: 18px;
+}
+
+.menu__button--selected {
+    background: #A1A75C;
+    border: none;
+    color: white;
+}
+
+.menu__cards-container {
+    width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu__card {
+    width: 370px;
+    height: 480px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.menu__card--1 {
+    background: url("images/cards-breakfast-01.png") no-repeat #FFFFFF;
+}
+
+.menu__card--2 {
+    background: url("images/cards-breakfast-02.png") no-repeat #FFFFFF;
+}
+
+.menu__card--3 {
+    background: url("images/cards-breakfast-03.png") no-repeat #FFFFFF;
+}
+
+.menu__tag47 {
+    width: 57px;
+    height: 30px;
+    padding: 4px 12px;
+    background: #A1A75C;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+.menu__tag47 p {
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.menu__tags > div {
+    height: 24px;
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 215px 10px 0 0;
+    background: #F0F1EE;
+    border-radius: 4px;
+}
+
+.menu__tags > div p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.menu__card h2 {
+    color: #333333;
+    margin: 15px 0;
+}
+
+.menu__cooking-board {
+    width: 330px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0 20px 0;
+    border: 1px solid transparent;
+    border-bottom-color: #DDDEDB;;
+}
+
+.menu__cooking-board > p {
+    font-size: 14px;
+    color: #646365;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.menu__arrow-down {
+    margin-right: 50px;
+}
+
+.menu__card-bottom {
+    width: 330px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu__card-bottom p {
+    color: #646365;
+    margin: 0 23px 0 7px;
+}
+
+.menu__card-button {
+    font-size: 18px;
+    padding-left: 40px;
+    color: #646365;
+    width: 140px;
+    height: 44px;
+    border-radius: 26px;
+    background: url("images/menu-button.png");
+    border: none;
+}
+
+.menu__card-button--selected {
+    background: url("images/menu-button-selected.png");
+    color: white;
+    padding: 0 36px 0 0;
+}
+
+.menu_arrows--cards-left {
+    top: 45%;
+    left: -24px;
+    border: 1px solid #F0F1EE;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.menu_arrows--cards-right {
+    top: 45%;
+    right: -24px;
+    border: 2px solid #A1A75C;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/*Футер*/
+
+.footer__container {
+    width: 1170px;
+    height: 244px;
+    padding-top: 39px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__text-blocks h2 {
+    color: #333333;
+    margin: 0 0 20px 0;
+}
+
+.footer__text-blocks > a, .footer__text-blocks > p, .footer__last-block > p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #464243;
+    margin: 0 0 10px 0;
+    display: block;
+}
+
+.footer__text-blocks--3 {
+    padding-top: 44px;
+}
+
+.form {
+    margin: 20px 0;
+    width: 270px;
+    height: 44px;
+    border: 1px solid #CDCFD5;
+    border-radius: 22px;
+    position: relative;
+}
+
+.form__email {
+    font-family: Circe, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #878786;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 10px;
+    left: 16px;
+}
+
+.form__button {
+    border: none;
+    background: none;
+    position: absolute;
+    right: -4px;
+}
+
+.footer__socials a {
+    margin-right: 15px;
+}
+
+.footer__socials--start {
+    display: none;
+}
+
 
 /*Адаптив*/
 
@@ -309,7 +587,7 @@ nav a {
     }
 
     .header__container {
-        width: 768px;
+        width: 728px;
     }
 
     nav {
@@ -345,8 +623,8 @@ nav a {
     }
 
     .how-it-works {
-        width: 768px;
-        margin-bottom: 0;
+        width: 728px;
+        margin-bottom: 80px;
     }
 
     .how-it-works__item {
@@ -373,7 +651,48 @@ nav a {
     .how-it-works__sliders {
         display: flex;
     }
-}
+
+    .menu__food-categories {
+        width: 728px;
+    }
+
+    .menu__heading {
+        width: 728px;
+    }
+
+    .menu__heading > p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .menu__card--3 {
+        display: none;
+    }
+
+    .menu__cards-container {
+        width: 728px;
+    }
+
+    .menu__button {
+        width: 130px;
+    }
+
+    .menu__card {
+        width: 354px;
+    }
+
+    .footer__socials--start {
+        display: inline-block;
+    }
+
+    .footer__socials--end {
+        display: none;
+    }
+
+    .footer__container {
+        width: 728px;
+    }
+
 
 @media all and (max-width: 767px) {
 
@@ -449,7 +768,7 @@ nav a {
     }
 
     .how-it-works {
-        margin-bottom: 120px;
+        margin-bottom: 60px;
         width: 250px;
     }
 
