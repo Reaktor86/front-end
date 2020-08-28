@@ -398,21 +398,23 @@ nav a {
     height: 480px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     border-radius: 8px;
-    overflow: hidden;
     position: relative;
     padding: 20px;
 }
 
 .menu__card--1 {
     background: url("images/cards-breakfast-01.png") no-repeat #FFFFFF;
+    background-size: contain;
 }
 
 .menu__card--2 {
     background: url("images/cards-breakfast-02.png") no-repeat #FFFFFF;
+    background-size: contain;
 }
 
 .menu__card--3 {
     background: url("images/cards-breakfast-03.png") no-repeat #FFFFFF;
+    background-size: contain;
 }
 
 .menu__tag47 {
@@ -459,7 +461,7 @@ nav a {
     align-items: center;
     margin: 18px 0 20px 0;
     border: 1px solid transparent;
-    border-bottom-color: #DDDEDB;;
+    border-bottom-color: #DDDEDB;
 }
 
 .menu__cooking-board > p {
@@ -860,7 +862,7 @@ nav a {
     }
 
     .menu__card--3 {
-        display: flex;
+        display: inline-block;
     }
 
     .menu__cards-mobile {
@@ -874,7 +876,7 @@ nav a {
     }
 
     .menu__tags > div {
-        margin: 215px 4px 0 0;
+        margin: 174px 4px 0 0;
     }
 
     .menu__arrows--cards-right-mobile {
@@ -886,5 +888,32 @@ nav a {
         border: 1px solid #F0F1EE;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
+
+    .menu__cooking-board, .menu__card-bottom, .menu__arrows--cards-right {
+        display: none;
+    }
+
+    .menu__cooking-board-mobile, .menu__card-bottom-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu__cooking-board-mobile {
+        border: 1px solid transparent;
+        border-bottom-color: #DDDEDB;
+        margin-bottom: 10px;
+    }
+
+    .menu__cooking-board-mobile p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .menu__chef-mobile {
+        margin-left: 15px;
+    }
+
+
 
 }
