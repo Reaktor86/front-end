@@ -530,19 +530,32 @@ nav a {
     height: 244px;
     padding-top: 39px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
 }
 
-.footer__block-2 div {
+.footer__block-1 {
+    width: 237px;
+    float: left;
+}
+
+.footer__flex {
     display: flex;
-    width: 328px;
+    justify-content: space-between;
+    width: 933px;
+}
+
+.about__hyperlinks {
+    display: flex;
+    width: 342px;
     height: 75px;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.footer__block-3 div {
+.footer__block-2 a {
+    width: 50%;
+}
+
+.clients__hyperlinks {
     display: flex;
     width: 193px;
     height: 100px;
@@ -739,6 +752,52 @@ nav a {
 
     .footer__container {
         width: 728px;
+    }
+
+    .footer__block-1 {
+        width: 213px;
+    }
+
+    .about__hyperlinks, .clients__hyperlinks {
+        flex-direction: row;
+        width: 510px;
+        height: auto;
+    }
+
+    .footer__block-2 a, .footer__block-3 a {
+        width: auto;
+        margin: 0 0 30px 0;
+    }
+
+    .footer__flex {
+        flex-direction: column;
+        height: 228px;
+        width: 510px;
+    }
+
+    .footer__block-4 {
+        display: flex;
+        width: 510px;
+    }
+
+    .form {
+        margin: 0 0 37px 0;
+    }
+
+    .about__genesis {
+        order: 4;
+    }
+
+    .about__shipping {
+        order: 2;
+    }
+
+    .about__contacts {
+        order: 5;
+    }
+
+    .about__reviews {
+        order: 3;
     }
 
 }
@@ -947,6 +1006,59 @@ nav a {
         margin-left: 15px;
     }
 
+    .footer__container {
+        width: 300px;
+        height: 596px;
+    }
 
+    .footer__phone {
+        font-size: 24px;
+    }
+
+    .footer__block-1 {
+        width: 300px;
+        float: none;
+        margin-bottom: 30px;
+    }
+
+    .footer__text-p1 {
+        width: auto;
+    }
+
+    .footer__flex {
+        width: 300px;
+        height: 392px;
+    }
+
+    .footer__socials--tablet {
+        display: none;
+    }
+
+    .footer__socials--desktop-mobile {
+        display: inline-block;
+    }
+
+    .about__hyperlinks, .clients__hyperlinks {
+        width: 290px;
+        flex-wrap: wrap;
+    }
+
+    .footer__block-2 h2, .footer__block-3 h2 {
+        margin: 0 0 10px 0;
+    }
+
+    .footer__block-2 a, .footer__block-3 a {
+        margin: 0 0 10px 0;
+    }
+
+    .footer__block-4 {
+        flex-direction: column;
+        width: 300px;
+    }
+
+    .form {
+        margin: 10px 0 30px 0;
+        width: 290px;
+    }
 
 }
