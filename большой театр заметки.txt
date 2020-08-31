@@ -1,0 +1,41 @@
+h1
+
+font-family: Open Sans Condensed;
+font-style: normal;
+font-weight: bold;
+font-size: 64px;
+line-height: 87px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #FFFFFF;
+
+h2
+
+font-family: Open Sans Condensed;
+font-style: normal;
+font-weight: 300;
+font-size: 48px;
+line-height: 65px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #FFFFFF;
+
+p
+
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 150%;
+color: #FFFFFF;
+
+ нопки, меню
+
+font-family: Open Sans Condensed;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #FFFFFF;
