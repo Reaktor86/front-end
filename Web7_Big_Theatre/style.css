@@ -81,7 +81,7 @@ button:hover {
 .first-screen__phone {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 107px;
+    margin-bottom: 114px;
 }
 
 .first-screen__phone a {
@@ -176,8 +176,7 @@ nav {
 
 /*Адаптив */
 
-
-@media all and (min-width: 768px) { /*MD*/
+@media all and (min-width: 768px) {
 
     .first-screen {
         height: 800px;
@@ -190,9 +189,13 @@ nav {
     .first-screen__title, .first-screen__description {
         width: 540px;
     }
+
+    .first-screen__phone {
+        margin-bottom: 169px;
+    }
 }
 
-@media all and (min-width: 992px) { /*LG*/
+@media all and (min-width: 992px) {
 
     .first-screen {
         height: 1045px;
@@ -200,7 +203,7 @@ nav {
 
     .first-screen__phone {
         justify-content: center;
-        margin-bottom: 230px;
+        margin-bottom: 169px;
     }
 
     .first-screen__fixed-panel {
@@ -208,7 +211,7 @@ nav {
     }
 
     .first-screen__container {
-        margin-left: 191px;
+        margin-left: 230px;
     }
 }
 
@@ -220,6 +223,7 @@ nav {
 
     .first-screen__phone {
         justify-content: flex-end;
+        margin-bottom: 307px;
     }
 
 }
