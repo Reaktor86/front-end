@@ -144,6 +144,36 @@ nav {
     margin-bottom: 117px;
 }
 
+.first-screen__sliderbox {
+    margin-top: -117px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sliderbox__flex {
+    display: flex;
+    width: 370px;
+    height: 25px;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.sliderbox__flex p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: #C4C4C4;
+}
+
+.sliderbox__p1 {
+    margin: 0 110px 0 0;
+}
+
+.sliderbox__p2 {
+    margin: 0;
+}
+
 /*Адаптив */
 
 
@@ -186,6 +216,10 @@ nav {
 
     .first-screen__container {
         width: 1110px;
+    }
+
+    .first-screen__phone {
+        justify-content: flex-end;
     }
 
 }
