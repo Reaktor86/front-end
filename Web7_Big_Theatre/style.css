@@ -101,6 +101,7 @@ button:hover {
 
 nav {
     width: 690px;
+    height: 25px;
     justify-content: space-between;
     margin-bottom: 50px;
 }
@@ -219,6 +220,7 @@ nav {
 
     .first-screen__container {
         width: 1110px;
+        margin: 0 auto;
     }
 
     .first-screen__phone {
