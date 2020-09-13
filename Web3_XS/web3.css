@@ -1,0 +1,428 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px;
+    line-height: 120%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+button {
+    width: 200px;
+    height: 45px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-family: Roboto Condensed;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #31215F;
+    margin: 0;
+}
+
+/*Шапка*/
+
+header {
+    height: 87px;
+    background: #352368;
+}
+
+.header-container {
+    width: 1265px;
+    height: 87px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-container > img {
+    margin-right: 114px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-container__navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 743px;
+    margin-right: 126px;
+}
+
+/*Основной раздел*/
+
+.new-products {
+    width: 100%;
+    height: 1781px;
+    background: #2e1f59;
+}
+
+.new-products__container {
+    width: 1265px;
+    height: 1781px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.new-products__gradient {
+    height: 900px;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(180deg, #FF4949 0%, rgba(132, 132, 132, 0) 100%);
+    opacity: 0.3;
+}
+
+.new-products__container--button-orange {
+    background: #E54B31;
+    color: white;
+    margin-top: 378px;
+}
+
+.new-products__container--line {
+    margin: 227px 0 45px 0;
+    position: absolute;
+}
+
+.new-products__container--maxmin {
+    position: absolute;
+    top: 413px;
+    right: 0;
+}
+
+.np-cont__about {
+    display: flex;
+    width: 1265px;
+}
+
+.np-cont__about h1 {
+    margin: 344px 100px 91px 0;
+}
+
+.np-cont__about p {
+    color: white;
+    margin-top: 344px;
+}
+
+.np-cont__image {
+    width: 1200px;
+    height: 618px;
+    background-image: url(images/scott-david.png);
+    padding: 122px 0 48px 76px;
+}
+
+.np-cont__image--note {
+    font-size: 14px;
+    line-height: 110%;
+    margin-top: 90px;
+}
+
+.new-products__container--tired {
+    margin-top: 100px;
+}
+
+.np-cont > img {
+    position: absolute;
+}
+
+.np-cont__xs-bg { left: -357px; display: inline; }
+.np-cont__xs-dragee { top: 112px; left: 339px; }
+.np-cont__xs-tablets { top: 8px; left: 445px; }
+.np-cont__plus-blue { top: 115px; left: -122px; }
+.np-cont__plus-pink { top: 546px; left: 638px; }
+.np-cont__square-violet { top: 19px; left: 833px; }
+.np-cont__square-yellow { top: 477px; left: 180px; }
+.np-cont__triangle { top: 39px; left: 110px; }
+.np-cont__triangle-bold { top: 227px; right: -20px; }
+
+/*Шесть вкусов*/
+
+.section-six {
+    width: 100%;
+    height: 540px;
+    background: url("images/six-bg.png");
+}
+
+.section-six__container {
+    width: 1265px;
+    margin: 0 auto;
+    height: 540px;
+    position: relative;
+}
+
+.ss-cont__items {
+    position: absolute;
+    padding-top: 148px;
+}
+
+.ss-cont > img {
+    position: absolute;
+}
+
+.ss-cont__apple { left: 446px; }
+.ss-cont__cherry { left: 915px; }
+.ss-cont__passion-fruit { left: 759px; bottom: 0; }
+.ss-cont__red { left: 574px; bottom: 0; }
+
+.section-six__container h1 {
+    margin: 0 0 22px 0;
+}
+
+.section-six__container p {
+    margin: 22px 0 45px 0;
+    font-size: 22px;
+    color: white;
+}
+
+.section-six__container--button-yellow {
+    background: #E8D313;
+}
+
+/*Родиола и магний*/
+
+.rodiola {
+    width: 100%;
+    height: 536px;
+    background: #B8BB1A;
+    position: relative;
+    overflow: hidden;
+}
+
+.rodiola__container {
+    width: 1265px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.rodiola__container h1 {
+    margin-bottom: 22px;
+}
+
+.rodiola__container p {
+    margin: 22px 0 45px 0;
+    color: white;
+}
+
+.rc-cont__items--button-violet {
+    background: #4F5BB8;
+    color: white;
+}
+
+.rc-cont__items {
+    position: absolute;
+    top: 135px;
+    left: 829px;
+}
+
+.rodiola img {
+    position: absolute;
+}
+
+.rodiola__dots { right: 0; }
+.rc-cont__dragee { left: -70px; z-index: 1; }
+.rc-cont__tablets { left: 87px; z-index: 0; }
+
+/*Одежда и аксессуары*/
+
+.clothes {
+    width: 100%;
+    height: 542px;
+    background: #0FA0AA;
+    overflow: hidden;
+}
+
+.clothes__container {
+    width: 1265px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cc-cont__items {
+    position: absolute;
+    padding-top: 136px;
+}
+
+.clothes__container h1 {
+    margin-bottom: 22px;
+}
+
+.clothes__container p {
+    margin: 22px 0 45px 0;
+    color: white;
+}
+
+.clothes__container--button-yellow {
+    background: #E8D313;
+}
+
+.clothes__bg {
+    position: absolute;
+}
+
+.cc-cont__xspower {
+    position: absolute;
+    left: 610px;
+}
+
+/*Мы в социальных сетях*/
+
+.social {
+    width: 100%;
+    height: 1473px;
+    background: #221740;
+}
+
+.social__container {
+    width: 1265px;
+    margin: 0 auto;
+    padding: 100px 0 95px 0;
+}
+
+.sc-cont__big-image {
+    width: 1200px;
+    height: 1200px;
+    margin: 60px 0 52px 0;
+    position: relative;
+}
+
+.social-grid__nastya {
+    font-weight: bold;
+    position: absolute;
+    margin: 0;
+    top: 259px;
+    left: 422px;
+    color: white;
+}
+
+.social-grid__eduard {
+    font-weight: bold;
+    position: absolute;
+    margin: 0;
+    top: 556px;
+    left: 119px;
+    color: white;
+}
+
+.social-grid__images {
+    position: absolute;
+}
+
+.social-grid__images--img02 {
+    left: 300px;
+}
+
+.social-grid__images--img03 {
+    left: 600px;
+}
+
+.social-grid__images--img04 {
+    right: 0px;
+}
+
+.social-grid__images--img05 {
+    top: 300px;
+    left: 0;
+}
+
+.social-grid__images--img06 {
+    top: 600px;
+    left: 0;
+}
+
+.social-grid__text-area {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    width: 600px;
+    height: 600px;
+    background: #FEBC2D;
+    padding: 70px 0 0 45px;
+}
+
+.social-grid__images--img07 {
+    right: 0;
+    top: 300px;
+}
+
+.social-grid__images--img08 {
+    bottom: 0;
+    left: 0;
+}
+
+.social-grid__images--img09 {
+    bottom: 0;
+    right: 0;
+}
+
+.text-area-elements__description {
+    margin-bottom: 202px;
+}
+
+.text-area-elements__heading {
+    margin-bottom: 30px;
+}
+
+.text-area-elements__we {
+    float: left;
+    margin-top: 11px;
+}
+
+.text-area-elements__insta {
+    margin: 0 0 0 236px;
+    font-size: 36px;
+}
+
+/*Футер*/
+
+footer {
+    width: 100%;
+    height: 309px;
+    background: #221740;
+}
+
+.footer-container {
+    width: 1195px;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    text-align: center;
+    color: #918BA0;
+}
+
+.footer-container__description {
+    font-size: 13px;
+    margin: 0 0 22px 0;
+}
+
+.footer-container__warning {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 22px 0 47px 0;
+}
+
+.footer-container__image {
+    display: flex;
+    width: 1195px;
+    justify-content: center;
+}
