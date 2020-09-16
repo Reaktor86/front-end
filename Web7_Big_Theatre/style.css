@@ -350,7 +350,12 @@ nav {
 
 /*Партнеры театра*/
 
-.partners > h2 {
+.partners {
+    width: 510px;
+    margin: 0 auto;
+}
+
+.partners h2 {
     text-align: center;
     margin-bottom: 60px;
 }
@@ -373,11 +378,107 @@ nav {
 
 /*Стать меценатом*/
 
-.maecenas__h2 {
+.maecenas h2 {
     text-align: center;
     margin-bottom: 60px;
 }
 
+.maecenas {
+    width: 510px;
+}
+
+.form__textfield {
+    width: 230px;
+    height: 35px;
+    background: #444444;
+    border: 1px solid #616161;
+    padding-left: 15px;
+}
+
+.form__textfield--message {
+    width: 510px;
+    height: 100px;
+    margin-bottom: 40px;
+}
+
+.form__submit {
+    width: 190px;
+    height: 50px;
+    background: #D1A954;
+    border: none;
+    margin-bottom: 30px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.form__confidence {
+    margin-bottom: 50px;
+    width: 435px;
+    font-size: 12px;
+    color: #989898;
+    text-align: center;
+}
+
+.form__flex1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__flex2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__textfield--name, .form__textfield--phone {
+    margin: 0 45px 30px 0;
+}
+
+.maecenas__contacts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.maecenas__contacts p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.contacts__block2 p {
+    text-align: right;
+}
+
+.form__send-blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Футер*/
+
+.footer {
+    width: 510px;
+    margin: 25px auto 0;
+    border-top: 1px solid #565656;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #989898;
+    margin: 0 0 30px 0;
+}
 
 /*Адаптив */
 
@@ -448,10 +549,52 @@ nav {
         font-size: 29px;
     }
 
+    .partners {
+        width: 690px;
+    }
+
     .partners__container {
         width: 690px;
         margin: 0 auto 90px;
     }
+
+    .maecenas {
+        width: 690px;
+    }
+
+    .form__textfield {
+        width: 180px;
+        margin: 0 27px 30px 0;
+    }
+
+    .form__textfield--message {
+        width: 270px;
+        margin-right: 0;
+    }
+
+    .form__flex1 {
+        flex-direction: row;
+    }
+
+    .form__flex2 {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .form__submit {
+        order: 3;
+    }
+
+    .form__confidence {
+        text-align: left;
+        width: 390px;
+    }
+
+    .footer {
+        width: 690px;
+    }
+
 }
 
 @media all and (min-width: 992px) {
@@ -511,14 +654,25 @@ nav {
         font-size: 34px;
     }
 
-    .partners > h2 {
+    .partners {
+        margin-left: 230px;
+    }
+
+    .partners h2 {
         margin-bottom: 100px;
     }
 
     .partners__container {
-        margin: 0 0 120px 230px;
+        margin: 0 0 120px 0px;
     }
 
+    .maecenas {
+        margin-left: 230px;
+    }
+
+    .footer {
+        margin-left: 230px;
+    }
 }
 
 @media all and (min-width: 1200px) {
@@ -570,9 +724,42 @@ nav {
         font-size: 36px;
     }
 
+    .partners {
+        width: 1110px;
+        margin: 0 auto;
+    }
+
     .partners__container {
         width: 1035px;
         margin: 0 auto 120px;
+    }
+
+    .maecenas {
+        width: 1110px;
+        margin: 0 auto;
+    }
+
+    .maecenas__form-control {
+        order: 3;
+    }
+
+    .form__textfield--message {
+        width: 310px;
+        margin-bottom: 40px;
+    }
+
+    .maecenas__contacts {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .contacts__block2 p {
+        text-align: left;
+    }
+
+    .footer {
+        margin: 0 auto;
+        width: 1110px;
     }
 
 }
