@@ -66,8 +66,10 @@ if (exchangeConfirmation) {
 
 let coordinateX = prompt("Введите координату по оси X (любое число)");
 let coordinateY = prompt("Введите координату по оси Y (любое число)");
-if (coordinateX == 0 && coordinateY == 0) {
-    alert("Точка находится в центре координат");
+if (coordinateX == 0 && coordinateY != 0) {
+    alert("Точка принадлежит оси X");
+} else if (coordinateX != 0 && coordinateY == 0) {
+    alert("Точка принадлежит оси Y");
 } else if (coordinateX > 0) {
     if (coordinateY > 0) {
         alert("Точка находится в I четверти");
@@ -81,5 +83,5 @@ if (coordinateX == 0 && coordinateY == 0) {
         alert("Точка находится в III четверти");
     }
 } else {
-    alert("Точка находится на линии координат");
+    alert("Точка находится в центре координат");
 }
