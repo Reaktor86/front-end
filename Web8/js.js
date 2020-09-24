@@ -64,6 +64,7 @@ if (exchangeConfirmation) {
 
 //задача 4
 
+/*
 let coordinateX = prompt("Введите координату по оси X (любое число)");
 let coordinateY = prompt("Введите координату по оси Y (любое число)");
 if (coordinateX == 0 && coordinateY != 0) {
@@ -84,4 +85,87 @@ if (coordinateX == 0 && coordinateY != 0) {
     }
 } else {
     alert("Точка находится в центре координат");
+}*/
+
+//задача 5
+
+/*let x = prompt("Введите пароль");
+if (x == "Step" || x == "Web" || x == "JavaScript") {
+    alert("Подтверждено");
+} else {
+    alert("Отменено");
+}*/
+
+/*let x = parseInt(prompt("Введите любое число"));
+if (x % 2 == 0) {
+    for (let i = 2; i <= x; i++) {
+        if (i % 2 == 0) {
+            document.write(i + "<br>");
+        }
+    }
+} else {
+    for (let i = 2; i < x; i++) {
+        if (i % 2 == 0) {
+            document.write(i + "<br>");
+        }
+    }
+}*/
+
+/*let x = parseInt(prompt("Введите любое число"));
+if (x % 2 == 0) {
+    for (let i = x - 1; i > 0; i--) {
+        if (i % 2 != 0) {
+            document.write(i + "<br>");
+        }
+    }
+} else {
+    for (let i = x; i > 0; i--) {
+        if (i % 2 != 0) {
+            document.write(i + "<br>");
+        }
+    }
+}*/
+
+/*let x = parseInt(prompt("Введите любое число"));
+for (let i = x; i > 0; i--) {
+    if (x % i == 0) {
+        document.write(i + "<br>");
+    }
+}*/
+
+/*let fund = +prompt("Введите сумму вклада");
+let proc = +prompt("Введите процентную ставку");
+let i = fund;
+let result = 0;
+while (i < (fund * 2)) {
+    i += i * proc / 100;
+    result++;
 }
+if (result == 1) {
+    alert(`Вклад удвоится через 1 год и составит ${i} рублей`);
+} else if (result > 1 && result < 5) {
+    alert(`Вклад удвоится через ${result} года и составит ${i} рублей`);
+} else {
+    alert(`Вклад удвоится через ${result} лет и составит ${i} рублей`);
+}*/
+
+/*let repeat = true;
+while(repeat) {
+    let random = Math.round(Math.random() * 20) + 1;
+    if (random % 4 != 0) {
+        alert("Загадано число: " + random);
+        break;
+    } else {
+        repeat = confirm("Число делится на четыре. Попробовать снова?");
+    }
+}*/
+
+let size = +prompt("Каков объём бака с водой?");
+let i = size;
+let result = -1;
+do {
+    i -= i * 0.1;
+    result++;
+} while (i > 10);
+alert("Воды хватит на " + result + " дней");
+

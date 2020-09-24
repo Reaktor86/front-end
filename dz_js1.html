@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+// задание 1 - сумма всех чисел в заданном диапазоне
+
+let number1 = parseInt(prompt("Введите первое число диапазона"));
+let number2 = parseInt(prompt("Введите второе число диапазона"));
+let count = number1;
+let result = number1;
+if (number1 < number2) {
+    do {
+        result = result + ++count;
+    } while (count < number2);
+} else if (number1 > number2) {
+    do {
+        result = result + --count;
+    } while (count > number2);
+} else {
+    result = number1 + number2;
+}
+alert(`Сумма всех чисел диапазона ${number1} - ${number2} равна ${result}`);
+
+
+// задание 2 - наибольший общий делитель
+
+/*let number1 = parseInt(prompt("Введите первое число"));
+let number2 = parseInt(prompt("Введите второе число"));
+let divider = number1;
+while ((number1 % divider) != 0 || (number2 % divider) != 0) {
+    divider--;
+}
+alert(`Наибольший общий делитель чисел ${number1} и ${number2} равен ${divider}`);*/
+
+// задание 3 - запросить число и вывести все делители
+
+/*let number = parseInt(prompt("Введите любое число"));
+for (let i = 1; i <= number; i++) {
+    if (number % i == 0) {
+        document.write(i + "<br>");
+    }
+}*/
+
+// задание 4 - определить количество цифр в введённом числе
+
+/*let x = prompt("Введите число");
+let number = x;
+let count = 1;
+while (number > 10) {
+    number /= 10;
+    count++;
+}
+if (count == 1) {
+    alert(`В числе ${x} содержится 1 цифра`);
+} else if (count > 1 && count < 5) {
+    alert(`В числе ${x} содержится ${count} цифры`);
+} else {
+    alert(`В числе ${x} содержится ${count} цифр`);
+}*/
+
+//задание 5 - ввод 10 чисел одной переменной, статистика (отриц, полож., нули, четные, нечетные)
+
+/*let Negative = 0, Positive = 0, Zero = 0, Even = 0, Odd = 0;
+for (let i = 0; i < 10; i++) {
+    let x = parseInt(prompt("Введите число"));
+    if (x < 0) {
+        Negative++;
+    } else if (x == 0) {
+        Zero++;
+    } else if (x > 0) {
+        Positive++;
+    }
+    if (x % 2 == 0 && x != 0) {
+        Even++;
+    } else if (x % 2 != 0) {
+        Odd++;
+    }
+}
+document.write(`Статистика:<br><hr><br>
+Отрицательных: ${Negative}<br>
+Положительных: ${Positive}<br>
+Нулей: ${Zero}<br>
+Чётных: ${Even}<br>
+Нечётных: ${Odd}<br>`);*/
+
+// задание 6 - зацикленный калькулятор
+
+/*while (true) {
+    let num1 = +prompt("Введите первое число");
+    let num2 = +prompt("Введите второе число");
+    let operator = prompt("Введите оператор: +, -, *, /");
+    switch (operator) {
+        case "+":
+            alert(`Результат: ${num1 + num2}`);
+            break;
+        case "-":
+            alert(`Результат: ${num1 - num2}`);
+            break;
+        case "*":
+            alert(`Результат: ${num1 * num2}`);
+            break;
+        case "/":
+            alert(`Результат: ${num1 / num2}`);
+            break;
+        default:
+            alert("Неверный оператор");
+    }
+    let next = confirm("Хотите решить ещё один пример?");
+    if (next) {
+    } else {
+        alert("До свидания!");
+        break;
+    }
+}*/
+
+// задание 7 - сдвинуть цифры
+
+/*let x = parseInt(prompt("Введите большое число"));
+if (x < 100) {
+    alert("Число недостаточно большое");
+} else {
+    let shiftCount = parseInt(prompt("На сколько цифр сдвинуть число?"));
+
+    //считаем кол-во цифр в x
+    let digitCount = x;
+    let count = 1;
+    while (digitCount > 10) {
+        digitCount /= 10;
+        count++;
+    }
+    if (shiftCount >= count) {
+        alert("Слишком большое смещение. Введите значение меньше, чем кол-во цифр в первом числе");
+    } else {
+        //сохраняем копию count
+        let countX = count;
+        //разыскиваем первую половину. Для этого делим x на 10, пока кол-во цифр (Count) не сравнится с shiftCount
+        let firstHalf = x;
+        while (count > shiftCount) {
+            firstHalf = parseInt(firstHalf /= 10);
+            count--;
+        }
+        // мы получили первые цифры для смещения (firstHalf)
+        // количество цифр во второй половине (countX - shiftCount)
+        // теперь надо вычленить остальные цифры. Для этого из x вычитаем firstHalf, умноженный на 10 в степени кол-ва цифр второй половины
+        let secondHalf = x - firstHalf * (10 ** (countX - shiftCount));
+        // контактинируем половины
+        alert(String(secondHalf) + String(firstHalf));
+    }
+}*/
+
+// задание 8 - дни недели
+
+/*let x = true;
+while (x) {
+    loop: for (let i = 1; i < 8; i++) {
+        switch (i) {
+            case 1:
+                x = confirm("Понедельник. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 2:
+                x = confirm("Вторник. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 3:
+                x = confirm("Среда. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 4:
+                x = confirm("Четверг. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 5:
+                x = confirm("Пятница. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 6:
+                x = confirm("Суббота. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+            case 7:
+                x = confirm("Воскресенье. Хотите увидеть следующий день недели?");
+                if (x == false) {
+                    break loop;
+                }
+                i = 0;
+        }
+    }
+}*/
+
+// задание 9 - таблица умножения
+
+/*for (let x = 2; x <= 9; x++) {
+    for (let y = 1; y <= 10; y++) {
+        document.write(x + " * " + y + " = " + x*y + "<br>");
+    }
+    document.write("<hr>");
+}*/
+
+// задание 10 - игра угадай число
+
+/*alert("Загадайте любое число от 0 до 100");
+let x = 100; // конец диапазона
+let n = 50; // точка (для угадывания)
+let s = 0; // начало диапазона
+let d = 100; // диапазон
+let check = false;
+do {
+    let operator = prompt(`Ваше число больше ${n}, равно ${n} или меньше ${n}? (проставьте знак >, =, <)`);
+    if (operator == "=") {
+        alert("Угадал!");
+        check = true;
+    } else if (operator == ">") {
+        // новый старт диапазона
+        s = n;
+        // новый диапазон
+        d = x - s;
+        // новая точка
+        n = parseInt(s + d / 2);
+    } else if (operator == "<") {
+        // новый конец диапазона
+        x = n;
+        // новый диапазон
+        d = x - s;
+        // новая точка
+        n = parseInt(x - d / 2);
+    } else if (operator == null) {
+        break;
+    } else {
+        alert("Неправильный знак");
+    }
+} while (check == false);*/
+
+</script>
+</body>
+</html>
