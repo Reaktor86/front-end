@@ -160,12 +160,145 @@ while(repeat) {
     }
 }*/
 
-let size = +prompt("Каков объём бака с водой?");
+/*let size = +prompt("Каков объём бака с водой?");
 let i = size;
 let result = -1;
 do {
     i -= i * 0.1;
     result++;
 } while (i > 10);
-alert("Воды хватит на " + result + " дней");
+alert("Воды хватит на " + result + " дней");*/
 
+// задачи из учебника - функции № 1
+// задача 1
+
+/*function sayError() {
+    alert("Some error occurred!");
+}
+sayError();*/
+
+// задача 2
+
+/*function showError(x) {
+    alert(`Error ${x} occurred!`);
+}
+showError("Out of memory");
+showError("2455");
+showError("405");*/
+
+// задача 3
+
+/*function createHeaders(n) {
+    for (let i = 1; i <= n; i++) {
+        document.write(`<h2>Header${i}</h2>`)
+    }
+}
+createHeaders(5);*/
+
+// задача 4
+
+/*let checkResult;
+function checkPassword(x) {
+    if (x == "Step" || x == "Web" || x == "JavaScript") {
+        return checkResult = true;
+    } else {
+        return checkResult = false;
+    }
+}
+checkPassword("Web");
+alert(checkResult);*/
+
+// задача 5 - вернуть значение -1 для отр.числа, значение 1 для полож.числа, значение 0 для нуля
+
+/*let result;
+function sign(x) {
+    if (x > 0) {
+        return result = 1;
+    } else if (x < 0) {
+        return result = -1;
+    } else {
+        return result = 0;
+    }
+}
+sign(12);
+alert(result);
+sign(-7);
+alert(result);
+sign(0);
+alert(result);*/
+
+// задача 6
+
+/*let dayLabel;
+function daysOfWeek(dayNumber) {
+    switch (dayNumber) {
+        case 0:
+            return dayLabel = "Sunday";
+        case 1:
+            return dayLabel = "Monday";
+        case 2:
+            return dayLabel = "Tuesday";
+        case 3:
+            return dayLabel = "Wednesday";
+        case 4:
+            return dayLabel = "Thursday";
+        case 5:
+            return dayLabel = "Friday";
+        case 6:
+            return dayLabel = "Saturday";
+    }
+}
+daysOfWeek(5);
+alert(dayLabel);*/
+
+// задачи из учебника - функции № 2
+// задача 1
+
+/*function stringFrom() {
+    for (let i = 0; i < arguments.length; i++) {
+        document.write(arguments[i] + " ");
+    }
+}
+stringFrom(12,12,234,45);*/
+
+// задача 2
+
+/*let result = 0;
+function minNum() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] > result) {
+            result = arguments[i];
+        }
+    }
+    return result;
+}
+minNum(23, 2, 34, 44, 7);
+alert(result);*/
+
+// задача 3
+
+/*let result = 0;
+function numbers() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (typeof arguments[i] == "number") {
+            result++;
+        }
+    }
+    return result;
+}
+numbers(2,4,"fdg",12,22,44,"rgrfh");
+alert(result);*/
+
+// задача 4
+
+/*let result = 0;
+function mean() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (typeof arguments[i] == "number") {
+            result += arguments[i];
+        }
+    }
+    return result;
+}
+mean(2,3,"gedg",4,10);
+alert(result);*/

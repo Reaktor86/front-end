@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+// задание 1 - сравнение чисел (-1 если первое меньше, 1 если первое больше, 0 если равны)
+
+function compareNumbers(x, y) {
+    if (x < y) {
+        return compareResult = -1;
+    } else if (x > y) {
+        return compareResult = 1;
+    } else {
+        return compareResult = 0;
+    }
+}
+
+/*compareNumbers(20, 20);
+alert(compareResult);*/
+
+// задание 2 - факториал
+
+let factorialResult;
+function factorial(x) {
+    factorialResult = x;
+    for (let i = x - 1; i > 1; i--) {
+        factorialResult *= i;
+    }
+    return factorialResult;
+}
+
+/*factorial(5);
+alert(factorialResult);*/
+
+// задание 3 - контактинация чисел
+
+function contactNumbers() {
+    for (let i = 0; i < arguments.length; i++) {
+        document.write(arguments[i]);
+    }
+}
+
+/*contactNumbers(1,2,365);*/
+
+// задание 4 - вычисление площади прямоугольника
+
+function calcRectanglesArea() {
+    if (recX > 0 && recY > 0 && recX == recY) {
+        alert(`Площадь квадрата равна ${recX*recY}`);
+    } else if (recX > 0 && recY > 0 && recX != recY) {
+        alert(`Площадь прямоугольника равна ${recX*recY}`);
+    } else {
+        alert("Неверные значения");
+    }
+}
+
+/*let recX = +prompt("Введите длину прямоугольника");
+let recY = +prompt("Введите ширину прямоугольника");
+calcRectanglesArea(recX,recY);*/
+
+// задание 5 - совершенное число
+
+let calcPerfectionResult;
+function calcPerfection(x) {
+    let y = 1;
+    for (let i = x - 1; i > 1; i--) {
+        if (x % i == 0) {
+            y += i;
+        }
+    }
+    (y == x) ? calcPerfectionResult = true : calcPerfectionResult = false;
+    return calcPerfectionResult;
+}
+
+/*calcPerfection(parseInt(prompt("Введите число для проверки его совершенства")));
+calcPerfectionResult ? alert("Число совершенное") : alert("Число несовершенное");*/
+
+// задание 6 - совершенное число из диапазона
+
+function calcPerfectionFromRange(x,y) {
+    for (let i = x; i <= y; i++) {
+        calcPerfection(i);
+        if (calcPerfectionResult) {
+            document.write(i + "<br>");
+        }
+    }
+}
+
+/*let min = +prompt("Введите начало диапазона");
+let max = +prompt("Введите конец диапазона");
+calcPerfectionFromRange(min,max);*/
+
+// задание 7 - часы
+
+let hours;
+let minutes;
+let seconds;
+function clock() {
+    let check = false;
+    while (check == false) {
+        hours = prompt("Введите часы");
+        if (hours >= 0 && hours <= 24 && hours != null) {
+            hours = parseInt(hours);
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            check = true;
+        } else if (hours < 0 || hours > 24) {
+            alert("Неправильное значение. Попробуйте снова");
+        } else {
+            hours = "00";
+            check = true;
+        }
+    }
+    while (check == true) {
+        minutes = prompt("Введите минуты");
+        if (minutes >= 0 && minutes <= 59 && minutes != null) {
+            minutes = parseInt(minutes);
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            check = false;
+        } else if (minutes < 0 || minutes > 59) {
+            alert("Неправильное значение. Попробуйте снова");
+        } else {
+            minutes = "00";
+            check = false;
+        }
+    }
+    while (check == false) {
+        seconds = prompt("Введите секунды");
+        if (seconds >= 0 && seconds <= 59 && seconds != null) {
+            seconds = parseInt(seconds);
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            check = true;
+        } else if (seconds < 0 || seconds > 59) {
+            alert("Неправильное значение. Попробуйте снова");
+        } else {
+            seconds = "00";
+            check = true;
+        }
+    }
+    return hours, minutes, seconds;
+}
+
+/*clock();
+alert(`${hours}:${minutes}:${seconds}`);*/
+
+// задание 8 - пересчёт времени в секунды
+
+let timeToSecondsResult;
+function timeToSeconds() {
+    timeToSecondsResult = +hours * 3600 + +minutes * 60 + +seconds;
+    return timeToSecondsResult;
+}
+
+/*clock();
+timeToSeconds();
+alert(`Указанное время содержит ${timeToSecondsResult} секунд`);*/
+
+// задание 9 - показать секунды как время 00:00:00
+
+function secondsToClock(x) {
+    // считаем часы
+    if (x >= 3600) {
+        hours = parseInt(x / 3600);
+    } else {
+        hours = 0;
+    }
+    // считаем минуты
+    if (x >= 60) {
+        minutes = parseInt(x / 60 - hours * 60);
+    } else {
+        minutes = 0;
+    }
+    // считаем секунды
+    seconds = x - 3600 * hours - 60 * minutes;
+    // проставляем нули
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    return hours, minutes, seconds;
+}
+
+/*secondsToClock(7300);
+alert(`${hours}:${minutes}:${seconds}`);*/
+
+// задание 10 - разница между датами
+
+function dateDifference() {
+    alert("Введите первую дату");
+    clock();
+    timeToSeconds();
+    let firstDateSeconds = timeToSecondsResult;
+    alert("Введите вторую дату");
+    clock();
+    timeToSeconds();
+    let secondDateSeconds = timeToSecondsResult;
+    if (firstDateSeconds > secondDateSeconds) {
+        secondsToClock(firstDateSeconds - secondDateSeconds);
+    } else {
+        secondsToClock(secondDateSeconds - firstDateSeconds);
+    }
+}
+
+/*dateDifference();
+alert(`Разница между датами составляет ${hours}:${minutes}:${seconds}`);*/
+
+</script>
+</body>
+</html>
