@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+
+function factorial(x) {
+    if (x == 2) {
+        return x;
+    }
+    return factorial(x - 1) * x;
+}
+
+/*let x = parseInt(prompt("Введите начало диапазона"));
+let y = parseInt(prompt("Введите конец диапазона"));
+function showNumbers(x, y) {
+    if (x <= y) {
+        document.write(x + "<br>");
+        showNumbers(x+1, y);
+    }
+}
+
+function showNumbers2(x, y) {
+    if (y >= x) {
+        document.write(y + "<br>");
+        showNumbers2(x, y-1);
+    }
+}*/
+
+function reverse(x) {
+    let rest = x % 10;
+    document.write(rest);
+    let newNumber = (x - rest) / 10;
+    if (newNumber > 9) {
+        reverse(newNumber);
+    } else {
+        document.write(newNumber);
+    }
+}
+
+
+function summ(x) {
+    let rest = x % 10;
+    let newNumber = (x - rest) / 10;
+    if (newNumber > 9) {
+        return rest + summ(newNumber);
+    } else {
+        return rest + newNumber;
+    }
+}
+
+function showHooks(x) {
+    if (x == 1) {
+        return "()";
+    } else {
+        return "(" + showHooks(x - 1) + ")";
+    }
+}
+
+// добавление элементов в массив
+
+/*let arr = [1, 5, 7];
+arr.push(3);
+alert(arr);
+
+//удаление элемента из массива
+
+arr.pop(2);
+alert(arr);*/
+
+let rect = {
+    point1: {
+        x: 2,
+        y: 5
+    },
+    point2: {
+        x: 7,
+        y: 3
+    }
+};
+
+function rectInfo(obj) {
+    document.write("Точка 1, координата x = " + obj.point1.x + "<br>");
+    document.write("Точка 1, координата y = " + obj.point1.y + "<br>");
+    document.write("Точка 2, координата x = " + obj.point2.x + "<br>");
+    document.write("Точка 2, координата y = " + obj.point2.y + "<br>");
+}
+//rectInfo(rect);
+
+function getWidth(obj) {
+    return obj.point2.x - obj.point1.x;
+}
+//alert(getWidth(rect));
+
+function getHeight(obj) {
+    return obj.point1.y - obj.point2.y;
+}
+//alert(getHeight(rect));
+
+function getSquare(obj) {
+    return getWidth(obj) * getHeight(obj);
+}
+//alert(getSquare(rect));
+
+
+
+
+
+</script>
+</body>
+</html>
+

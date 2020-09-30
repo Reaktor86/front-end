@@ -103,12 +103,15 @@ function multipliers(x) {
     if (x == 2) { // проверка, пора ли выходить из функции
         document.write(2 + " ");
     } else if (!isItSimple(x)) {
-        for (let i = 2; i <= x; i++) {
+        for (let i = 2; i <= x; i++) { // может избавиться от цикла for?
             if (isItSimple(i)) {
                 if (x % i == 0) { // здесь нашелся множитель
                     z *= i;
                     document.write(i + " ");
+                    console.log(z);
+                    console.log(check);
                     if (z < check) {
+                        console.log('multipliers');
                         multipliers(x / i);
                     }
                 }
