@@ -75,6 +75,7 @@ function simple(x) {
 simple(x);*/
 
 // задание 5 - все множители в возрастающем порядке
+// !!! задание не получилось - в некоторых случаях добавляется лишний множитель (например, если ввести 20). Решить проблему не удалось
 
 /* 1) Сначала нужно убедиться, что раскладываемое число делится не только на 1 и на само себя.
 В противном случае это будет простое число, которое само же и является своим множителем.
@@ -101,27 +102,21 @@ function isItSimple(x) {
 let z = 1; // хранение промежуточного результата проверки (чтобы программа не насчитала слишком много множителей)
 function multipliers(x) {
     if (x == 2) { // проверка, пора ли выходить из функции
-        document.write(2);
+        document.write("2");
     } else if (!isItSimple(x)) {
-        let m = 2;
-        if (m < x) {
-            if (isItSimple(m)) {
-                if (x % m == 0) { // здесь нашелся множитель
-                    z *= m;
-                    document.write(m + " ");
+        for (let i = 2; i < x; i++) {
+            if (isItSimple(i)) {
+                if (x % i == 0) { // здесь нашелся множитель
+                    z *= i;
+                    document.write(i + " ");
                     console.log(z);
-                    console.log(check);
                     if (z < check) {
                         console.log('multipliers');
-                        multipliers(x / m);
+                        multipliers(x / i);
                     }
-                } else {
-                    m++;
                 }
             }
         }
-    } else {
-        document.write(x);
     }
 }
 
