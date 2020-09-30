@@ -289,7 +289,7 @@ function numbers() {
 numbers(2,4,"fdg",12,22,44,"rgrfh");
 alert(result);*/
 
-// задача 4
+// задача 4 - расчет среднего значения чисел
 
 /*let result = 0;
 function mean() {
@@ -302,3 +302,33 @@ function mean() {
 }
 mean(2,3,"gedg",4,10);
 alert(result);*/
+
+// задача 5 проверка степени двойки
+
+/*let x = parseInt(prompt("Введите число"));
+function checkExponent2(x) {
+    if (x == 1) {
+        alert("Число является степенью двойки");
+    }
+    if (x % 2 == 0 && x != 1) {
+        checkExponent2(x / 2);
+    } else if (x != 1) {
+        alert("Число НЕ является степенью двойки");
+    }
+}
+checkExponent2(x);*/
+
+// задача 6 - цифры справа налево 12345
+
+/*let x = parseInt(prompt("Введите число"));
+function rightToLeft(x) {
+    let rest = x % 10;
+    if (x < 10) {
+        document.write(x);
+    } else {
+        document.write(rest);
+        rightToLeft(parseInt(x / 10));
+    }
+}
+rightToLeft(x);*/
+

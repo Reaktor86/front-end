@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Рекурсия</title>
+</head>
+<body>
+<script>
+
+// задание 1 - возведение числа в степень
+
+/*let x = parseInt(prompt("Введите число"));
+let y = parseInt(prompt("В какую степень возвести число?"));
+let result = x;
+function calcPower(x, y) {
+    if (y == 1) {
+        alert(`Ответ: ${result}`);
+    } else if (y == 0) {
+        alert("Ответ: 1");
+    } else {
+        if (x < 2) {
+            alert(`Ответ: ${x}`);
+        } else {
+            result += result;
+            calcPower(result, y - 1);
+        }
+    }
+}
+calcPower(x, y);*/
+
+// задание 2 - поиск наибольшего общего делителя
+
+/*let x = parseInt(prompt("Введите первое число"));
+let y = parseInt(prompt("Введите второе число"));
+let divider = x;
+function calcDivider(x, y, divider) {
+    if (x % divider != 0 || y % divider != 0) {
+        calcDivider(x, y, divider - 1);
+    } else {
+        alert(`Наибольший общий делитель чисел равен ${divider}`);
+    }
+}
+calcDivider(x, y, divider);*/
+
+// задание 3 - поиск максимальной цифры в числе
+
+/*let x = parseInt(prompt("Введите число"));
+let max = 0;
+function findMaxDigit(x) {
+    let rest = x % 10;
+    if (rest > max) {
+        max = rest;
+    }
+    if (x < 10) {
+        alert("Максимальная цифра в числе = " + max);
+    } else {
+        findMaxDigit(parseInt(x / 10));
+    }
+}
+findMaxDigit(x);*/
+
+// задание 4 - число простое?
+
+/*let x = parseInt(prompt("Введите число"));
+let y = x;
+function simple(x) {
+    if (x <= 1) {
+        alert("Число простое");
+    } else if (y % 2 == 0) {
+        alert("Число не простое");
+    } else {
+        simple(x - 1);
+    }
+}
+simple(x);*/
+
+// задание 5 - все множители в возрастающем порядке
+
+/* 1) Сначала нужно убедиться, что раскладываемое число делится не только на 1 и на само себя.
+В противном случае это будет простое число, которое само же и является своим множителем.
+2) После того, как мы поняли, что число делится не только на 1 и на само себя,
+нужно разделить его на самое маленькое простое число, которое является его делителем.
+Например, если взять число 12, то самым маленьким простым числом для него будет 2.
+Смотрим остаток их деления: 12/2=6. Продолжаем те же действия, но уже с цифрой 6 – для 6 наименьшим простым
+числом будет тоже 2: 6/2=3. Продолжать такие действия нужно, пока в конце мы не получим простое число (в нашем случае – 3).
+Таким образом, разложение будет выглядеть так: 12=2*2*3.*/
+
+// проверка на простое число
+
+function isItSimple(x) {
+    for (let i = 2; i < x; i++) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// функция поиска множителей
+
+let z = 1; // хранение промежуточного результата проверки (чтобы программа не насчитала слишком много множителей)
+function multipliers(x) {
+    if (x == 2) { // проверка, пора ли выходить из функции
+        document.write(2 + " ");
+    } else if (!isItSimple(x)) {
+        for (let i = 2; i <= x; i++) {
+            if (isItSimple(i)) {
+                if (x % i == 0) { // здесь нашелся множитель
+                    z *= i;
+                    document.write(i + " ");
+                    if (z < check) {
+                        multipliers(x / i);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// программа
+let x = parseInt(prompt("Введите число"));
+let check = x; // копия оригинальной переменной
+if (isItSimple(x)) {
+    alert("Число простое, поэтому не может быть разложено на множители");
+} else {
+    multipliers(x);
+}
+
+// задание 6 - число Фибоначчи по порядковому номеру 1 1 2 3 5 8 13
+
+/*let x = parseInt(prompt("Введите число"));
+let num1 = 1;
+let num2 = 1;
+let num3 = 2;
+function fibonacci(x, y) {
+    if (x <= 1) {
+        alert(1);
+    } else if (x == 2) {
+        alert(1);
+    } else if (x == 3) {
+        alert(2);
+    } else {
+        num1 = num2;
+        num2 = num3;
+        num3 = num1 + num2;
+        if (x == y) {
+            alert(num3);
+        } else {
+            fibonacci(x, y + 1);
+        }
+    }
+}
+fibonacci(x, 4);*/
+
+
+</script>
+</body>
+</html>
