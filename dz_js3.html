@@ -101,22 +101,27 @@ function isItSimple(x) {
 let z = 1; // хранение промежуточного результата проверки (чтобы программа не насчитала слишком много множителей)
 function multipliers(x) {
     if (x == 2) { // проверка, пора ли выходить из функции
-        document.write(2 + " ");
+        document.write(2);
     } else if (!isItSimple(x)) {
-        for (let i = 2; i <= x; i++) { // может избавиться от цикла for?
-            if (isItSimple(i)) {
-                if (x % i == 0) { // здесь нашелся множитель
-                    z *= i;
-                    document.write(i + " ");
+        let m = 2;
+        if (m < x) {
+            if (isItSimple(m)) {
+                if (x % m == 0) { // здесь нашелся множитель
+                    z *= m;
+                    document.write(m + " ");
                     console.log(z);
                     console.log(check);
                     if (z < check) {
                         console.log('multipliers');
-                        multipliers(x / i);
+                        multipliers(x / m);
                     }
+                } else {
+                    m++;
                 }
             }
         }
+    } else {
+        document.write(x);
     }
 }
 
