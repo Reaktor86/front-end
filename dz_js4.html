@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+// ЗАДАНИЕ 1 - автомобиль и расчёт времени на поездку
+
+let auto = {
+    manufacturer: "Audi",
+    model: "A4",
+    year: "1995",
+    averageSpeed: 150
+}
+
+function infoAuto(obj) {
+    document.write("Производитель: " + obj.manufacturer + "<br>");
+    document.write("Модель: " + obj.model + "<br>");
+    document.write("Год выпуска: " + obj.year + "<br>");
+    document.write("Средняя скорость: " + obj.averageSpeed + " км/ч<br>");
+}
+
+//infoAuto(auto);
+
+//setTimeout(askDistance, 300); // без таймаута алерт вылезает раньше, чем печатаются характеристики авто
+
+function askDistance() {
+    let s = prompt("Введите расстояние, которое нужно преодолеть (км)");
+    if (s != null) {
+        alert(`Потребуется ${calcTime(s)} часа(ов)`);
+    }
+}
+
+let t;
+function calcTime(s) {
+    t = +s / auto.averageSpeed;
+    if (t > 4) {
+        t = t + parseInt(t / 4);
+    }
+    return t;
+}    
+
+// ЗАДАНИЕ 2 - дроби (сложение, вычитание, умножение, деление, сокращение)
+
+//объект с дробями
+
+let fraction = {
+    fraction1: {
+        num: 1,
+        den: 1
+    },
+    fraction2: {
+        num: 1,
+        den: 1
+    }
+}
+
+let result1; // хранение результатов вычислений
+let result2;
+
+let shortNum; // хранение результатов сокращения дроби
+let shortDen;
+
+// программа для задания 2 (все действия, кроме сокращения дроби)
+
+/*fraction.fraction1.num = parseInt(prompt("Введите числитель 1-й дроби"));
+for (;;) {
+    fraction.fraction1.den = parseInt(prompt("Введите знаменатель 1-й дроби"));
+    if (fraction.fraction1.den == 0) {
+        alert("Нельзя делить на 0");
+    } else {
+        break;
+    }
+}
+fraction.fraction2.num = parseInt(prompt("Введите числитель 2-й дроби"));
+for (;;) {
+    fraction.fraction2.den = parseInt(prompt("Введите знаменатель 2-й дроби"));
+    if (fraction.fraction2.den == 0) {
+        alert("Нельзя делить на 0");
+    } else {
+        break;
+    }
+}
+let action = prompt("Что нужно сделать с дробями? + - * /");
+switch (action) {
+    case "+":
+        document.write(fraction.fraction1.num + "/" + fraction.fraction1.den + " + " + fraction.fraction2.num + "/" + fraction.fraction2.den + " = ");
+        summFractions(fraction.fraction1.num, fraction.fraction1.den, fraction.fraction2.num, fraction.fraction2.den);
+        alert(`Сумма дробей = ${shortNum}/${shortDen}`);
+        document.write(shortNum + "/" + shortDen);
+        break;
+    case "-":
+        document.write(fraction.fraction1.num + "/" + fraction.fraction1.den + " - " + fraction.fraction2.num + "/" + fraction.fraction2.den + " = ");
+        subtractFractions(fraction.fraction1.num, fraction.fraction1.den, fraction.fraction2.num, fraction.fraction2.den);
+        alert(`Разность дробей = ${shortNum}/${shortDen}`);
+        document.write(shortNum + "/" + shortDen);
+        break;
+    case "*":
+        document.write(fraction.fraction1.num + "/" + fraction.fraction1.den + " * " + fraction.fraction2.num + "/" + fraction.fraction2.den + " = ");
+        multipleFractions(fraction.fraction1.num, fraction.fraction1.den, fraction.fraction2.num, fraction.fraction2.den);
+        alert(`Произведение дробей = ${shortNum}/${shortDen}`);
+        document.write(shortNum + "/" + shortDen);
+        break;
+    case "/":
+        document.write(fraction.fraction1.num + "/" + fraction.fraction1.den + " / " + fraction.fraction2.num + "/" + fraction.fraction2.den + " = ");
+        divideFractions(fraction.fraction1.num, fraction.fraction1.den, fraction.fraction2.num, fraction.fraction2.den);
+        alert(`Частное дробей = ${shortNum}/${shortDen}`);
+        document.write(shortNum + "/" + shortDen);
+        break;
+    case null:
+        break;
+    default:
+        alert("Неправильный знак");
+}*/
+
+// функция сложения дробей
+
+function summFractions(a,b,c,d) {
+    commonDen(a,b,c,d);
+    result1 = fraction.fraction1.num + fraction.fraction2.num;
+    result2 = fraction.fraction1.den;
+    shortFraction(result1,result2);
+}
+
+// функция вычитания дробей
+
+function subtractFractions(a,b,c,d) {
+    commonDen(a,b,c,d);
+    result1 = fraction.fraction1.num - fraction.fraction2.num;
+    result2 = fraction.fraction1.den;
+    shortFraction(result1,result2);
+}
+
+// функция умножения дробей
+
+function multipleFractions(a,b,c,d) {
+    result1 = fraction.fraction1.num * fraction.fraction2.num;
+    result2 = fraction.fraction1.den * fraction.fraction2.den;
+    shortFraction(result1,result2);
+}
+
+// функция деления дробей
+
+function divideFractions(a,b,c,d) {
+    result1 = fraction.fraction1.num * fraction.fraction2.den;
+    result2 = fraction.fraction1.den * fraction.fraction2.num;
+    shortFraction(result1,result2);
+}
+
+//функция приведения дробей к общему знаменателю
+
+function commonDen(a,b,c,d) {
+    let z;
+    for (z = 1; ; z++) {
+        if (z % b == 0 && z % d == 0) {
+            break;
+        }
+    }
+    fraction.fraction1.num *= (z / b);
+    fraction.fraction1.den = z;
+    fraction.fraction2.num *= (z / d);
+    fraction.fraction2.den = z;
+    return fraction;
+}    
+
+// программа сокращения дроби
+
+/*fraction.fraction1.num = parseInt(prompt("Введите числитель дроби"));
+for (;;) {
+    fraction.fraction1.den = parseInt(prompt("Введите знаменатель дроби"));
+    if (fraction.fraction1.den == 0) {
+        alert("Нельзя делить на 0");
+    } else {
+        break;
+    }
+}
+shortFraction(fraction.fraction1.num, fraction.fraction1.den);
+alert(`Сокращённая дробь: ${shortNum} / ${shortDen}`);*/
+
+// функция сокращения дроби
+
+function shortFraction(a,b) {
+    let z;
+    for (z = a; z > 1; z--) {
+        if (a % z == 0 && b % z == 0) {
+            break;
+        }
+    }
+    shortNum = a / z;
+    shortDen = b / z;
+    return shortNum, shortDen;
+}
+
+// ЗАДАНИЕ 3 - часы и изменение времени
+
+let clock = {
+    hours: 23,
+    minutes: 20,
+    seconds: 5
+}
+
+// 1. Вывести время
+
+// добавить нули
+function addZero() {
+    clock.hours = +clock.hours;
+    clock.minutes = +clock.minutes;
+    clock.seconds = +clock.seconds;
+    if (clock.hours < 10) {
+        clock.hours = "0" + clock.hours;
+    }
+    if (clock.minutes < 10) {
+        clock.minutes = "0" + clock.minutes;
+    }
+    if (clock.seconds < 10) {
+        clock.seconds = "0" + clock.seconds;
+    }
+    return clock;
+}
+
+function showClock() {
+    addZero();
+    document.write(`Текущее время: ${clock.hours}:${clock.minutes}:${clock.seconds}`);
+}
+
+//showClock();
+
+// пересчёт времени в секунды
+let clockToSecondsResult;
+function clockToSeconds() {
+    clockToSecondsResult = +clock.hours * 3600 + +clock.minutes * 60 + +clock.seconds;
+    console.log(clockToSecondsResult);
+    return clockToSecondsResult;
+}
+
+// пересчёт секунд во время
+function secondsToClock(x) {
+    // считаем часы
+    if (x >= 3600) {
+        clock.hours = parseInt(x / 3600);
+    } else {
+        clock.hours = 0;
+    }
+    // считаем минуты
+    if (x >= 60) {
+        clock.minutes = parseInt(x / 60 - clock.hours * 60);
+    } else {
+        clock.minutes = 0;
+    }
+    // считаем секунды
+    clock.seconds = x - 3600 * clock.hours - 60 * clock.minutes;
+    console.log(clock.hours + ":" + clock.minutes + ":" + clock.seconds);
+    return clock;
+}
+
+// 2. Функция изменения времени на переданное количество секунд
+
+function pushSeconds() {
+    addZero();
+    document.write(`Старое время: ${clock.hours}:${clock.minutes}:${clock.seconds}<br>`);
+    let x = parseInt(prompt("На сколько секунд перевести часы?"));
+    clockToSeconds();
+    secondsToClock(clockToSecondsResult + x);
+    if (clock.hours >= 24) {
+        clock.hours = clock.hours - 24 * parseInt(clock.hours / 24);
+    }
+    showClock();
+}
+
+//pushSeconds();
+
+// 3. Функция изменения времени на переданное количество минут
+
+function pushMinutes() {
+    addZero();
+    document.write(`Старое время: ${clock.hours}:${clock.minutes}:${clock.seconds}<br>`);
+    let x = parseInt(prompt("На сколько минут перевести часы?"));
+    clockToSeconds();
+    secondsToClock(clockToSecondsResult + x * 60);
+    if (clock.hours >= 24) {
+        clock.hours = clock.hours - 24 * parseInt(clock.hours / 24);
+    }
+    showClock();
+}
+
+//pushMinutes();
+
+// 4. Функция изменения времени на переданное количество часов
+
+function pushHours() {
+    addZero();
+    document.write(`Старое время: ${clock.hours}:${clock.minutes}:${clock.seconds}<br>`);
+    let x = parseInt(prompt("На сколько часов перевести часы?"));
+    clock.hours += x;
+    if (clock.hours >= 24) {
+        clock.hours = clock.hours - 24 * parseInt(clock.hours / 24);
+    }
+    showClock();
+}
+
+//pushHours();
+
+</script>
+</body>
+</html>
