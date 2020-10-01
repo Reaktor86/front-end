@@ -196,10 +196,12 @@ function shortFraction(a,b) {
 
 // ЗАДАНИЕ 3 - часы и изменение времени
 
+let date = new Date();
+let q = date.toString();
 let clock = {
-    hours: 23,
-    minutes: 20,
-    seconds: 5
+    hours: q.substr(16,2),
+    minutes: q.substr(19,2),
+    seconds: q.substr(22,2)
 }
 
 // 1. Вывести время
