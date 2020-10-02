@@ -69,7 +69,7 @@ alert(arr);
 
 //удаление элемента из массива
 
-arr.pop(2);
+arr.pop();
 alert(arr);*/
 
 let rect = {
@@ -107,6 +107,15 @@ function getSquare(obj) {
 //alert(getSquare(rect));
 
 
+let arr = [3, 16, 12, 3, 14, 10];
+let count = 0;
+let index = arr.indexOf(3);
+while (index != -1) {
+    count++;
+    index = arr.indexOf(3, index+1);
+}
+
+alert(Math.min(6, 14, 12, 3));
 
 
 
