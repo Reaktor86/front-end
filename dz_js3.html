@@ -48,14 +48,17 @@ calcDivider(x, y, divider);*/
 let max = 0;
 function findMaxDigit(x) {
     let rest = x % 10;
+
     if (rest > max) {
         max = rest;
     }
+
     if (x < 10) {
         alert("Максимальная цифра в числе = " + max);
     } else {
         findMaxDigit(parseInt(x / 10));
     }
+
 }
 findMaxDigit(x);*/
 

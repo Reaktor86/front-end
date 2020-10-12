@@ -8,115 +8,127 @@
 <body>
 <script>
 
-function factorial(x) {
-    if (x == 2) {
-        return x;
+//1.
+
+function getMaxString(a, b) {
+    if (a.length > b.length) {
+        return 1;
     }
-    return factorial(x - 1) * x;
+    else if (a.length < b.length) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
 }
 
-/*let x = parseInt(prompt("Введите начало диапазона"));
-let y = parseInt(prompt("Введите конец диапазона"));
-function showNumbers(x, y) {
-    if (x <= y) {
-        document.write(x + "<br>");
-        showNumbers(x+1, y);
+/*let a = "wdfwf";
+let b = "veegvegws";
+alert( getMaxString(a, b) );*/
+
+//2. Перевод первого символа переданной строки в большую букву.
+
+function toUpper(x) {
+    let a;
+    let b;
+    a = x.substr(0, 1).toUpperCase();
+    b = x.substr(1);
+    return a + b;
+}
+//alert( toUpper("проверка на регистр") );
+
+// 3. Написать функцию, которая считает количество гласных букв в переданной строке.
+
+function vowelCounter(x) {
+    let counter = 0;
+    for (let i = 0; i < x.length; i++) {
+        if ( x[i] == "а" || x[i] == "е" || x[i] == "ё" || x[i] == "и" || x[i] == "о"
+            || x[i] == "у" || x[i] == "ы" || x[i] == "э" || x[i] == "ю" || x[i] == "я"
+            || x[i] == "a" || x[i] == "e" || x[i] == "i" || x[i] == "o" || x[i] == "u" || x[i] == "y" ) {
+            counter++;
+        }
     }
+    return counter;
+}    
+
+//alert( vowelCounter("Сколько здесь гласных букв?") ); //6
+
+// 4. Анти-спам. Фразы:  100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх
+
+function antiSpam(x) {
+    let array = [
+        "100% бесплатно",
+        "увеличение продаж",
+        "только сегодня",
+        "не удаляйте",
+        "xxx"
+    ]
+    x = x.toLowerCase();
+    let result;
+    for (let i = 0; i < array.length; i++) {
+        result = x.indexOf(array[i]);
+
+        if (result !== -1) {
+            return true;
+        }
+
+    }
+    return false;
 }
 
-function showNumbers2(x, y) {
-    if (y >= x) {
-        document.write(y + "<br>");
-        showNumbers2(x, y-1);
+//alert( antiSpam("Предлагаем поучаствовать в лохотроне. Только сегодня!") );
+
+/*5. Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки
+больше, чем максимальная, то необходимо отбросить
+лишние символы, добавив вместо них троеточие.
+    Например: truncate(“Hello, world!”, 8) должна вернуть
+“Hello...”    */
+
+function shortString(string, max) {
+    let result = string;
+    if (string.length > max) {
+        result = string.substr(0, max);
+
     }
+
+    return result;
+}
+
+/*let string = prompt("Введите строку");
+let max = prompt("Введите максимальную длину строки");
+alert( shortString(string, max) );*/
+
+// 6. Написать функцию, которая проверяет, является ли переданная строка палиндромом.
+
+function isItPalindrome(original) {
+    let reverse = "";
+    for (let i = original.length - 1; i > -1; i--) {
+        reverse = reverse + original[i];
+    }
+    console.log(reverse);
+    return (original === reverse);
+}
+
+/*let check = isItPalindrome(prompt("Какое слово проверить?"));
+if (check) {
+    alert("Слово является палиндромом");
+} else {
+    alert("Слово не является палиндромом");
 }*/
 
-function reverse(x) {
-    let rest = x % 10;
-    document.write(rest);
-    let newNumber = (x - rest) / 10;
-    if (newNumber > 9) {
-        reverse(newNumber);
-    } else {
-        document.write(newNumber);
+// 7. Написать функцию, которая считает количество слов в предложении.
+
+function countWordsInSentence(sentence) {
+    sentence = sentence.split(" ");
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence[i] == "") {
+            sentence.splice(i, 1);
+        }
     }
+    return (sentence.length);
 }
 
-
-function summ(x) {
-    let rest = x % 10;
-    let newNumber = (x - rest) / 10;
-    if (newNumber > 9) {
-        return rest + summ(newNumber);
-    } else {
-        return rest + newNumber;
-    }
-}
-
-function showHooks(x) {
-    if (x == 1) {
-        return "()";
-    } else {
-        return "(" + showHooks(x - 1) + ")";
-    }
-}
-
-// добавление элементов в массив
-
-/*let arr = [1, 5, 7];
-arr.push(3);
-alert(arr);
-
-//удаление элемента из массива
-
-arr.pop();
-alert(arr);*/
-
-let rect = {
-    point1: {
-        x: 2,
-        y: 5
-    },
-    point2: {
-        x: 7,
-        y: 3
-    }
-};
-
-function rectInfo(obj) {
-    document.write("Точка 1, координата x = " + obj.point1.x + "<br>");
-    document.write("Точка 1, координата y = " + obj.point1.y + "<br>");
-    document.write("Точка 2, координата x = " + obj.point2.x + "<br>");
-    document.write("Точка 2, координата y = " + obj.point2.y + "<br>");
-}
-//rectInfo(rect);
-
-function getWidth(obj) {
-    return obj.point2.x - obj.point1.x;
-}
-//alert(getWidth(rect));
-
-function getHeight(obj) {
-    return obj.point1.y - obj.point2.y;
-}
-//alert(getHeight(rect));
-
-function getSquare(obj) {
-    return getWidth(obj) * getHeight(obj);
-}
-//alert(getSquare(rect));
-
-
-let arr = [3, 16, 12, 3, 14, 10];
-let count = 0;
-let index = arr.indexOf(3);
-while (index != -1) {
-    count++;
-    index = arr.indexOf(3, index+1);
-}
-
-alert(Math.min(6, 14, 12, 3));
-
+alert( countWordsInSentence("Посчитать количество слов  lewhfiw  wfwf") );
 
 
 </script>
