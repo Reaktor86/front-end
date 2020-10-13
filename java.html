@@ -128,8 +128,96 @@ function countWordsInSentence(sentence) {
     return (sentence.length);
 }
 
-alert( countWordsInSentence("Посчитать количество слов  lewhfiw  wfwf") );
+//alert( countWordsInSentence("Посчитать количество слов  lewhfiw  wfwf") );
 
+// 8. Написать функцию, которая возвращает самое длинное слово из предложения.
+
+function longestWordInSentence(sentence) {
+/*    let symbols = [
+        ",",
+        ".",
+        "?",
+        "!",
+        "@",
+        "'",
+        "&",
+        "*",
+        "%",
+        "#",
+        "^",
+        ":",
+        "(",
+        ")",
+        "_",
+        "-",
+        "+",
+        "/",
+        ">",
+        "<",
+        "`",
+        "~"
+    ]
+    let clean;
+    for (let i = 0; i < symbols.length; i++) {
+        clean = sentence.indexOf(symbols[i]);
+
+        if (clean !== -1) {
+            sentence.splice(sentence.indexOf(symbols[i]), 1);
+        }
+
+    }*/
+    console.log(sentence);
+    sentence = sentence.split(" ");
+    let word = "";
+
+    for (let i = 0; i < sentence.length; i++) {
+
+        if (sentence[i].length > word.length) {
+            word = sentence[i];
+        }
+
+    }
+    return word;
+}
+
+//alert ( longestWordInSentence("Какое самое длинное слово в этом предложении?") );
+
+//9.  Написать функцию, которая считает среднюю длину слова в предложении
+
+function meanWordLength(sentence) {
+    sentence = sentence.split(" ");
+    let countWords = 0;
+    let countLetters = 0;
+    for (let i = 0; i < sentence.length; i++) {
+        countLetters += sentence[i].length;
+        countWords++;
+    }
+    console.log("Число слов = " + countWords + ", число букв = " + countLetters);
+    return ( parseInt(countLetters / countWords) );
+}
+
+//alert ( meanWordLength("Какая средняя длина слов в этом предложении?") );
+
+/* 10.     Написать функцию, которая принимает строку и символ
+и выводит индексы, по которым находится этот символ в
+строке. Также вывести, сколько всего раз встречается этот
+символ в строке. */
+
+function symbolsCounter(string, symbol) {
+    document.write("Строка: " + string + "<br>" + "Символ: " + symbol + "<br>");
+    let countSymbols = 0;
+    let result = string.indexOf(symbol);
+    while (result !== -1) {
+        countSymbols++;
+        document.write("Найден индекс: " + result + "<br>");
+        result = string.indexOf(symbol, result + 1);
+    }
+    document.write("Всего символов в строке: " + countSymbols);
+}
+
+/*let string = prompt("Введите строку");
+let symbol = prompt("Введите символ, который нужно найти в строке");
+symbolsCounter(string, symbol);*/
 
 </script>
 </body>
