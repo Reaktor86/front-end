@@ -132,7 +132,23 @@ function countWordsInSentence(sentence) {
 // 8. Написать функцию, которая возвращает самое длинное слово из предложения.
 
 function longestWordInSentence(sentence) {
-/*    let symbols = [
+    sentence = sentence.split(" ");
+    let word = "";
+
+    for (let i = 0; i < sentence.length; i++) {
+
+        if (sentence[i].length > word.length) {
+            word = sentence[i];
+        }
+
+    }
+    return word;
+}
+
+// функция для удаления знаков припенания из предложения
+
+function removeCommas(sentence) {
+    let symbols = [
         ",",
         ".",
         "?",
@@ -154,30 +170,13 @@ function longestWordInSentence(sentence) {
         ">",
         "<",
         "`",
-        "~"
+        "~",
     ]
-    let clean;
-    for (let i = 0; i < symbols.length; i++) {
-        clean = sentence.indexOf(symbols[i]);
 
-        if (clean !== -1) {
-            sentence.splice(clean, 1);
-        }
 
-    }*/
-    console.log(sentence);
-    sentence = sentence.split(" ");
-    let word = "";
-
-    for (let i = 0; i < sentence.length; i++) {
-
-        if (sentence[i].length > word.length) {
-            word = sentence[i];
-        }
-
-    }
-    return word;
 }
+
+console.log(removeCommas("Предложение, из которого надо удалить знаки!"));
 
 //alert ( longestWordInSentence("Какое самое длинное слово в этом предложении?") );
 
