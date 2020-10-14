@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+
+/*1. Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки
+больше, чем максимальная, то необходимо отбросить
+лишние символы, добавив вместо них троеточие.
+    Например: truncate(“Hello, world!”, 8) должна вернуть
+“Hello...”    */
+
+function shortString(string, max) {
+    let result = string;
+
+    if (string.length > max) {
+        result = string.substr(0, max) + "...";
+    }
+
+    return result;
+}
+
+let string = prompt("Введите строку");
+let max = prompt("Введите максимальную длину строки");
+alert( shortString(string, max) );
+
+// 2. Написать функцию, которая проверяет, является ли переданная строка палиндромом.
+
+function isItPalindrome(original) {
+    let reverse = "";
+
+    for (let i = original.length - 1; i > -1; i--) {
+        reverse = reverse + original[i];
+    }
+
+    console.log(reverse);
+    return (original === reverse);
+}
+
+/*let check = isItPalindrome(prompt("Какое слово проверить?"));
+if (check) {
+    alert("Слово является палиндромом");
+} else {
+    alert("Слово не является палиндромом");
+}*/
+
+// 3. Написать функцию, которая считает количество слов в предложении.
+
+function countWordsInSentence(sentence) {
+    sentence = sentence.split(" ");
+
+    for (let i = 0; i < sentence.length; i++) {
+
+        if (sentence[i] == "") {
+            sentence.splice(i, 1);
+        }
+
+    }
+
+    return (sentence.length);
+}
+
+//alert( countWordsInSentence("Посчитать количество слов  lewhfiw  wfwf") );
+
+// 4. Написать функцию, которая возвращает самое длинное слово из предложения.
+
+function longestWordInSentence(sentence) {
+
+    sentence = sentence.split(" ");
+    let word = "";
+
+    for (let i = 0; i < sentence.length; i++) {
+
+        if (sentence[i].length > word.length) {
+            word = sentence[i];
+        }
+
+    }
+
+    return word;
+}
+
+//alert ( longestWordInSentence("Какое самое длинное слово в этом предложении?") );
+
+//5.  Написать функцию, которая считает среднюю длину слова в предложении
+
+function meanWordLength(sentence) {
+    sentence = sentence.split(" ");
+    let countWords = 0;
+    let countLetters = 0;
+
+    for (let i = 0; i < sentence.length; i++) {
+        countLetters += sentence[i].length;
+        countWords++;
+    }
+
+    console.log("Число слов = " + countWords + ", число букв = " + countLetters);
+    return ( parseInt(countLetters / countWords) );
+}
+
+//alert ( meanWordLength("Какая средняя длина слов в этом предложении?") );
+
+/* 6.     Написать функцию, которая принимает строку и символ
+и выводит индексы, по которым находится этот символ в
+строке. Также вывести, сколько всего раз встречается этот
+символ в строке. */
+
+function symbolsCounter(string, symbol) {
+    document.write("Строка: " + string + "<br>" + "Символ: " + symbol + "<br>");
+    let countSymbols = 0;
+    let result = string.indexOf(symbol);
+
+    while (result !== -1) {
+        countSymbols++;
+        document.write("Найден индекс: " + result + "<br>");
+        result = string.indexOf(symbol, result + 1);
+    }
+
+    document.write("Всего символов в строке: " + countSymbols);
+}
+
+/*let string = prompt("Введите строку");
+let symbol = prompt("Введите символ, который нужно найти в строке");
+symbolsCounter(string, symbol);*/
+
+</script>
+</body>
+</html>
+
