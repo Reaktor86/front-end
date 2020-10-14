@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <script>
@@ -162,7 +161,7 @@ function longestWordInSentence(sentence) {
         clean = sentence.indexOf(symbols[i]);
 
         if (clean !== -1) {
-            sentence.splice(sentence.indexOf(symbols[i]), 1);
+            sentence.splice(clean, 1);
         }
 
     }*/
@@ -218,6 +217,116 @@ function symbolsCounter(string, symbol) {
 /*let string = prompt("Введите строку");
 let symbol = prompt("Введите символ, который нужно найти в строке");
 symbolsCounter(string, symbol);*/
+
+// задания из учебника learn.javascript.ru - объекты
+
+// 1.   Создайте пустой объект user.
+
+let user = {};
+
+// 2. Добавьте свойство name со значением John.
+
+user.name = "John";
+console.log(user.name);
+
+// 3. Добавьте свойство surname со значением Smith.
+
+user.surname = "Smith";
+console.log(user.surname);
+
+// 4. Измените значение свойства name на Pete.
+
+user.name = "Pete";
+console.log(user.name);
+
+// 5. Удалите свойство name из объекта.
+
+delete user.name;
+console.log(user.name);
+
+// Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+
+let testObj = {};
+let testObj2 = { name: "x" };
+
+function isEmpty(obj) {
+    for (let key in obj) {
+        return false;
+    }
+    return true;
+}
+
+//alert(isEmpty(testObj));
+//alert(isEmpty(testObj2));
+
+/* Напишите код для суммирования всех зарплат и сохраните результат в переменной sum. Должно получиться 390.
+Если объект salaries пуст, то результат должен быть 0. */
+
+let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+};
+
+/*let sum = 0;
+if (!isEmpty(salaries)) {
+    for (let key in salaries) {
+        sum += salaries[key];
+    }
+}
+
+alert(sum);
+}*/
+
+/* Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.
+Обратите внимание, что multiplyNumeric не нужно ничего возвращать. Следует напрямую изменять объект.
+P.S. Используйте typeof для проверки, что значение свойства числовое.*/
+
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+function multiplyNumeric(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] == "number") {
+            obj[key] *= 2;
+        }
+    }
+}
+
+multiplyNumeric(menu);
+console.log(menu);
+
+// тема: методы объектов, this. калькулятор значений
+
+/* Создайте объект calculator (калькулятор) с тремя методами:
+read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+sum() (суммировать) возвращает сумму сохранённых значений.
+mul() (умножить) перемножает сохранённые значения и возвращает результат. */
+
+let calculator = {
+    read() {
+        this.value1 = +prompt("Введите первое значение");
+        this.value2 = +prompt("Введите второе значение");
+    },
+
+    sum() {
+        return (this.value1 + this.value2);
+    },
+
+    mul() {
+        return (this.value1 * this.value2);
+    }
+};
+
+/*calculator.read();
+console.log(calculator);
+alert( calculator.sum() );
+alert( calculator.mul() );*/
+
+
 
 </script>
 </body>
