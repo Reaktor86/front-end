@@ -145,38 +145,6 @@ function longestWordInSentence(sentence) {
     return word;
 }
 
-// функция для удаления знаков припенания из предложения
-
-function removeCommas(sentence) {
-    let symbols = [
-        ",",
-        ".",
-        "?",
-        "!",
-        "@",
-        "'",
-        "&",
-        "*",
-        "%",
-        "#",
-        "^",
-        ":",
-        "(",
-        ")",
-        "_",
-        "-",
-        "+",
-        "/",
-        ">",
-        "<",
-        "`",
-        "~",
-    ]
-
-
-}
-
-console.log(removeCommas("Предложение, из которого надо удалить знаки!"));
 
 //alert ( longestWordInSentence("Какое самое длинное слово в этом предложении?") );
 
@@ -325,6 +293,93 @@ console.log(calculator);
 alert( calculator.sum() );
 alert( calculator.mul() );*/
 
+
+
+//ТЕМА КЛАССЫ
+
+
+class Buyer {
+
+    constructor(firstName, secondName, bill) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.bill = bill;
+    }
+
+    /*set firstName(x) {
+        if (x.length < 3) {
+            alert("Слишком короткое имя");
+        } else {
+            this._firstName = x;
+        }
+    }
+
+    get firstName() {
+        return this._firstName;
+    }
+
+    set bill(x) {
+        if (typeof x === "number" && x >= 0) {
+            this._bill = x;
+        } else {
+            alert("Неверное значение счёта");
+        }
+    }
+
+    get bill() {
+        return this._bill;
+    }*/
+
+    /*set firstName(x) {
+        this._firstName = x;
+    }
+
+    set bill(x) {
+        this._bill = x;
+    }
+
+    get firstName() {
+        if (this._firstName.length < 3) {
+            document.write(" (ОШИБКА! Слишком короткое имя) ");
+        }
+    }
+
+    get bill() {
+        if (!(typeof this._bill === "number" && this._bill >= 0)) {
+            document.write(" (ОШИБКА! Неверное значение счёта) ");
+        }
+    }*/
+
+    showClient() {
+        document.write("Имя: " + this.firstName + "<br>" + "Фамилия: " + this.secondName + "<br>" + "Счёт: " + this.bill + "<br><br>");
+    }
+
+}
+
+/*let firstName = prompt("Введите имя");
+let secondName = prompt("Введите фамилию");
+let bill = +prompt("Введите счёт");
+let obj = new Buyer(firstName, secondName, bill);
+document.write("Имя: " + obj.firstName + "<br>Фамилия: " + obj.secondName + "<br>Счёт: " + obj.bill);*/
+
+let arClient = [
+    {name: 'client1', sname: 'client secondName', bill: 20000},
+    {name: 'client1', sname: 'client secondName', bill: 0},
+    {name: 1, sname: 'client secondName', bill: 20000},
+    {name: 'c', sname: 'client secondName', bill: 20000},
+    {name: 'client1', sname: 'client secondName', bill: -29},
+    {name: 'client1', sname: 'client secondName', bill: 20000},
+    {name: '1', sname: 'client secondName', bill: 'asdasd'},
+
+];
+
+for (let i = 0; i < arClient.length; i++) {
+    let firstName = arClient[i].name;
+    let secondName = arClient[i].sname;
+    let bill = arClient[i].bill;
+    let obj = new Buyer(firstName, secondName, bill);
+    obj.showClient();
+}
 
 
 </script>
