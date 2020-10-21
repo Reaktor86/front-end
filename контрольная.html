@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+/* 1.Дан пустой массив let a = [];
+Дан массив let b = [‘item1’, ‘item2’, ‘item3’, ‘item4’];
+Необходимо перенести элементы из массива b в массив a так, чтобы в массиве a элементы были в обратном порядке. Использовать метод reverse() запрещено */
+
+let a = [];
+let b = ["item1", "item2", "item3", "item4"];
+let count = 1;
+
+for (let i = 0; i < 4; i++) {
+    a[i] = b[b.length - count];
+    count++;
+}
+
+document.write(a + "<br>");
+
+/* 2. нужно создать копию этого массива, в котором элементы будут отсортированы по sum от большего к меньшему
+записать в переменную сумму всех значений  sum  */
+
+let items = [
+    {id: 1, sum: 12},
+    {id: 2, sum: 18},
+    {id: 3, sum: 1},
+    {id: 4, sum:-2},
+    {id: 5, sum: 12},
+    {id: 6, sum: 6},
+    {id: 7, sum: 8},
+    {id: 8, sum: 104},
+    {id: 9, sum: 13},
+    {id: 10, sum: 23},
+    {id: 11, sum: 2},
+];
+
+let numbers = [];
+
+for (let i = 0; i < items.length; i++) { // записываем только числа, чтобы было удобнее использовать sort
+    numbers[i] = items[i].sum;
+}
+
+function compareNumeric(a, b) { // вспомогательная функция для сортировки чисел
+    if (a > b) return -1;
+    if (a == b) return 0;
+    if (a < b) return 1;
+}
+
+numbers.sort(compareNumeric); // здесь готов массив с отсортированными числами
+
+let summ = 0;
+for (let i = 0; i < numbers.length; i++) { // сумма всех чисел
+    summ += numbers[i];
+}
+
+let itemsCopy = [];
+
+for (let i = 0; i < numbers.length; i++) {
+    itemsCopy[i] = {id: i + 1, sum: numbers[i]}; // пересоздаем массив (задача решена)
+}
+
+console.log(itemsCopy);
+console.log(summ);
+
+/* 3. Реализуйте класс Worker (Работник), который будет иметь следующие свойства:
+name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней).
+Также класс должен иметь метод getSalary(), который будет выводить зарплату работника.
+Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.*/
+
+class Worker {
+
+    constructor(name, surname, rate, days) {
+        this.name = name;
+        this.surname = surname;
+        this.rate = rate;
+        this.days = days;
+    }
+
+    getSalary() {
+        return this.rate * this.days;
+    }
+
+}
+
+/*let name = prompt("Введите имя");
+let surname = prompt("Введите фамилию");
+let rate = +prompt("Введите ставку за день работы");
+let days = +prompt("Введите кол-во отработанных дней");
+
+let myWorker = new Worker(name, surname, rate, days);
+document.write("<br>Имя: " + myWorker.name + "<br>Фамилия: " + myWorker.surname + "<br>Ставка в день: "
+    + myWorker.rate + "<br>Дней: " + myWorker.days + "<br>Зарплата: " + myWorker.getSalary() ); */
+
+/* 4. Реализуйте класс MyString, который будет иметь следующие методы:
+метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде,
+метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и
+метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.*/
+
+class MyString {
+
+    constructor(string) {
+        this.string = string;
+    }
+
+    reverse() {
+        let reverse = "";
+        let stringIndex = this.string.length - 1;
+
+        for (let i = 0; i < this.string.length; i++) {
+            reverse += this.string[stringIndex];
+            stringIndex--;
+        }
+
+        return reverse;
+
+    }
+
+    ucFirst() {
+        let letter = this.string[0].toUpperCase();
+        let otherHalf = this.string.substr(1);
+        return letter + otherHalf;
+    }
+
+    ucWords() {
+        let sentence = this.string.split(" "); // сделать из предложения массив из отдельных слов: [Тестовое, предложение, заглавные, буквы ]
+
+        for (let i = 0; i < sentence.length; i++) { // удалить пустые элементы, если они есть
+            if (sentence[i] == "") {
+                sentence.splice(i, 1);
+            }
+        }
+
+        let result = "";
+
+        for (let i = 0; i < sentence.length; i++) { // делаем в каждом слове массива sentence первую букву большой
+            let word = sentence[i];
+            let letter = word[0].toUpperCase();
+            let otherHalf = word.substr(1);
+            result += letter + otherHalf + " ";
+        }
+
+        return result;
+    }
+
+}
+
+let obj = new MyString( prompt("Введите строку") );
+console.log( obj.reverse() );
+console.log( obj.ucFirst() );
+console.log( obj.ucWords() );
+
+</script>
+</body>
+</html>
