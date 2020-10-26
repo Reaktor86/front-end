@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*Реализовать класс, описывающий геометрическую фигуру со
+    свойствами и методами:
+        ■ get-свойство для получения названия фигуры;
+■ метод для вывода информации о фигуре (стороны и их
+    длина);
+■ метод для вычисления площади фигуры;
+■ метод для вычисления периметра фигуры.
+        Реализуйте классы-наследники: квадрат, прямоугольник и
+    треугольник. Переопределите методы вывода и вычислений в
+    классах-наследниках.
+        Создайте массив с различными фигурами и выведите информацию о каждой фигуре, включая площадь и периметр.*/
+
+class Figure {
+    name = ''
+    constructor(params) {
+        this.params = params;
+    }
+
+    getArea() {
+
+    }
+
+    get() {
+        return this.name;
+    }
+}
+
+class Square extends Figure {
+    constructor(arg) {
+        super(arg);
+        this.name = 'Треугольник';
+    }
+    getArea() {
+        //super.getArea();
+        return this.params[0] ** 2;
+    }
+    getPerimeter() {
+        return this.params[0] * 4;
+    }
+}
+
+class Triangle extends Figure {
+    constructor(params) {
+        super(params);
+        this.name = 'Треугольник';
+    }
+
+    getArea() {
+        let height = this.getHeight(this.params[0], this.params[2]);
+        return (height * this.params[0]) / 2;
+    }
+
+    getHeight(a, b) {
+        return (a * b) / Math.sqrt((a ** 2 + b ** 2));
+    }
+    getPerimeter() {
+        return this.params[0] + this.params[1] + this.params[2];
+    }
+
+}
+
+class Rectangle extends Figure {
+    constructor(arg) {
+        super(arg);
+        this.name = 'Прямоугольник';
+    }
+    getArea() {
+        //super.getArea();
+        return this.params[0] * this.params[1];
+    }
+    getPerimeter() {
+        return ( this.params[0] + this.params[1] ) * 2;
+    }
+}
+
+let objSquare = new Square([2, 2, 2, 2]);
+console.log(objSquare.get());
+console.log(objSquare.getArea());
+console.log(objSquare.getPerimeter());
+
+let objTriangle = new Triangle([1, 2, 3]);
+console.log(objTriangle.get());
+console.log(objTriangle.getArea());
+console.log(objTriangle.getPerimeter());
+
+let objRectangle = new Rectangle([2, 2, 2, 2]);
+console.log(objRectangle.get());
+console.log(objRectangle.getArea());
+console.log(objRectangle.getPerimeter());
+
+   /* Реализовать класс Button, который содержит ширину, высоту,
+        текст кнопки и метод showBtn(), который выводит кнопку на экран
+    с помощью тега button и функции document.write().
+        Реализовать класс BootstrapButton, унаследовав его от класса
+    Button. Добавить поле color и переопределить метод showBtn()
+    так, чтобы кнопка выводилась со стилями и указанным цветом.*/
+
+class Button {
+
+    width = 120
+    height = 40
+    text = "Тест-кнопка"
+
+    showBtn() {
+
+    }
+
+}
+
+
+</script>
+</body>
+</html>
+
