@@ -5,7 +5,7 @@
     <title>Путешествие</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="map01-cells.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@100;300;400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -69,7 +69,105 @@
 
         <div class="right-block">
             <div class="info">
+                <div class="info__cont">
 
+                    <div class="info__player info__player--A">
+                        <p class="info__place">I</p>
+                        <div class="info__token info__token--A"><p>A</p></div>
+                        <div>
+                            <p class="info__player-label info__player-label--A">Игрок А</p>
+                            <div class="info__player-power info__player-power--A">
+                                <div class="powercell powercell--a1"></div>
+                                <div class="powercell powercell--a2"></div>
+                                <div class="powercell powercell--a3"></div>
+                                <div class="powercell powercell--a4"></div>
+                                <div class="powercell powercell--a5"></div>
+                                <div class="powercell powercell--a6"></div>
+                                <div class="powercell powercell--a7"></div>
+                                <div class="powercell powercell--a8"></div>
+                                <div class="powercell powercell--a9"></div>
+                                <div class="powercell powercell--a10"></div>
+                            </div>
+                        </div>
+                        <div class="info__player-right">
+                            <p class="info__player-moneyA">$ 1000</p>
+                            <!--здесь будут магниты-->
+                        </div>
+                    </div>
+
+                    <div class="info__player info__player--B">
+                        <p class="info__place">II</p>
+                        <div class="info__token info__token--B"><p>B</p></div>
+                        <div>
+                            <p class="info__player-label info__player-label--B">Игрок B</p>
+                            <div class="info__player-power info__player-power--B">
+                                <div class="powercell powercell--b1"></div>
+                                <div class="powercell powercell--b2"></div>
+                                <div class="powercell powercell--b3"></div>
+                                <div class="powercell powercell--b4"></div>
+                                <div class="powercell powercell--b5"></div>
+                                <div class="powercell powercell--b6"></div>
+                                <div class="powercell powercell--b7"></div>
+                                <div class="powercell powercell--b8"></div>
+                                <div class="powercell powercell--b9"></div>
+                                <div class="powercell powercell--b10"></div>
+                            </div>
+                        </div>
+                        <div class="info__player-right">
+                            <p class="info__player-moneyB">$ 1000</p>
+                            <!--здесь будут магниты-->
+                        </div>
+                    </div>
+
+                    <div class="info__player info__player--C">
+                        <p class="info__place">III</p>
+                        <div class="info__token info__token--C"><p>C</p></div>
+                        <div>
+                            <p class="info__player-label info__player-label--C">Игрок C</p>
+                            <div class="info__player-power info__player-power--C">
+                                <div class="powercell powercell--c1"></div>
+                                <div class="powercell powercell--c2"></div>
+                                <div class="powercell powercell--c3"></div>
+                                <div class="powercell powercell--c4"></div>
+                                <div class="powercell powercell--c5"></div>
+                                <div class="powercell powercell--c6"></div>
+                                <div class="powercell powercell--c7"></div>
+                                <div class="powercell powercell--c8"></div>
+                                <div class="powercell powercell--c9"></div>
+                                <div class="powercell powercell--c10"></div>
+                            </div>
+                        </div>
+                        <div class="info__player-right">
+                            <p class="info__player-moneyC">$ 1000</p>
+                            <!--здесь будут магниты-->
+                        </div>
+                    </div>
+
+                    <div class="info__player info__player--D">
+                        <p class="info__place">IV</p>
+                        <div class="info__token info__token--D"><p>D</p></div>
+                        <div>
+                            <p class="info__player-label info__player-label--D">Игрок D</p>
+                            <div class="info__player-power info__player-power--D">
+                                <div class="powercell powercell--d1"></div>
+                                <div class="powercell powercell--d2"></div>
+                                <div class="powercell powercell--d3"></div>
+                                <div class="powercell powercell--d4"></div>
+                                <div class="powercell powercell--d5"></div>
+                                <div class="powercell powercell--d6"></div>
+                                <div class="powercell powercell--d7"></div>
+                                <div class="powercell powercell--d8"></div>
+                                <div class="powercell powercell--d9"></div>
+                                <div class="powercell powercell--d10"></div>
+                            </div>
+                        </div>
+                        <div class="info__player-right">
+                            <p class="info__player-moneyD">$ 1000</p>
+                            <!--здесь будут магниты-->
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="log">
 
@@ -91,6 +189,7 @@
 </section>
 
 <script src="engine.js"></script>
+<script src="logs-creator.js"></script>
 <script src="map01.js"></script>
 
 </body>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<div>
+    <div>
+        <h2>Тестовая страница</h2>
+    </div>
+    <div>
+        <ul>
+            <li>Список 1</li>
+            <li>Список 2</li>
+            <li>Список 3</li>
+            <li>Список 4</li>
+        </ul>
+    </div>
+</div>-->
+
+<script>
+
+// 2. Написать функцию, которая будет принимать на вход название элемента html, и посчитать кол-во найденных элементов на странице.
+
+/*countElements ( prompt("Введите название элемента") );
+
+function countElements( elem ) {
+    let result = document.querySelectorAll(elem);
+    alert ("На странице " + result.length + " элемента(ов) с названием " + elem) ;
+}*/
+
+/* 3. Написать функционал записной книжки.
+Нужно запросить у пользователя список дел(через функцию alert()).
+Дела должны быть отделены запятой (помыть голову,сделать дз,купить еду коту).
+После того как пользователь закончил ввод, нужно в окне браузере отобразить данный список при помощи тэга <ul>.
+Также необходимо в каждом пункте отобразить время, когда именно запланировано дело.
+Время устанавливаться автоматически, т.е. первое дело планируем на 7:00, второе на 8:00. третье на 9:00.
+Также введем ограничение - если дела не укладываеться до 12:00 нужно оповестить об это пользователя,
+    выведем на страницу блок “а эти дела, пожалуй, лучше перенести на завтра:” и далее список дел, которые не удовлетворяют ограничению.
+
+Пример отображения в браузере:
+http://i.imgur.com/VgkHD0F.png
+
+За добавления DOM элементов на страницу должен быть ответственен js
+ */
+
+
+let tasks = prompt("Введите список дел (через запятую)");
+tasks = tasks.split(",");
+let hour = 7;
+
+let newUl = document.createElement("ul");
+newUl.className = "firstUl";
+document.body.append(newUl)
+let add = document.querySelector(".firstUl"); // <ul class="firstUl"></ul>
+
+let doNow = [];
+let doAfter = [];
+
+for(let i = 0; i < tasks.length; i++) {
+
+    if (hour == 13) {
+        let newP = document.createElement("p");
+        newP.innerHTML = "а эти дела, пожалуй, лучше перенести на завтра:";
+        add.after(newP);
+    }
+
+    let li = document.createElement('li');
+    li.append(hour + ":00 " + tasks[i]);
+
+    if (hour > 12) {
+        doAfter.push(li);
+    } else {
+        doNow.push(li);
+    }
+
+    hour++;
+}
+
+let addP = document.querySelector("p");
+add.append(...doNow);
+let newUl2 = newUl.cloneNode(false);
+newUl2.className = "secondUl";
+addP.after(newUl2);
+let add2 = document.querySelector(".secondUl");
+console.log(add2);
+add2.append(...doAfter);
+
+</script>
+
+</body>
+</html>
