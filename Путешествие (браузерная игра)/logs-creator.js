@@ -8,7 +8,7 @@ let addressLog = document.querySelector(".log");
 let newMessage = document.createElement("div");
 let newTime = document.createElement("p");
 
-setTimeout(createFirstLog, 10);
+setTimeout(createFirstLog, 500);
 function createFirstLog() {
     /*<div class="log__message"></div>*/
     newMessage.className = "log__message";
@@ -138,8 +138,13 @@ function messageCheckpoint() {
     addressDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " достиг чекпойнта";
+    p2.innerHTML = " достиг ";
     addressDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.style.color = "#308ae3";
+    p3.innerHTML = "чекпойнта";
+    addressDiv.append(p3);
 }
 
 function messageRed() {
@@ -181,8 +186,13 @@ function messageReturnCheckpoint() {
     addressDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " возвращается на чекпойнт";
+    p2.innerHTML = " возвращается на ";
     addressDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.style.color = "#308ae3";
+    p3.innerHTML = "чекпойнт";
+    addressDiv.append(p3);
 }
 
 function messageSkipMove() {
@@ -273,6 +283,23 @@ function messageAttackCancel(rival) {
     addressDiv.append(p3);
 }
 
+function messageAttackNoOne() {
+
+// Игрок X отказался от конфликта
+
+    createNewLog();
+    let addressDiv = addressLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    addressDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " отказался от конфликта";
+    addressDiv.append(p2);
+}
+
 function messageFinished() {
 
 // Игрок X ФИНИШИРОВАЛ!
@@ -333,4 +360,26 @@ function messagePlace(place) {
     let p4 = document.createElement("p");
     p4.innerHTML = " место";
     addressDiv.append(p4);
+}
+
+function messageCritic() {
+
+// У Игрок А критическая ситуация
+
+    createNewLog();
+    let addressDiv = addressLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.innerHTML = "У ";
+    addressDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.className = "log__player";
+    p2.innerHTML = players[current].label;
+    addressDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.style.color = "red";
+    p3.innerHTML = " критическая ситуация";
+    addressDiv.append(p3);
 }

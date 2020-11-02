@@ -14,6 +14,7 @@ let cellMap = [
         coorX: 200,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -21,6 +22,7 @@ let cellMap = [
         coorX: 240,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -28,6 +30,7 @@ let cellMap = [
         coorX: 280,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -38,6 +41,7 @@ let cellMap = [
         coorX: 320,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -46,6 +50,7 @@ let cellMap = [
         coorX: 360,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -53,6 +58,7 @@ let cellMap = [
         coorX: 400,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -60,6 +66,7 @@ let cellMap = [
         coorX: 440,
         coorY: 560,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -67,6 +74,7 @@ let cellMap = [
         coorX: 480,
         coorY: 560,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -74,6 +82,7 @@ let cellMap = [
         coorX: 480,
         coorY: 520,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -81,6 +90,7 @@ let cellMap = [
         coorX: 480,
         coorY: 480,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -91,6 +101,7 @@ let cellMap = [
         coorX: 480,
         coorY: 480,
         nextStep: "right",
+        shift: "left",
     },
 
     {
@@ -98,6 +109,7 @@ let cellMap = [
         coorX: 520,
         coorY: 440,
         nextStep: "right",
+        shift: "up",
     },
 
     {
@@ -106,6 +118,7 @@ let cellMap = [
         coorX: 560,
         coorY: 440,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -113,6 +126,7 @@ let cellMap = [
         coorX: 560,
         coorY: 400,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -121,6 +135,7 @@ let cellMap = [
         coorX: 560,
         coorY: 360,
         nextStep: "top",
+        shift: "right",
     },
 
     {
@@ -128,6 +143,7 @@ let cellMap = [
         coorX: 560,
         coorY: 320,
         nextStep: "top",
+        shift: "left",
     },
 
     {
@@ -136,6 +152,7 @@ let cellMap = [
         coorX: 260,
         coorY: 280,
         nextStep: "top",
+        shift: "left",
     },
 
     {
@@ -146,6 +163,7 @@ let cellMap = [
         coorX: 560,
         coorY: 280,
         nextStep: "top",
+        shift: "left",
     },
 
     {
@@ -156,6 +174,7 @@ let cellMap = [
         coorX: 560,
         coorY: 200,
         nextStep: "top",
+        shift: "left",
     },
 
     {
@@ -163,6 +182,7 @@ let cellMap = [
         coorX: 560,
         coorY: 160,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -170,6 +190,7 @@ let cellMap = [
         coorX: 520,
         coorY: 160,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -178,6 +199,7 @@ let cellMap = [
         coorX: 480,
         coorY: 160,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -185,6 +207,7 @@ let cellMap = [
         coorX: 440,
         coorY: 160,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -195,6 +218,7 @@ let cellMap = [
         coorX: 400,
         coorY: 160,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -205,6 +229,7 @@ let cellMap = [
         coorX: 360,
         coorY: 160,
         nextStep: "down",
+        shift: "up",
     },
 
     {
@@ -213,6 +238,7 @@ let cellMap = [
         coorX: 360,
         coorY: 200,
         nextStep: "left",
+        shift: "down",
     },
 
     {
@@ -220,6 +246,7 @@ let cellMap = [
         coorX: 320,
         coorY: 200,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -227,6 +254,7 @@ let cellMap = [
         coorX: 280,
         coorY: 200,
         nextStep: "down",
+        shift: "up",
     },
 
     {
@@ -234,6 +262,7 @@ let cellMap = [
         coorX: 280,
         coorY: 240,
         nextStep: "left",
+        shift: "down",
     },
 
     {
@@ -241,6 +270,7 @@ let cellMap = [
         coorX: 240,
         coorY: 240,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -248,6 +278,7 @@ let cellMap = [
         coorX: 200,
         coorY: 240,
         nextStep: "left",
+        shift: "up",
     },
 
     {
@@ -256,6 +287,7 @@ let cellMap = [
         coorX: 160,
         coorY: 240,
         nextStep: "down",
+        shift: "up",
     },
 
     {
@@ -263,6 +295,7 @@ let cellMap = [
         coorX: 160,
         coorY: 240,
         nextStep: "down",
+        shift: "left",
     },
 
     {
@@ -273,6 +306,7 @@ let cellMap = [
         coorX: 360,
         coorY: 320,
         nextStep: "down",
+        shift: "left",
     },
 
     {

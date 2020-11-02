@@ -5,9 +5,6 @@ function autoexe() {
     jumpToCell(playerB, 27);
     jumpToCell(playerC, 27);
     jumpToCell(playerD, 27);*/
-    //setTimeout(createNewLog, 2000);
-    //setInterval(messageRed, 2000);
-    //setTimeout(messageRed, 500);
 }
 
 // подготовка
@@ -24,10 +21,10 @@ class Players {
     bonusMoves = 0
     skipMoves = 0
     currentCell = 0
-    protection = false
+    protection = true // защита от атак на чекпойнте, пьедестале, старте и т.п.
     finished = false
-    place = 0
-    checkpoint = false
+    place = 0 // какое место занял?
+    shiftPos = 1 // позиция, если на одной клетке много соперников, по умолчанию 1, самое высокое 4
 
     constructor(name, model, moveOrder) {
         this.name = name;
@@ -179,55 +176,109 @@ function refreshPowercells() {
     }
 }
 
-// глобальные переменные
+// разное
 
 let divScore = document.createElement("div");
 let cubic = document.querySelector(".cubic");
-cubic.addEventListener('click', throwCubic);
 let cubicScore;
-let stepsCounter = 0; // временное число, считалка ходов
+cubic.addEventListener('click', throwCubic);
+let stepsCounter = 0; // считалка ходов
+let stId; // запоминает id клетки, с которой игрок начал движение
+let cpId; // какой id чекпойнта в загруженной карте?
+for (let i = 0; i < cellMap.length; i++) {
+    if (cellMap[i].type == "checkpoint") {
+        cpId = cellMap[i].cellid;
+        break;
+    }
+}
 
 showGlobalsBeforeRace();
 
 setTimeout(autoexe, 1000);
 
-// бросание кубика
+// НАЧАЛО ИГРЫ
 
-function throwCubic() {
+moveInfo();
+
+// бросание кубика
+// чтобы бросить на любое число, введи в консоль throwCubic(число)
+
+function throwCubic(num) {
+
+    stId = players[current].currentCell;
+    divScore.remove();
 
     if (players[current].skipMoves > 0) { // проверка на пропуск хода
-        drawScore();
         console.log(players[current].label + " ПРОПУСКАЕТ ХОД");
+        skipInfo();
         messageSkipMove();
         players[current].skipMoves--;
         setTimeout(moveIsOver, 2000);
     } else {
-        cubicScore = Math.ceil(Math.random() * 6);
-        // для тестов поставь здесь любое число и закомментируй предыдущую строку
-        //cubicScore = 2;
+
+    // чит-код
+        if (typeof num == "number") {
+            cubicScore = num;
+        } else {
+            cubicScore = Math.ceil(Math.random() * 6);
+        }
+
+    //анимация
+        cubic.setAttribute("src", "img/cubic_spin.gif");
+        setTimeout( function () {
+            switch (cubicScore) {
+                case 1:
+                    cubic.setAttribute("src", "img/cubic_1.png");
+                    break;
+                case 2:
+                    cubic.setAttribute("src", "img/cubic_2.png");
+                    break;
+                case 3:
+                    cubic.setAttribute("src", "img/cubic_3.png");
+                    break;
+                case 4:
+                    cubic.setAttribute("src", "img/cubic_4.png");
+                    break;
+                case 5:
+                    cubic.setAttribute("src", "img/cubic_5.png");
+                    break;
+                case 6:
+                    cubic.setAttribute("src", "img/cubic_6.png");
+                    break;
+            }
+        }, 1500)
+
+        console.log("На кубике: " + cubicScore);
         players[current].name.style.transition = ".2s";
         players[current].protection = false;
-        console.log("Защита = false");
-        setTimeout(move, 2000);
-        drawScore();
+        setTimeout(unshiftTokens, 3000);
+        setTimeout(move, 3000);
     }
-
 }
 
-function drawScore() {
-    divScore.className = "cubic-score";
-    if (players[current].skipMoves == 0) {
-        divScore.innerHTML = "<p>" + cubicScore + "</p>";
-    } else {
-        divScore.innerHTML = "<p>--</p>";
-    }
+function moveInfo() {
+//ваш ход!
+    divScore.className = "move-info";
+    divScore.innerHTML = "<p>ваш ход!</p>";
     let addressField = document.querySelector(".field");
     addressField.append(divScore);
-    console.log("На кубике: " + cubicScore);
+    let addressP = divScore.querySelector("p");
+    addressP.className = "move-info__yours";
+}
+
+function skipInfo() {
+//пропуск
+    divScore.remove();
+    divScore.className = "move-info";
+    divScore.innerHTML = "<p>пропуск</p>";
+    let addressField = document.querySelector(".field");
+    addressField.append(divScore);
+    let addressP = divScore.querySelector("p");
+    addressP.className = "move-info__skip";
 }
 
 // сменить игрока
-// ВАЖНО! Этот код должен испольняться только при условии, что предыдущий ход ПОЛНОСТЬЮ завершен, иначе будут баги
+// ВАЖНО! Этот код должен исполняться только при условии, что предыдущий ход ПОЛНОСТЬЮ завершен, иначе будут баги
 
 function changePlayer() {
 
@@ -240,7 +291,6 @@ function changePlayer() {
     } else {
         players[current].bonusMoves--;
     }
-
 }
 
 // движение фишки на определенное число ходов после броска кубика
@@ -249,14 +299,12 @@ function changePlayer() {
 function move() {
 
     if ( getNextMoveDirection() ) { // выполняется, если игрок еще не дошёл до финиша
-
         players[current].currentCell++;
         stepsCounter++;
 
         if( stepsCounter < cubicScore ){
             setTimeout( move, 300 );
         }
-
     }
 
     // выполняется в момент окончания движения:
@@ -266,7 +314,6 @@ function move() {
         showGlobals();
         getConditionAfterMove(); // выход из функции move
     }
-
 }
 
 // определение направления движения + совершение движения
@@ -301,7 +348,7 @@ function getNextMoveDirection() {
 
 function moveOneStepRight() {
     let currentLeft = window.getComputedStyle(players[current].name).left;
-    let numEl = parseInt(currentLeft.replace(/[^\d]/g, ''));
+    let numEl = parseInt(currentLeft.replace(/[px]/g, ''));
     players[current].name.style.left = numEl + 40 + "px";
 }
 
@@ -309,7 +356,7 @@ function moveOneStepRight() {
 
 function moveOneStepLeft() {
     let currentLeft = window.getComputedStyle(players[current].name).left;
-    let numEl = parseInt(currentLeft.replace(/[^\d]/g, ''));
+    let numEl = parseInt(currentLeft.replace(/[px]/g, ''));
     players[current].name.style.left = numEl - 40 + "px";
 }
 
@@ -317,7 +364,7 @@ function moveOneStepLeft() {
 
 function moveOneStepTop() {
     let currentTop = window.getComputedStyle(players[current].name).top;
-    let numEl = parseInt(currentTop.replace(/[^\d]/g, ''));
+    let numEl = parseInt(currentTop.replace(/[px]/g, ''));
     players[current].name.style.top = numEl - 40 + "px";
 }
 
@@ -325,8 +372,120 @@ function moveOneStepTop() {
 
 function moveOneStepDown() {
     let currentTop = window.getComputedStyle(players[current].name).top;
-    let numEl = parseInt(currentTop.replace(/[^\d]/g, ''));
+    let numEl = parseInt(currentTop.replace(/[px]/g, ''));
     players[current].name.style.top = numEl + 40 + "px";
+}
+
+// визуальное смещение фишки, если на клетке есть соперники
+
+function shiftTokens(count) {
+
+    let dir = cellMap[players[current].currentCell].shift
+    console.log("shift = " + dir);
+
+    switch (count) { // сколько игроков на клетке, на которую current player попал?
+        case 1:
+            players[current].shiftPos = 2;
+            switch (dir) {
+                case "up":
+                    players[current].name.style.marginTop = "-25px";
+                    break;
+                case "down":
+                    players[current].name.style.marginTop = "1px";
+                    break;
+                case "right":
+                    players[current].name.style.marginLeft = "11px";
+                    break;
+                case "left":
+                    players[current].name.style.marginLeft = "-15px";
+                    break;
+            }
+            break;
+
+        case 2:
+            players[current].shiftPos = 3;
+            switch (dir) {
+                case "up":
+                    players[current].name.style.marginTop = "-38px";
+                    break;
+                case "down":
+                    players[current].name.style.marginTop = "14px";
+                    break;
+                case "right":
+                    players[current].name.style.marginLeft = "24px";
+                    break;
+                case "left":
+                    players[current].name.style.marginLeft = "-28px";
+                    break;
+            }
+            break;
+
+        case 3:
+            players[current].shiftPos = 4;
+            switch (dir) {
+                case "up":
+                    players[current].name.style.marginTop = "-51px";
+                    break;
+                case "down":
+                    players[current].name.style.marginTop = "27px";
+                    break;
+                case "right":
+                    players[current].name.style.marginLeft = "37px";
+                    break;
+                case "left":
+                    players[current].name.style.marginLeft = "-41px";
+                    break;
+            }
+            break;
+    }
+}
+
+// сброс смещения фишки
+
+function unshiftTokens() {
+    let pos = players[current].shiftPos;
+    console.log("ступень текущего игрока: " + pos)
+    let rivalsArray = getRivalsArray();
+    let dir = cellMap[players[current].currentCell].shift
+    let spec = []; // массив, в котором будут храниться игроки, у которых надо уменьшить shiftPos
+
+    for (let i = 0; i < rivalsArray.length; i++) { // собрать всех игроков, которые занимают позицию выше, чем current player
+
+        if (rivalsArray[i].shiftPos > pos) {
+
+            console.log(rivalsArray[i].label + " будет смещен");
+            spec.push(rivalsArray[i]);
+            let cutTop = window.getComputedStyle(rivalsArray[i].name).marginTop;
+            let numTop = parseInt(cutTop.replace(/[px]/g, ''));
+            console.log("marginTop " + numTop);
+            let cutLeft = window.getComputedStyle(rivalsArray[i].name).marginLeft;
+            let numLeft = parseInt(cutLeft.replace(/[px]/g, ''));
+            console.log("marginLeft " + numLeft);
+
+            switch (dir) {
+                case "up":
+                    rivalsArray[i].name.style.marginTop = numTop + 13 + "px";
+                    break;
+                case "down":
+                    rivalsArray[i].name.style.marginTop = numTop - 13 + "px";
+                    break;
+                case "right":
+                    rivalsArray[i].name.style.marginLeft = numLeft - 13 + "px";
+                    break;
+                case "left":
+                    rivalsArray[i].name.style.marginLeft = numLeft + 13 + "px";
+                    break;
+            }
+        }
+    }
+
+    for (let i = 0; i < spec.length; i++) { // уменьшить показатель позиции
+        console.log("уменьшается ступень для " + spec[i].label)
+        spec[i].shiftPos--;
+    }
+    players[current].name.style.marginTop = "-12px";
+    players[current].name.style.marginLeft = "-2px";
+    players[current].shiftPos = 1;
 }
 
 // движение фишки на ПЬЕДЕСТАЛ
@@ -412,14 +571,30 @@ function getMyLosePlace() {
     }
 }
 
-// проверка условия по окончании хода
+// проверка состояния по окончании хода
+// ОСТОРОЖНО! Если игрок переместился по стрелке, функция активирует сама себя еще раз
 
 function getConditionAfterMove() {
 
     let getCellId = players[current].currentCell;
 
-    setTimeout(getConflictStatus, 500);
+    if (cellMap[getCellId].type != "arrow") { // выполняется, если игрок не на стрелке
 
+        if (stId < cpId && getCellId >= cpId) { // игрок пересек чекпойнт
+            messageCheckpoint();
+        }
+
+        let rivalsArray = getRivalsArray(); // работа с соперниками на клетке
+        let check = false;
+        if (rivalsArray.length > 0) {
+            console.log("Соперников: " + rivalsArray.length);
+            check = getProtectionStatus(rivalsArray);
+            setTimeout(shiftTokens, 50, rivalsArray.length); // смещение фишки после приземления на клетку с соперниками
+        }
+        setTimeout(getConflictStatus, 500, rivalsArray, check);
+    }
+
+    // проверка условия на клетке
         switch (cellMap[getCellId].type) {
             case "arrow":
                 console.log(players[current].label + " на стрелке");
@@ -457,24 +632,23 @@ function getConditionAfterMove() {
         }
 }
 
-// атака на соперника
+// посчитать соперников
 
-function getConflictStatus() {
+function getRivalsArray() {
 
     let rivalsArray = [];
-    let check = false;
-
     // посчитать соперников и занести их в массив
     for (let i = 0; i < players.length; i++) {
         if (players[i].currentCell == players[current].currentCell && players[i].name != players[current].name) {
             rivalsArray.push(players[i]);
         }
     }
+    return rivalsArray;
+}
 
-    if (rivalsArray.length > 0) {
-        console.log("Соперников: " + rivalsArray.length);
-        check = getProtectionStatus(rivalsArray);
-    }
+// проверка статуса конфликта
+
+function getConflictStatus(rivalsArray, check) {
 
     if ( check == false ) { // если соперники защищены, атаки не произойдет
 
@@ -495,6 +669,7 @@ function getConflictStatus() {
                             break;
                         } else if (choice == null) {
                             console.log(players[current].label + " отказался от конфликта");
+                            messageAttackNoOne();
                             break;
                         } else {
                             alert("Неправильное значение! Попробуйте снова");
@@ -503,7 +678,7 @@ function getConflictStatus() {
                     break;
                 case 3:
                     for (;;) {
-                        let choice = +prompt("Соперников много! Введите 1, чтобы атаковать " + rivalsArray[0].label + ", 2, чтобы атаковать " + rivalsArray[1].label + ", либо 3, чтобы атаковать " + rivalsArray[2].label);
+                        let choice = prompt("Соперников много! Введите 1, чтобы атаковать " + rivalsArray[0].label + ", 2, чтобы атаковать " + rivalsArray[1].label + ", либо 3, чтобы атаковать " + rivalsArray[2].label);
                         if (choice == 1) {
                             startAttack(rivalsArray[0]);
                             break;
@@ -515,6 +690,7 @@ function getConflictStatus() {
                             break;
                         } else if (choice == null) {
                             console.log(players[current].label + " отказался от конфликта");
+                            messageAttackNoOne();
                             break;
                         } else {
                             alert("Неправильное значение! Попробуйте снова");
@@ -560,12 +736,13 @@ function startAttack(rival) {
         console.log(rival.label + " пропустит ход, а " + players[current].label + " ходит ещё раз");
         messageAttack(rival);
         messageAttackResult(rival);
-        divScore.remove();
+        moveInfo();
         rival.skipMoves++;
         players[current].bonusMoves++;
         players[current].power--;
         if (players[current].power == 0) {
-            alert("Энергии больше нет! Красная клетка приведёт к поражению!");
+            alert("ПРЕДУПРЕЖДЕНИЕ: Энергия кончилась! Красная клетка приведёт к поражению!");
+            messageCritic();
         }
         refreshPowercells();
         console.log(players[current].label + ": энергия теперь = " + players[current].power);
@@ -579,11 +756,15 @@ function startAttack(rival) {
 // телепортация фишки
 
 function executeTeleport() {
-    if (players[current].currentCell != 0) {
+    let start = players[current].currentCell;
+    let tar = cellMap[start];
+    stId = start;
+
+    if (start != 0) {
         players[current].name.style.transition = ".5s";
     }
-    let tar = cellMap[players[current].currentCell];
-    if (players[current].currentCell != 0) {
+
+    if (start != 0) {
         players[current].currentCell += tar.idChange;
     }
     players[current].name.style.left = cellMap[tar.teleportTo].coorX + "px";
@@ -618,7 +799,7 @@ function executeRed() {
 function executeYellow() {
     players[current].bonusMoves++;
     messageYellow();
-    divScore.remove();
+    moveInfo();
     changePlayer();
 }
 
@@ -635,7 +816,6 @@ function executeGreen() {
 function moveIsOver() {
 
     changePlayer();
-    divScore.remove();
 
     while (players[current].finished == true) {
         console.log(players[current].label + " отсутствует на поле");
@@ -647,6 +827,7 @@ function moveIsOver() {
     } else {
         console.log(players[current].label + " ХОДИТ");
         messageMoving();
+        moveInfo();
     }
 }
 
@@ -674,6 +855,7 @@ function showGlobalsBeforeRace() {
     console.log(playerB.label + " энергия: " + playerA.power);
     console.log(playerC.label + " энергия: " + playerA.power);
     console.log(playerD.label + " энергия: " + playerA.power);
+    console.log(cpId);
 }
 
 // прыжок на определённую клетку
