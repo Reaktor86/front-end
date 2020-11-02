@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="button">
+    Открыть
+</button>
+
+
+<div class="popup">
+    <h3>Тестовое сообщение</h3>
+    <form>
+        <input type="text" name="text" class="input__text1">
+        <input type="text" name="text2" class="input__text2">
+        <input type="button" name="button" value="Понятно">
+    </form>
+    <button class="close__div">
+        <div class="close close1"></div>
+        <div class="close close2"></div>
+    </button>
+</div>
+
+
+<script>
+
+let button = document.querySelector(".button");
+let popup = document.querySelector(".popup");
+let close = document.querySelector(".close__div");
+button.addEventListener("click", showPopup);
+close.addEventListener("click", hidePopup);
+
+function showPopup() {
+    popup.style.display = "block";
+    button.removeEventListener("click", showPopup);
+    button.addEventListener("click", hidePopup);
+}
+
+function hidePopup() {
+    popup.style.display = "none";
+    button.removeEventListener("click", hidePopup);
+    button.addEventListener("click", showPopup);
+}
+
+</script>
+
+</body>
+</html>
