@@ -4,13 +4,11 @@
     background-color: #fcc964;
     border-radius: 10px;
     border: none;
+    position: fixed;
 }
 
-.black {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    /*display: none;*/
+body {
+    margin: 0;
 }
 
 .popup {
@@ -19,9 +17,14 @@
     border: 2px solid red;
     background-color: white;
     padding: 20px;
-    position: relative;
-    margin: 200px auto;
-    /*display: none;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1010;
+    display: none;
 }
 
 .popup h3 {
@@ -69,4 +72,13 @@ form input[name="button"] {
     margin: 0 auto;
     border-color: red;
     background-color: transparent;
+}
+
+.layout {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    z-index: 1000;
+    display: none;
 }

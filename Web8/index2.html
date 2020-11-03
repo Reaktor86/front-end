@@ -17,7 +17,7 @@
     <form>
         <input type="text" name="text" class="input__text1">
         <input type="text" name="text2" class="input__text2">
-        <input type="button" name="button" value="Понятно">
+        <input type="button" name="button" value="Понятно" class="conf">
     </form>
     <button class="close__div">
         <div class="close close1"></div>
@@ -25,23 +25,30 @@
     </button>
 </div>
 
+<div class="layout"></div>
+
 
 <script>
 
 let button = document.querySelector(".button");
 let popup = document.querySelector(".popup");
 let close = document.querySelector(".close__div");
+let conf = document.querySelector(".conf");
+let layout = document.querySelector(".layout");
 button.addEventListener("click", showPopup);
 close.addEventListener("click", hidePopup);
+conf.addEventListener("click", hidePopup);
 
 function showPopup() {
     popup.style.display = "block";
+    layout.style.display = "block";
     button.removeEventListener("click", showPopup);
     button.addEventListener("click", hidePopup);
 }
 
 function hidePopup() {
     popup.style.display = "none";
+    layout.style.display = "none";
     button.removeEventListener("click", hidePopup);
     button.addEventListener("click", showPopup);
 }
