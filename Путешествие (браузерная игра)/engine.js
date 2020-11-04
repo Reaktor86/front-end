@@ -1,11 +1,11 @@
-function autoexe() {
-    // вставляй сюда доп-код для диагностики. Активируется через 1 сек после загрузки
+setTimeout(function () {
+// вставляй сюда доп-код для диагностики
     console.log("Сработала автозагрузка");
     /*jumpToCell(playerA, 27);
     jumpToCell(playerB, 27);
     jumpToCell(playerC, 27);
     jumpToCell(playerD, 27);*/
-}
+}, 1000);
 
 // подготовка
 
@@ -26,23 +26,23 @@ class Players {
     place = 0 // какое место занял?
     shiftPos = 1 // позиция, если на одной клетке много соперников, по умолчанию 1, самое высокое 4
 
-    constructor(name, model, moveOrder) {
+    constructor(name, label, model, moveOrder) {
         this.name = name;
         this.model = model;
         this.moveOrder = moveOrder;
+        this.label = label;
     }
-
 }
 
-let playerA = new Players(document.querySelector(".player-A"), "white", 1);
-let playerB = new Players(document.querySelector(".player-B"), "white", 2);
-let playerC = new Players(document.querySelector(".player-C"), "white", 3);
-let playerD = new Players(document.querySelector(".player-D"), "white", 4);
+let playerA = new Players(document.querySelector(".player-A"), "Игрок A","white", 1);
+let playerB = new Players(document.querySelector(".player-B"), "Игрок B","white", 2);
+let playerC = new Players(document.querySelector(".player-C"), "Игрок C","white", 3);
+let playerD = new Players(document.querySelector(".player-D"), "Игрок D","white", 4);
 
-playerA.label = "Игрок А";
-playerB.label = "Игрок B";
-playerC.label = "Игрок C";
-playerD.label = "Игрок D";
+playerA.name.style.backgroundImage = "url(\"img/token_a_white.png\")";
+playerB.name.style.backgroundImage = "url(\"img/token_b_white.png\")";
+playerC.name.style.backgroundImage = "url(\"img/token_c_white.png\")";
+playerD.name.style.backgroundImage = "url(\"img/token_d_white.png\")";
 
 let players = [playerA, playerB, playerC, playerD];
 
@@ -51,11 +51,9 @@ setMoveOrder();
 // задать порядок, в котором будут ходить игроки
 
 function setMoveOrder() {
-
     players.sort(function(a, b){
         return a.moveOrder - b.moveOrder
     })
-
 }
 
 let current = 0;
@@ -70,6 +68,46 @@ players[2].name.style.left = "160px";
 players[2].name.style.top = "640px";
 players[3].name.style.left = "160px";
 players[3].name.style.top = "680px";
+
+// свечение current player и анимация
+
+let playerGlow = document.querySelectorAll(".player__glow");
+
+for (let i = 0; i < playerGlow.length; i++) {
+    setInterval( function () {
+        playerGlow[i].classList.add("player__glow-end");
+        setTimeout( function () {
+            playerGlow[i].classList.remove("player__glow-end");
+            playerGlow[i].classList.add("player__glow-start");
+        }, 500);
+        setTimeout( function () {
+            playerGlow[i].classList.remove("player__glow-start");
+        }, 1000);
+    }, 1000);
+}
+
+// канцелярские кнопки на фишках
+
+function setNail(playerName, skip) {
+    console.log("Будет поставлен гвоздик: " + skip);
+    let addressNail = playerName.querySelector(".player__nail");
+    switch (skip) {
+        case 0:
+            addressNail.classList.remove("player__nail-act");
+            break;
+        case 1:
+            addressNail.setAttribute("src", "img/nail-1.png");
+            addressNail.classList.add("player__nail-act");
+            break;
+        case 2:
+            addressNail.setAttribute("src", "img/nail-2.png");
+            addressNail.classList.add("player__nail-act");
+            break;
+        default:
+            addressNail.setAttribute("src", "img/nail-3.png");
+            addressNail.classList.add("player__nail-act");
+    }
+}
 
 // задать энергию
 
@@ -181,20 +219,20 @@ function refreshPowercells() {
 let divScore = document.createElement("div");
 let cubic = document.querySelector(".cubic");
 let cubicScore;
-cubic.addEventListener('click', throwCubic);
+cubic.addEventListener('click', throwCubic, {once: true});
 let stepsCounter = 0; // считалка ходов
 let stId; // запоминает id клетки, с которой игрок начал движение
 let cpId; // какой id чекпойнта в загруженной карте?
-for (let i = 0; i < cellMap.length; i++) {
-    if (cellMap[i].type == "checkpoint") {
-        cpId = cellMap[i].cellid;
+for (let i = 0; i < Map01.length; i++) {
+    if (Map01[i].type == "checkpoint") {
+        cpId = Map01[i].cellid;
         break;
     }
 }
+let playerRival = [];
+let selectedRival;
 
 showGlobalsBeforeRace();
-
-setTimeout(autoexe, 1000);
 
 // НАЧАЛО ИГРЫ
 
@@ -213,15 +251,17 @@ function throwCubic(num) {
         skipInfo();
         messageSkipMove();
         players[current].skipMoves--;
+        setTimeout(function () {
+            setNail(players[current].name, players[current].skipMoves);
+        }, 2000);
         setTimeout(moveIsOver, 2000);
     } else {
 
-    // чит-код
-        if (typeof num == "number") {
-            cubicScore = num;
-        } else {
-            cubicScore = Math.ceil(Math.random() * 6);
-        }
+    if (typeof num == "number") { // условие для чит-кода
+        cubicScore = num;
+    } else {
+        cubicScore = Math.ceil(Math.random() * 6); // святая святых! бросание кубика
+    }
 
     //анимация
         cubic.setAttribute("src", "img/cubic_spin.gif");
@@ -245,6 +285,8 @@ function throwCubic(num) {
                 case 6:
                     cubic.setAttribute("src", "img/cubic_6.png");
                     break;
+                default:
+                    cubic.setAttribute("src", "img/cubic_1.png");
             }
         }, 1500)
 
@@ -322,7 +364,7 @@ function getNextMoveDirection() {
 
     let getCellId = players[current].currentCell;
 
-    switch (cellMap[getCellId].nextStep) {
+    switch (Map01[getCellId].nextStep) {
         case "top":
             moveOneStepTop();
             return true;
@@ -380,8 +422,8 @@ function moveOneStepDown() {
 
 function shiftTokens(count) {
 
-    let dir = cellMap[players[current].currentCell].shift
-    console.log("shift = " + dir);
+    let dir = Map01[players[current].currentCell].shift
+    console.log("смещение текущего игрока = " + dir);
 
     switch (count) { // сколько игроков на клетке, на которую current player попал?
         case 1:
@@ -446,7 +488,7 @@ function unshiftTokens() {
     let pos = players[current].shiftPos;
     console.log("ступень текущего игрока: " + pos)
     let rivalsArray = getRivalsArray();
-    let dir = cellMap[players[current].currentCell].shift
+    let dir = Map01[players[current].currentCell].shift
     let spec = []; // массив, в котором будут храниться игроки, у которых надо уменьшить shiftPos
 
     for (let i = 0; i < rivalsArray.length; i++) { // собрать всех игроков, которые занимают позицию выше, чем current player
@@ -488,6 +530,7 @@ function unshiftTokens() {
     players[current].shiftPos = 1;
 }
 
+
 // движение фишки на ПЬЕДЕСТАЛ
 
 function moveToPedestal() {
@@ -496,14 +539,15 @@ function moveToPedestal() {
     playersCount--;
     players[current].finished = true;
     players[current].protection = true;
+    players[current].currentCell = -1;
     console.log("Защита = true");
 
     if (players[current].power >= 0) { // игрок дошел до финиша, займёт самое высокое возможное место
         let check = getMyWinPlace();
-        for (let i = 0; i < cellMap.length; i++) {
-            if ( cellMap[i].cellid == check ) {
-                players[current].name.style.left = cellMap[i].coorX + "px";
-                players[current].name.style.top = cellMap[i].coorY + "px";
+        for (let i = 0; i < Map01.length; i++) {
+            if ( Map01[i].cellid == check ) {
+                players[current].name.style.left = Map01[i].coorX + "px";
+                players[current].name.style.top = Map01[i].coorY + "px";
                 console.log(players[current].label + " ДОШЕЛ ДО ФИНИША");
                 messageFinished();
                 break;
@@ -512,10 +556,10 @@ function moveToPedestal() {
 
     } else { // игрок проиграл и займёт последнее возможное место
         let check = getMyLosePlace();
-        for (let i = 0; i < cellMap.length; i++) {
-            if ( cellMap[i].cellid == check ) {
-                players[current].name.style.left = cellMap[i].coorX + "px";
-                players[current].name.style.top = cellMap[i].coorY + "px";
+        for (let i = 0; i < Map01.length; i++) {
+            if ( Map01[i].cellid == check ) {
+                players[current].name.style.left = Map01[i].coorX + "px";
+                players[current].name.style.top = Map01[i].coorY + "px";
                 console.log(players[current].label + " ВЫЛЕТЕЛ С ТРАССЫ");
                 messageLose();
                 break;
@@ -572,64 +616,75 @@ function getMyLosePlace() {
 }
 
 // проверка состояния по окончании хода
-// ОСТОРОЖНО! Если игрок переместился по стрелке, функция активирует сама себя еще раз
+// ОСТОРОЖНО! Если игрок переместился по стрелке, функция активируется еще раз
 
 function getConditionAfterMove() {
 
     let getCellId = players[current].currentCell;
 
-    if (cellMap[getCellId].type != "arrow") { // выполняется, если игрок не на стрелке
+    if (Map01[getCellId].type != "arrow" ) { // выполняется, если игрок не на стрелке
 
         if (stId < cpId && getCellId >= cpId) { // игрок пересек чекпойнт
             messageCheckpoint();
         }
 
-        let rivalsArray = getRivalsArray(); // работа с соперниками на клетке
+        playerRival = getRivalsArray(); // работа с соперниками на клетке
         let check = false;
-        if (rivalsArray.length > 0) {
-            console.log("Соперников: " + rivalsArray.length);
-            check = getProtectionStatus(rivalsArray);
-            setTimeout(shiftTokens, 50, rivalsArray.length); // смещение фишки после приземления на клетку с соперниками
+        if (playerRival.length > 0) {
+            console.log("Соперников: " + playerRival.length);
+            check = getProtectionStatus(playerRival);
+            setTimeout(shiftTokens, 50, playerRival.length); // смещение фишки после приземления на клетку с соперниками
+            setTimeout(getConflictStatus, 500, check); // внутри активируется popup и getCellType
+        } else {
+            setTimeout(getCellType, 500);
         }
-        setTimeout(getConflictStatus, 500, rivalsArray, check);
-    }
 
-    // проверка условия на клетке
-        switch (cellMap[getCellId].type) {
-            case "arrow":
-                console.log(players[current].label + " на стрелке");
-                messageArrow();
-                setTimeout( executeTeleport, 500);
-                setTimeout( getConditionAfterMove, 1000);
-                break;
-            case "yellow":
-                console.log(players[current].label + " на желтой клетке ХОДИТ ЕЩЕ РАЗ");
-                setTimeout( executeYellow, 500);
-                break;
-            case "green":
-                console.log(players[current].label + " на зеленой клетке ПРОПУСТИТ ХОД");
-                setTimeout( executeGreen, 500);
-                break;
-            case "checkpoint":
-                console.log(players[current].label + " на чекпойнте");
-                players[current].protection = true;
-                console.log("Защита = true");
-                setTimeout(moveIsOver, 500);
-                break;
-            case "red":
-                console.log(players[current].label + " на красной клетке");
-                setTimeout( executeRed, 500);
-                break;
-            case "finish":
-                console.log(players[current].label + " на финише");
-                setTimeout(moveToPedestal, 1000);
-                setTimeout(moveIsOver, 3000);
-                break;
-            default:
-                console.log(players[current].label + " на обычной клетке");
-                setTimeout(moveIsOver, 500);
-                break;
-        }
+    } else { // игрок на стрелке
+        setTimeout(getCellType, 500); // внутри активируется getConditionAfterMove
+    }
+}
+
+// проверка условия на клетке //
+// не забыть поставить таймаут 500!!!
+
+function getCellType() {
+
+    let getCellId = players[current].currentCell;
+    switch (Map01[getCellId].type) {
+        case "arrow":
+            console.log(players[current].label + " на стрелке");
+            messageArrow();
+            executeTeleport();
+            setTimeout( getConditionAfterMove, 500);
+            break;
+        case "yellow":
+            console.log(players[current].label + " на желтой клетке ХОДИТ ЕЩЕ РАЗ");
+            executeYellow();
+            break;
+        case "green":
+            console.log(players[current].label + " на зеленой клетке ПРОПУСТИТ ХОД");
+            executeGreen(); // завершение хода
+            break;
+        case "checkpoint":
+            console.log(players[current].label + " на чекпойнте");
+            players[current].protection = true;
+            console.log("Защита = true");
+            moveIsOver();
+            break;
+        case "red":
+            console.log(players[current].label + " на красной клетке");
+            executeRed(); // завершение хода
+            break;
+        case "finish":
+            console.log(players[current].label + " на финише");
+            moveToPedestal();
+            moveIsOver();
+            break;
+        default:
+            console.log(players[current].label + " на обычной клетке");
+            moveIsOver();
+            break;
+    }
 }
 
 // посчитать соперников
@@ -648,69 +703,42 @@ function getRivalsArray() {
 
 // проверка статуса конфликта
 
-function getConflictStatus(rivalsArray, check) {
+function getConflictStatus(check) {
 
     if ( check == false ) { // если соперники защищены, атаки не произойдет
 
         if (players[current].power > 0) { // если у игрока достаточно энергии
 
-            switch (rivalsArray.length) { // проверка, если соперников несколько
+            switch (playerRival.length) { // проверка, если соперников несколько
                 case 1:
-                    startAttack(rivalsArray[0]);
+                    selectedRival = playerRival[0];
+                    popupAttackOnce(selectedRival);
                     break;
                 case 2:
-                    for (;;) {
-                        let choice = prompt("Соперников несколько! Введите 1, чтобы атаковать " + rivalsArray[0].label + ", либо 2, чтобы атаковать " + rivalsArray[1].label);
-                        if (choice == 1) {
-                            startAttack(rivalsArray[0]);
-                            break;
-                        } else if (choice == 2) {
-                            startAttack(rivalsArray[1]);
-                            break;
-                        } else if (choice == null) {
-                            console.log(players[current].label + " отказался от конфликта");
-                            messageAttackNoOne();
-                            break;
-                        } else {
-                            alert("Неправильное значение! Попробуйте снова");
-                        }
-                    }
+                    popupAttackDouble(); // активирует attackOne, attackTwo, attackCancel, кнопку Выбрать другого
                     break;
                 case 3:
-                    for (;;) {
-                        let choice = prompt("Соперников много! Введите 1, чтобы атаковать " + rivalsArray[0].label + ", 2, чтобы атаковать " + rivalsArray[1].label + ", либо 3, чтобы атаковать " + rivalsArray[2].label);
-                        if (choice == 1) {
-                            startAttack(rivalsArray[0]);
-                            break;
-                        } else if (choice == 2) {
-                            startAttack(rivalsArray[1]);
-                            break;
-                        } else if (choice == 3) {
-                            startAttack(rivalsArray[2]);
-                            break;
-                        } else if (choice == null) {
-                            console.log(players[current].label + " отказался от конфликта");
-                            messageAttackNoOne();
-                            break;
-                        } else {
-                            alert("Неправильное значение! Попробуйте снова");
-                        }
-                    }
+                    popupAttackTriple(); // активирует attackOne, attackTwo, attackThree, attackCancel, кнопку Выбрать другого
                     break;
-            } // конец проверки на несколько соперников
+            }
 
         } else { // если у игрока энергия меньше 1-цы
-            if (rivalsArray.length > 0) {
-                alert("Нельзя атаковать игроков! Нет энергии");
+            if (playerRival.length > 0) {
+                popupAttackImp(); // активирует getCellType
+            } else {
+                setTimeout(getCellType, 500);
             }
         }
 
     } else { // соперники защищены - атаковать нельзя
 
         let getCellId = players[current].currentCell;
-        if (cellMap[getCellId].type == "checkpoint") {
-            alert("Нельзя атаковать игроков на чекпойнте");
+        if (Map01[getCellId].type == "checkpoint") {
+            popupAttackImpCP(); // активирует getCellType
+        } else {
+            setTimeout(getCellType, 500);
         }
+
     }
 
 }
@@ -726,49 +754,122 @@ function getProtectionStatus(array) {
     return false;
 }
 
-// атака на соперника
+// атака на 1 соперника: сказал да
 
-function startAttack(rival) {
+function pressAttackYes() {
 
-    console.log("активировалась атака на игрока" + rival.label);
-
-    if ( confirm("Атаковать " + rival.label + " ценой 1 ед. энергии?") ) {
-        console.log(rival.label + " пропустит ход, а " + players[current].label + " ходит ещё раз");
-        messageAttack(rival);
-        messageAttackResult(rival);
-        moveInfo();
-        rival.skipMoves++;
-        players[current].bonusMoves++;
-        players[current].power--;
-        if (players[current].power == 0) {
-            alert("ПРЕДУПРЕЖДЕНИЕ: Энергия кончилась! Красная клетка приведёт к поражению!");
-            messageCritic();
-        }
-        refreshPowercells();
-        console.log(players[current].label + ": энергия теперь = " + players[current].power);
+    hidePopup(AttackOnce, AttackOnceCont);
+    AttackOnceOther.style.display = "none";
+    console.log(selectedRival.label + " пропустит ход, а " + players[current].label + " ходит ещё раз");
+    messageAttack(selectedRival);
+    messageAttackResult(selectedRival);
+    selectedRival.skipMoves++;
+    setNail(selectedRival.name, selectedRival.skipMoves);
+    players[current].bonusMoves++;
+    players[current].power--;
+    if (players[current].power == 0) {
+        popupLowEnergy();
+        messageCritic();
     } else {
-        console.log(players[current].label + " отказался от конфликта");
-        messageAttackCancel(rival);
+        refreshPowercells();
+        console.log(players[current].label + ": сила теперь = " + players[current].power);
+        setTimeout(getCellType, 500);
     }
+}
+// атака на 1 соперника: сказал нет
 
+function pressAttackNo() {
+    hidePopup(AttackOnce, AttackOnceCont);
+    AttackOnceOther.style.display = "none";
+    console.log(players[current].label + " отказался от конфликта");
+    messageAttackCancel(selectedRival);
+    setTimeout(getCellType, 500);
+}
+
+// атака: выбрал первого
+
+function pressAttackOne() {
+    hidePopup(AttackDouble, AttackDoubleCont);
+    hidePopup(AttackTriple, AttackTripleCont);
+    selectedRival = playerRival[0];
+    AttackOnceOther.style.display = "block";
+    popupAttackOnce(selectedRival);
+}
+
+// атака: выбрал второго
+
+function pressAttackTwo() {
+    hidePopup(AttackDouble, AttackDoubleCont);
+    hidePopup(AttackTriple, AttackTripleCont);
+    selectedRival = playerRival[1];
+    AttackOnceOther.style.display = "block";
+    popupAttackOnce(selectedRival);
+}
+
+// атака: выбрал третьего
+
+function pressAttackThree() {
+    hidePopup(AttackTriple, AttackTripleCont);
+    selectedRival = playerRival[2];
+    AttackOnceOther.style.display = "block";
+    popupAttackOnce(selectedRival);
+}
+
+// атака: отказался от любых атак (нажал Отмена)
+
+function pressAttackCancel() {
+    console.log(players[current].label + " отказался от конфликта");
+    hidePopup(AttackDouble, AttackDoubleCont);
+    hidePopup(AttackTriple, AttackTripleCont);
+    messageAttackNoOne();
+    setTimeout(getCellType, 500);
+}
+
+// атака: выбрать другого
+
+function pressOtherRival() {
+    hidePopup(AttackOnce, AttackOnceCont);
+    hidePopup(AttackDouble, AttackDoubleCont);
+    hidePopup(AttackTriple, AttackTripleCont);
+    switch (playerRival.length) {
+        case 2:
+            popupAttackDouble();
+            break;
+        case 3:
+            popupAttackTriple();
+            break;
+    }
+}
+
+// атака невозможна
+
+function pressAttackImp() {
+    console.log("Нажат ОК");
+    hidePopup(AttackImp, AttackImpCont);
+    setTimeout(getCellType, 500);
+    if (players[current].power == 0) {
+        refreshPowercells();
+        console.log(players[current].label + ": сила теперь = " + players[current].power);
+    }
 }
 
 // телепортация фишки
 
 function executeTeleport() {
-    let start = players[current].currentCell;
-    let tar = cellMap[start];
+    let start = players[current].currentCell; // сохранить значение, откуда он телепортируется
+    let tar = Map01[start]; // сохранить объект-клетку, с которой телепортируется
     stId = start;
 
     if (start != 0) {
         players[current].name.style.transition = ".5s";
     }
-
     if (start != 0) {
         players[current].currentCell += tar.idChange;
     }
-    players[current].name.style.left = cellMap[tar.teleportTo].coorX + "px";
-    players[current].name.style.top = cellMap[tar.teleportTo].coorY + "px";
+// у игрока изменился currentCell
+    console.log("Телепорт с " + start + " на " + Map01[tar.teleportTo].cellid);
+    players[current].name.style.left = Map01[tar.teleportTo].coorX + "px";
+    players[current].name.style.top = Map01[tar.teleportTo].coorY + "px";
 }
 
 // RED функция красной клетки - назад к чекпойнту, -1 ед энергии
@@ -781,16 +882,27 @@ function executeRed() {
         setTimeout(moveIsOver, 3000);
         setTimeout(moveToPedestal, 1000);
     } else {
-        console.log(players[current].label + ": энергия теперь = " + players[current].power);
+        console.log(players[current].label + ": сила теперь = " + players[current].power);
+        setTimeout(refreshPowercells, 500);
         players[current].protection = true;
         console.log("Защита = true");
-        if (players[current].power == 0) {
-            alert("Энергии больше нет! Красная клетка приведёт к поражению!");
-        }
-        setTimeout(refreshPowercells, 500);
         executeTeleport();
         messageReturnCheckpoint();
-        moveIsOver();
+        setTimeout(checkShiftAfterRed, 500);
+    }
+}
+
+// проверка смещения фишки после красной клетки
+
+function checkShiftAfterRed() {
+    let rivalsArray = getRivalsArray();
+    if (rivalsArray.length > 0) {
+        setTimeout(shiftTokens, 50, rivalsArray.length);
+    }
+    if (players[current].power == 0) {
+        popupLowEnergy();
+    } else {
+        setTimeout(moveIsOver, 55);
     }
 }
 
@@ -801,12 +913,14 @@ function executeYellow() {
     messageYellow();
     moveInfo();
     changePlayer();
+    cubic.addEventListener('click', throwCubic, {once: true});
 }
 
 // GREEN функция зеленой клетки - пропуск хода
 
 function executeGreen() {
     players[current].skipMoves++;
+    setNail(players[current].name, players[current].skipMoves);
     messageGreen();
     moveIsOver();
 }
@@ -814,6 +928,9 @@ function executeGreen() {
 // исполняется по окончании хода
 
 function moveIsOver() {
+
+    let glowOld = players[current].name.querySelector(".player__glow");
+    glowOld.classList.remove("player__glow-act");
 
     changePlayer();
 
@@ -828,6 +945,9 @@ function moveIsOver() {
         console.log(players[current].label + " ХОДИТ");
         messageMoving();
         moveInfo();
+        let glowNew = players[current].name.querySelector(".player__glow");
+        glowNew.classList.add("player__glow-act");
+        cubic.addEventListener('click', throwCubic, {once: true});
     }
 }
 
@@ -851,10 +971,10 @@ function showGlobals() {
 }
 
 function showGlobalsBeforeRace() {
-    console.log(playerA.label + " энергия: " + playerA.power);
-    console.log(playerB.label + " энергия: " + playerA.power);
-    console.log(playerC.label + " энергия: " + playerA.power);
-    console.log(playerD.label + " энергия: " + playerA.power);
+    console.log(playerA.label + " сила: " + playerA.power);
+    console.log(playerB.label + " сила: " + playerA.power);
+    console.log(playerC.label + " сила: " + playerA.power);
+    console.log(playerD.label + " сила: " + playerA.power);
     console.log(cpId);
 }
 
@@ -862,8 +982,8 @@ function showGlobalsBeforeRace() {
 
 function jumpToCell(player, cell) {
     console.log(player.label + " телепорт на клетку " + cell);
-    player.name.style.left = cellMap[cell].coorX + "px";
-    player.name.style.top = cellMap[cell].coorY + "px";
+    player.name.style.left = Map01[cell].coorX + "px";
+    player.name.style.top = Map01[cell].coorY + "px";
     player.currentCell = cell;
 }
 

@@ -16,7 +16,7 @@ class Buyer {
     }
 
 // работающая конструкция с алертами
-    /*set firstName(x) {
+    set firstName(x) {
         if (x.length < 3) {
             alert("Слишком короткое имя");
         } else {
@@ -38,23 +38,7 @@ class Buyer {
 
     get bill() {
         return this._bill;
-    }*/
-
-    get fnError() {
-        if (this._firstName.length < 3) {
-            document.write(" (ОШИБКА! Слишком короткое имя) ");
-        }
     }
-
-    get billError() {
-        if (!(typeof this._bill === "number" && this._bill >= 0)) {
-            document.write(" (ОШИБКА! Неверное значение счёта) ");
-        }
-    }
-
-    /*document.write(" (ОШИБКА! Слишком короткое имя) ");
-    document.write(" (ОШИБКА! Неверное значение счёта) ");*/
-
 
 
     showClient() {

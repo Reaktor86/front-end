@@ -1,6 +1,6 @@
 // параметры трассы 01
 
-let cellMap = [
+let Map01 = [
 
     {
         cellid: 0,

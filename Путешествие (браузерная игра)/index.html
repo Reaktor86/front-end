@@ -73,6 +73,8 @@
                 <p><span class="span__p4">4 место:&nbsp;&nbsp;</span> $ 70</p>
             </div>
 
+            <h1 class="map-name">Трасса 1: Разминка</h1>
+
         </div>
 
         <div class="right-block">
@@ -183,22 +185,103 @@
             <div class="settings">
 
             </div>
+
         </div>
 
-        <img class="player player-A" src="img/token_a_white.png">
-        <img class="player player-B" src="img/token_b_white.png">
-        <img class="player player-C" src="img/token_c_white.png">
-        <img class="player player-D" src="img/token_d_white.png">
+        <div class="player player-A">
+            <img class="player__glow player__glow-act" src="img/token_glow.svg">
+            <img class="player__nail" src="img/nail-1.png">
+        </div>
+        <div class="player player-B">
+            <img class="player__glow" src="img/token_glow.svg">
+            <img class="player__nail" src="img/nail-1.png">
+        </div>
+        <div class="player player-C">
+            <img class="player__glow" src="img/token_glow.svg">
+            <img class="player__nail" src="img/nail-1.png">
+        </div>
+        <div class="player player-D">
+            <img class="player__glow" src="img/token_glow.svg">
+            <img class="player__nail" src="img/nail-1.png">
+        </div>
+
+        <div class="popup js-attack-once">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>Возможность атаки</h2>
+                </div>
+                <p>На клетке сидит <span class="span__imp">Игрок Х</span></p>
+                <p>Атаковать его ценой 1 ед. силы?</p>
+                <div class="popup__power-flex">
+                    <p class="popup__power-text popup__power-text1">Сил сейчас:</p>
+                    <p class="popup__now js-popup-now">x</p>
+                    <p class="popup__power-text popup__power-text2">Сил останется:</p>
+                    <p class="popup__after js-popup-after">x</p>
+                </div>
+                <div class="popup__button-flex">
+                    <button class="popup__button popup__button--other js-popup-other">Другой</button>
+                    <button class="popup__button popup__button--decline js-popup-decline"><img src="img/x-mark.png">НЕТ</button>
+                    <button class="popup__button popup__button--confirm js-popup-confirm"><img src="img/check.png">ДА</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup js-attack-double">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>Двойная атака</h2>
+                </div>
+                <p>На клетке сразу два соперника!<br>Кого атаковать?</p>
+                <div class="popup__button-r-flex">
+                    <button class="popup__button-r popup__button-r1 js-popup-r1">Игрок 1</button>
+                    <button class="popup__button-r popup__button-r2 js-popup-r2">Игрок 2</button>
+                </div>
+                <button class="popup__button popup__button--cancel js-popup-cancel"><img src="img/x-mark.png">Отмена</button>
+            </div>
+        </div>
+
+        <div class="popup js-attack-triple">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>КРУГОМ ВРАГИ!</h2>
+                </div>
+                <p>На клетке толпа соперников!<br>Кого атаковать?</p>
+                <div class="popup__button-r-flex popup__button-r-flex-triple">
+                    <button class="popup__button-r popup__button-r1 js-popup-r1">Игрок 1</button>
+                    <button class="popup__button-r popup__button-r2 js-popup-r2">Игрок 2</button>
+                    <button class="popup__button-r popup__button-r3 js-popup-r3">Игрок 3</button>
+                </div>
+                <button class="popup__button popup__button--cancel js-popup-cancel"><img src="img/x-mark.png">Отмена</button>
+            </div>
+        </div>
+
+        <div class="popup popup__center js-attack-imp">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2 class="js-attack-head">Атака невозможна</h2>
+                </div>
+                <p class="js-attack-imp-message">Нельзя атаковать игроков! Нет силы</p>
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button js-popup-ok">OK</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <h1 class="map-name">Трасса 1: Разминка</h1>
+    <div class="popup__overlay"></div>
+
 
 </section>
 
 <script src="logs-creator.js"></script>
 <script src="map01.js"></script>
 <script src="engine.js"></script>
+<script src="popups.js"></script>
 
 </body>
 </html>

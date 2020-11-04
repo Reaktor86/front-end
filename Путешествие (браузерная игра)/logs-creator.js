@@ -169,7 +169,7 @@ function messageRed() {
     addressDiv.append(p3);
 
     let p4 = document.createElement("p");
-    p4.innerHTML = "-1 ед. энергии";
+    p4.innerHTML = "-1 ед. силы";
     addressDiv.append(p4);
 }
 
