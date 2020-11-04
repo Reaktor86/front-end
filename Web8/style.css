@@ -13,7 +13,7 @@ body {
 
 .popup {
     width: 400px;
-    height: 200px;
+    height: 300px;
     border: 2px solid red;
     background-color: white;
     padding: 20px;
@@ -60,18 +60,56 @@ body {
     background-color: transparent;
 }
 
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form__cont {
+    width: 80%;
+}
+
 form input {
-    display: block;
     width: 300px;
-    margin: 0 auto 20px;
+    margin: 5px 0 0 0;
 }
 
 form input[name="button"] {
     width: 90px;
     height: 30px;
-    margin: 0 auto;
+    margin-left: 100px;
     border-color: red;
     background-color: transparent;
+}
+
+form p {
+    font-size: 14px;
+    margin: 0;
+    color: #ffffff; /*#9a9a9a*/
+    font-family: sans-serif;
+    transition: .5s;
+}
+
+.form__err {
+    color: white;
+    margin: 0 0 15px 0;
+}
+
+.form__adv-name {
+    visibility: hidden;
+}
+
+.form__adv-phone {
+    visibility: hidden;
+}
+
+.form__err-name {
+    visibility: hidden;
+    margin: 0;
+}
+
+.form__err-phone {
+    visibility: hidden;
 }
 
 .layout {

@@ -13,11 +13,17 @@
 
 
 <div class="popup">
-    <h3>Тестовое сообщение</h3>
+    <h3>Введите данные</h3>
     <form>
-        <input type="text" name="text" class="input__text1">
-        <input type="text" name="text2" class="input__text2">
-        <input type="button" name="button" value="Понятно" class="conf">
+        <div class="form__cont">
+            <p class="form__adv form__adv-name">введите имя</p>
+            <input type="text" name="text" class="input__text1" placeholder="имя">
+            <p class="form__err form__err-name">* ошибка!</p>
+            <p class="form__adv form__adv-phone">введите телефон</p>
+            <input type="text" name="text2" class="input__text2" placeholder="телефон">
+            <p class="form__err form__err-phone">* ошибка!</p>
+        </div>
+        <input type="submit" name="button" value="Отправить" class="submit">
     </form>
     <button class="close__div">
         <div class="close close1"></div>
@@ -33,11 +39,44 @@
 let button = document.querySelector(".button");
 let popup = document.querySelector(".popup");
 let close = document.querySelector(".close__div");
-let conf = document.querySelector(".conf");
+let submit = document.querySelector(".submit");
 let layout = document.querySelector(".layout");
+let advName = document.querySelector(".form__adv-name");
+let advPhone = document.querySelector(".form__adv-phone");
+let errName = document.querySelector(".form__err-name");
+let errPhone = document.querySelector(".form__err-phone");
+let inputName = document.querySelector(".input__text1");
+let inputPhone = document.querySelector(".input__text2");
+let formSubmit = document.querySelector("form");
 button.addEventListener("click", showPopup);
 close.addEventListener("click", hidePopup);
-conf.addEventListener("click", hidePopup);
+formSubmit.addEventListener("submit", sendData);
+
+inputName.addEventListener("focus", function () {
+    advName.classList.remove("form__adv-name");
+    advName.style.color = "#9a9a9a";
+    errName.classList.add("form__err-name");
+    errName.style.color = "white";
+    errPhone.classList.add("form__err-phone");
+    errPhone.style.color = "white";
+});
+inputName.addEventListener("blur", function () {
+    advName.classList.add("form__adv-name");
+    advName.style.color = "white";
+});
+
+inputPhone.addEventListener("focus", function () {
+    advPhone.classList.remove("form__adv-phone");
+    advPhone.style.color = "#9a9a9a";
+    errName.classList.add("form__err-name");
+    errName.style.color = "white";
+    errPhone.classList.add("form__err-phone");
+    errPhone.style.color = "white";
+});
+inputPhone.addEventListener("blur", function () {
+    advPhone.classList.add("form__adv-phone");
+    advPhone.style.color = "white";
+});
 
 function showPopup() {
     popup.style.display = "block";
@@ -52,6 +91,54 @@ function hidePopup() {
     button.removeEventListener("click", hidePopup);
     button.addEventListener("click", showPopup);
 }
+
+// имя: не пустое, только буквы, не менее 2 символов
+// телефон: не пустое, только цифры, не менее 10 цифр
+
+
+function sendData(e) {
+    e.preventDefault();
+
+//проверка имени
+    let nameCheck;
+    let foundNum = false;
+    if ( /[0-9]/.test(inputName.value) ) {
+        foundNum = true;
+    }
+
+    if (foundNum != true && inputName.value.length > 2) {
+        errName.classList.add("form__err-name");
+        errName.style.color = "white";
+        nameCheck = true;
+    } else {
+        errName.classList.remove("form__err-name");
+        errName.style.color = "red";
+        nameCheck = false;
+    }
+
+// проверка телефона
+    let phoneCheck;
+    let foundLetter = false;
+    if ( !(/[0-9]/.test(inputPhone.value)) ) {
+        foundLetter = true;
+    }
+
+    if (foundLetter != true && inputPhone.value.length > 9) {
+        errPhone.classList.add("form__err-phone");
+        errPhone.style.color = "white";
+        phoneCheck = true;
+    } else {
+        errPhone.classList.remove("form__err-phone");
+        errPhone.style.color = "red";
+        phoneCheck = false;
+    }
+
+// активация отправки
+    if (nameCheck == true && phoneCheck == true) {
+        hidePopup();
+    }
+}
+
 
 </script>
 
