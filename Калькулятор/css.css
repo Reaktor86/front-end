@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+.calc {
+    width: 372px;
+    height: 370px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #9ca7bb;
+    box-shadow: 2px 2px 6px 0 rgb(0, 0, 0), 1px 1px 3px 0 rgb(255, 255, 255) inset;
+    border-radius: 3px;
+    padding: 30px 0 0 20px;
+}
+
+.screen {
+    width: 332px;
+    height: 40px;
+    background-color: #152238;
+    box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, 0.5) inset;
+    border-radius: 1px;
+    padding: 0 15px;
+}
+
+.screen p {
+    line-height: 40px;
+    text-align: right;
+    font-size: 22px;
+}
+
+.block {
+    width: 332px;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.block-wrap {
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 150px;
+}
+
+.button {
+    width: 60px;
+    height: 40px;
+    background: linear-gradient(to bottom, #ffffff, #cbcbcb);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset, .back, .zero, .dot, .equally {
+    width: 80px;
+}
+
+.dot {
+    margin-left: -70px;
+}
+
+.equally {
+    background: linear-gradient(to bottom, #ffefc3, #a89958);
+}
+
+.reset {
+    background: linear-gradient(to bottom, #ffa8a8, #a55555);
+}
+
+.screen__p {
+    color: #e2e2e2;
+}
