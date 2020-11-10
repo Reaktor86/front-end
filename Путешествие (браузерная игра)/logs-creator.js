@@ -8,7 +8,6 @@ let addressLog = document.querySelector(".log");
 let newMessage = document.createElement("div");
 let newTime = document.createElement("p");
 
-setTimeout(createFirstLog, 500);
 function createFirstLog() {
     /*<div class="log__message"></div>*/
     newMessage.className = "log__message";
@@ -25,11 +24,16 @@ function createFirstLog() {
     p1.innerHTML = "ИГРА НАЧАЛАСЬ!";
     addressDiv.append(p1);
 
+    setTimeout( function () {
+        addressDiv.classList.add("log__message__anim");
+    } , 20);
+
     messageMoving();
 }
 
 function createNewLog() {
     let clonenewMessage = newMessage.cloneNode(true);
+    clonenewMessage.classList.remove("log__message__anim");
     clonenewMessage.innerHTML = "";
     addressLog.prepend(clonenewMessage);
     let addressDiv = addressLog.querySelector(".log__message");
@@ -37,6 +41,10 @@ function createNewLog() {
     let clonenewTime = newTime.cloneNode(true);
     clonenewTime.innerHTML = getNewTimeString();
     addressDiv.append(clonenewTime);
+
+    setTimeout( function () {
+        addressDiv.classList.add("log__message__anim");
+    } , 20);
 }
 
 function messageMoving() {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Путешествие</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="popups.css">
     <link rel="stylesheet" href="map01-cells.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@100;300;400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +14,7 @@
 
     <div class="container__flex">
 
-        <div class="field">
+        <div class="divs field">
             <div class="cell-start cell-start--1"><p> I </p></div>
             <div class="cell-start cell-start--2"><p> II </p></div>
             <div class="cell-start cell-start--3"><p> III </p></div>
@@ -75,13 +76,19 @@
 
             <h1 class="map-name">Трасса 1: Разминка</h1>
 
+            <div class="move__info">
+                <p class="move__info-p"></p>
+            </div>
+
+            <div class="overlay__cubic"></div>
+            <div class="overlay overlay__popup"></div>
         </div>
 
         <div class="right-block">
-            <div class="info">
+            <div class="divs info">
                 <div class="info__cont">
 
-                    <div class="info__player info__player--A">
+                    <div class="info__player info__player--I">
                         <p class="info__place">I</p>
                         <div class="info__token info__token--A"><p>A</p></div>
                         <div>
@@ -105,7 +112,7 @@
                         </div>
                     </div>
 
-                    <div class="info__player info__player--B">
+                    <div class="info__player info__player--II">
                         <p class="info__place">II</p>
                         <div class="info__token info__token--B"><p>B</p></div>
                         <div>
@@ -129,7 +136,7 @@
                         </div>
                     </div>
 
-                    <div class="info__player info__player--C">
+                    <div class="info__player info__player--III">
                         <p class="info__place">III</p>
                         <div class="info__token info__token--C"><p>C</p></div>
                         <div>
@@ -153,7 +160,7 @@
                         </div>
                     </div>
 
-                    <div class="info__player info__player--D">
+                    <div class="info__player info__player--IV">
                         <p class="info__place">IV</p>
                         <div class="info__token info__token--D"><p>D</p></div>
                         <div>
@@ -179,11 +186,12 @@
 
                 </div>
             </div>
-            <div class="log">
+            <div class="divs log">
 
             </div>
-            <div class="settings">
-
+            <div class="divs settings">
+                <button class="settings__help">?</button>
+                <button class="settings__options"><img src="img/icon-settings.png"></button>
             </div>
 
         </div>
@@ -191,18 +199,98 @@
         <div class="player player-A">
             <img class="player__glow player__glow-act" src="img/token_glow.svg">
             <img class="player__nail" src="img/nail-1.png">
+            <img class="player__think" src="img/think.png">
         </div>
         <div class="player player-B">
             <img class="player__glow" src="img/token_glow.svg">
             <img class="player__nail" src="img/nail-1.png">
+            <img class="player__think" src="img/think.png">
         </div>
         <div class="player player-C">
             <img class="player__glow" src="img/token_glow.svg">
             <img class="player__nail" src="img/nail-1.png">
+            <img class="player__think" src="img/think.png">
         </div>
         <div class="player player-D">
             <img class="player__glow" src="img/token_glow.svg">
             <img class="player__nail" src="img/nail-1.png">
+            <img class="player__think" src="img/think.png">
+        </div>
+
+        <!--ВСПЛЫВАЮЩИЕ ОКНА-->
+
+        <div class="popup popup__center zindex-hard js-enter-name">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>Введите имя *</h2>
+                </div>
+                <form>
+                    <input class="player__name-input" type="text" placeholder="Ваше имя / никнейм" name="player__name">
+                    <p class="player__name-err" >* не более 15 и не менее 2 символов</p>
+                    <button type="submit" class="popup__button popup__button--name js-popup-ok">Готово</button>
+                </form>
+                <p class="player__name-warn">* имя нельзя будет изменить до конца игры</p>
+            </div>
+        </div>
+
+        <div class="popup popup__center zindex-hard js-setAi">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn popup__icon-settings"><img src="img/icon-settings.png"></div>
+                    <h2>Интеллект соперников *</h2>
+                </div>
+
+                <div class="settings__option">
+                    <div class="settings__option-cont">
+                        <h2>Все</h2>
+                        <div class="settings__buttons">
+                            <div class="settings__buttons-1 js-setAi-opt1-a"><img src="img/icon-arrow-left.svg"></div>
+                            <div class="settings__buttons-2 js-setAi-opt1-b"><img src="img/icon-arrow-right.svg"></div>
+                            <p class="js-setAi-opt1">Разные</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings__option">
+                    <div class="settings__option-cont">
+                        <h2>Игрок A</h2>
+                        <div class="settings__buttons">
+                            <div class="settings__buttons-1 js-setAi-opt2-a"><img src="img/icon-arrow-left.svg"></div>
+                            <div class="settings__buttons-2 js-setAi-opt2-b"><img src="img/icon-arrow-right.svg"></div>
+                            <p class="js-setAi-opt2">Сбалансированный</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings__option">
+                    <div class="settings__option-cont">
+                        <h2>Игрок B</h2>
+                        <div class="settings__buttons">
+                            <div class="settings__buttons-1 js-setAi-opt3-a"><img src="img/icon-arrow-left.svg"></div>
+                            <div class="settings__buttons-2 js-setAi-opt3-b"><img src="img/icon-arrow-right.svg"></div>
+                            <p class="js-setAi-opt3">Рисковый</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings__option">
+                    <div class="settings__option-cont">
+                        <h2>Игрок C</h2>
+                        <div class="settings__buttons">
+                            <div class="settings__buttons-1 js-setAi-opt4-a"><img src="img/icon-arrow-left.svg"></div>
+                            <div class="settings__buttons-2 js-setAi-opt4-b"><img src="img/icon-arrow-right.svg"></div>
+                            <p class="js-setAi-opt4">Осторожный</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup__button-flex">
+                    <button class="popup__button popup__button--other js-popup-reset">Сброс</button>
+                    <button class="popup__button js-popup-ok">Играть с этими настройками</button>
+                </div>
+                <p class="setAi-warn">* нельзя будет изменить до конца игры</p>
+            </div>
         </div>
 
         <div class="popup js-attack-once">
@@ -212,7 +300,7 @@
                     <h2>Возможность атаки</h2>
                 </div>
                 <p>На клетке сидит <span class="span__imp">Игрок Х</span></p>
-                <p>Атаковать его ценой 1 ед. силы?</p>
+                <p>Атаковать ценой 1 ед. силы?</p>
                 <div class="popup__power-flex">
                     <p class="popup__power-text popup__power-text1">Сил сейчас:</p>
                     <p class="popup__now js-popup-now">x</p>
@@ -271,17 +359,374 @@
             </div>
         </div>
 
+        <div class="popup popup__center popup__lose js-lose">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>ПОРАЖЕНИЕ</h2>
+                </div>
+                <div class="popup__winlose-flex">
+                    <img src="img/cry.gif">
+                    <p>Повезёт в другой раз...</p>
+                </div>
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button popup__button--winlose js-popup-ok">Узнать место</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup__center popup__win js-win">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>ПОБЕДА</h2>
+                </div>
+                <div class="popup__winlose-flex">
+                    <img src="img/finished.gif">
+                    <p class="js-winlose-write">ФИНИШИРОВАЛ!</p>
+                </div>
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button popup__button--winlose js-popup-ok">Узнать место</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup__center popup__endrace js-endrace">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>На поле ещё остались игроки</h2>
+                </div>
+                <p>Посмотреть, как доиграют?</p>
+                <div class="popup__button-flex">
+                    <button class="popup__button popup__button--endrace js-button-next">Нет, закончить</button>
+                    <button class="popup__button popup__button--watch js-button-watch">Да</button>
+                </div>
+            </div>
+        </div>
+
+        <!--RANKINGS-->
+
+        <div class="popup popup__center popup__rankings js-rankings">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <img class="rank-warn-img" src="img/pedestal.png">
+                    <h2>ИТОГИ ЗАЕЗДА</h2>
+                </div>
+
+                <div class="legend">
+                    <p>Место</p>
+                    <p class="legend__name">Игрок</p>
+                    <p class="legend__money">Приз</p>
+                    <p class="legend__capital">Всего</p>
+                </div>
+                <div class="rank__item">
+                    <div class="rank__place"><p>I</p></div>
+                    <img class="rank__token js-rank1-token" src="img/token_a_white.png">
+                    <p class="rank__name js-rank1-name"></p>
+                    <p class="rank__money js-rank1-money"></p>
+                    <p class="rank__capital js-rank1-capital"></p>
+                </div>
+                <div class="rank__item">
+                    <div class="rank__place"><p>II</p></div>
+                    <img class="rank__token js-rank2-token" src="img/token_b_white.png">
+                    <p class="rank__name js-rank2-name"></p>
+                    <p class="rank__money js-rank2-money"></p>
+                    <p class="rank__capital js-rank2-capital"></p>
+                </div>
+                <div class="rank__item">
+                    <div class="rank__place"><p>III</p></div>
+                    <img class="rank__token js-rank3-token" src="img/token_c_white.png">
+                    <p class="rank__name js-rank3-name"></p>
+                    <p class="rank__money js-rank3-money"></p>
+                    <p class="rank__capital js-rank3-capital"></p>
+                </div>
+                <div class="rank__item">
+                    <div class="rank__place"><p>IV</p></div>
+                    <img class="rank__token js-rank4-token" src="img/token_d_white.png">
+                    <p class="rank__name js-rank4-name"></p>
+                    <p class="rank__money js-rank4-money"></p>
+                    <p class="rank__capital js-rank4-capital"></p>
+                </div>
+
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button js-popup-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!--МАГАЗИН-->
+
+        <div class="overlay overlay__shop">
+            <div class="popup popup__center popup__shop js-shop">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/icon-shop.png"></div>
+                    <h2>Магазин</h2>
+                </div>
+                <h2 class="shop-h2__h2 shop-h2__inv">Инвентарь</h2>
+
+                <div class="divs shop__inv">
+                    <img class="shop__token-img" src="img/token_d_white.png">
+                    <div class="shop__inv-info-token">
+                        <p class="shop__div-name shop__token-name--own">Белая</p>
+                        <p class="shop__div-class shop__token-class--own">базовая</p>
+                    </div>
+                    <div class="shop__inv-info-cap">
+                        <p class="shop__div-name">Счёт</p>
+                        <p class="shop__div-cap shop__capital">$ 20000</p>
+                    </div>
+                    <div class="shop__inv-item-flex">
+                        <div class="shop__inv-item shop__inv--magnet1"></div>
+                        <div class="shop__inv-item shop__inv--magnet2"></div>
+                        <div class="shop__inv-item shop__inv--magnet3"></div>
+                        <div class="shop__inv-item shop__inv--trap"></div>
+                        <div class="shop__inv-item shop__inv--mop"></div>
+                        <div class="shop__inv-item shop__inv--shield1"></div>
+                        <div class="shop__inv-item shop__inv--shield2"></div>
+                        <div class="shop__inv-item shop__inv--shield3"></div>
+                        <div class="shop__inv-item shop__inv--vampire"></div>
+                        <div class="shop__inv-item shop__inv--imp"></div>
+                    </div>
+                    <div class="shop__inv-item shop__inv--manipulator"></div>
+                    <button class="shop__button button__grey shop__button--sell">Продать</button>
+                </div>
+
+                <div class="shop-h2__cont">
+                    <h2 class="shop-h2__h2">Товар</h2>
+                    <h2 class="shop-h2__h2">Описание</h2>
+                </div>
+
+                <div class="shop__cont">
+                    <div class="divs shop__goods">
+
+                        <div class="shop__goods-wrap shop__goods-wrap--models">
+
+                            <div class="shop__goods-model shop__goods-model--yellow">
+                                <img src="img/token-d-yellow.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Цыпа</p>
+                                    <p class="shop__div-class">стандарт</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 350</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shop__goods-model shop__goods-model--red">
+                                <img src="img/token-d-red.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Вестник</p>
+                                    <p class="shop__div-class">стандарт</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 600</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shop__goods-model shop__goods-model--green">
+                                <img src="img/token-d-green.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Ударник</p>
+                                    <p class="shop__div-class">профи</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 1000</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shop__goods-model shop__goods-model--blue">
+                                <img src="img/token-d-blue.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Сенат</p>
+                                    <p class="shop__div-class">профи</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 1600</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shop__goods-model shop__goods-model--brown">
+                                <img src="img/token-d-brown.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Робеспьер</p>
+                                    <p class="shop__div-class">элита</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 2300</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shop__goods-model shop__goods-model--black">
+                                <img src="img/token-d-black.png">
+                                <div class="shop__goods-model-info">
+                                    <p class="shop__div-name">Мальдини</p>
+                                    <p class="shop__div-class">элита</p>
+                                    <div class="shop__div-cost">
+                                        <p>$ 3000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shop__goods-wrap shop__goods-wrap--items">
+                            <div class="shop__goods-item shop__goods-item--magnet">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--smagnet">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--trap">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--imp">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--shield">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--sshield">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--vampire">
+                                <img src="img/shop-lock.png">
+                            </div>
+                            <div class="shop__goods-item shop__goods-item--manipulator">
+                                <img src="img/shop-lock.png">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="divs shop__des">
+                        <p class="shop__des-name"><b></b></p>
+                        <p class="shop__des-content"></p>
+                        <button class="shop__button button__grey shop__button--buy">Купить</button>
+                    </div>
+                </div>
+
+                <div class="shop__bottom">
+                    <p class="shop__action"></p>
+                    <button class="popup__button shop__button-over"><img src="img/finish.bmp">Следующая трасса</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <div class="popup popup__center zindex-hard js-alert">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2 class="js-alert-heading">Отказано</h2>
+                </div>
+                <p class="js-alert-message">Недостаточно денег для покупки этого предмета</p>
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button js-popup-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup__center zindex-hard js-shop-over">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn"><img src="img/warn.png"></div>
+                    <h2>Вы покидаете магазин</h2>
+                </div>
+                <p>Начать следующую трассу?</p>
+                <div class="popup__button-flex">
+                    <button class="popup__button js-popup-no">Нет</button>
+                    <button class="popup__button js-popup-yes">Да</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="popup__overlay"></div>
+        <!--НАСТРОЙКИ-->
 
+        <div class="popup popup__center zindex-hard js-settings">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn popup__icon-settings"><img src="img/icon-settings.png"></div>
+                    <h2>Настройки</h2>
+                </div>
+                <div class="settings__option">
+                    <div class="settings__option-cont">
+                        <h2>Скорость игры</h2>
+                        <div class="settings__buttons">
+                            <div class="settings__buttons-1 js-sett-opt1-a"><img src="img/icon-arrow-left.svg"></div>
+                            <div class="settings__buttons-2 js-sett-opt1-b"><img src="img/icon-arrow-right.svg"></div>
+                            <p class="js-sett-opt1-par">Нормальная</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button js-popup-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!--ПОМОЩЬ-->
+
+        <div class="popup popup__center zindex-hard js-help">
+            <div class="popup__content js-popup-content">
+                <div class="popup__head">
+                    <div class="popup__warn popup__icon-help"><p>?</p></div>
+                    <h2>Помощь</h2>
+                </div>
+
+                <div class="help__item">
+                    <div><img src="img/help/help-arrow.svg"></div>
+                    <p>Двигайся по стрелке</p>
+                </div>
+                <div class="help__item">
+                    <div><img src="img/help/help-yellow.svg"></div>
+                    <p>Ходи ещё раз</p>
+                </div>
+                <div class="help__item">
+                    <div><img src="img/help/help-green.svg"></div>
+                    <p>Пропуск хода</p>
+                </div>
+                <div class="help__item">
+                    <div><img src="img/help/help-checkpoint.svg"></div>
+                    <p>Чекпойнт</p>
+                </div>
+                <div class="help__item">
+                    <div><img src="img/help/help-red.svg"></div>
+                    <p>-1 ед. силы<br>Возврат на чекпойнт</p>
+                </div>
+
+                <div class="popup__button-flex popup__button-center">
+                    <button class="popup__button js-popup-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="popup popup__center popup__final zindex-hard js-final">
+        <div class="popup__content js-popup-content">
+            <div class="popup__head">
+                <img src="img/finish.bmp">
+                <h2>Спасибо за игру!</h2>
+            </div>
+            <p>Автор демо:<br>Reaktor, ноябрь 2020</p>
+            <a target="_blank" href="https://vk.com/mindlockstudios">Посетить блог разработчика в ВК</a><br><br>
+            <p>Оставляйте свои отзывы и баг-репорты</p>
+        </div>
+    </div>
+
+    <div class="overlay overlay__popup-hard"></div>
 
 </section>
 
+<script src="names.js"></script>
 <script src="logs-creator.js"></script>
 <script src="map01.js"></script>
 <script src="engine.js"></script>
 <script src="popups.js"></script>
+<script src="ai.js"></script>
 
 </body>
 </html>

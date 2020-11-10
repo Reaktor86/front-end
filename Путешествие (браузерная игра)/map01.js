@@ -1,19 +1,48 @@
 // параметры трассы 01
 
-let Map01 = [
+/*
+Принцип работы скриптов map - это универсальность.
+Любая фишка должна в любой момент иметь доступ ко всей необходимой информации о клетке, не прибегая к сложным вычислениям.
+Вся система должна работать на любой трассе с любыми условиями и кол-вом веток.
+Кол-во объектов в массиве MapXX должно соответствовать кол-ву клеток на поле, включая старт, финиш, узлы синих стрелок.
+У каждой фишки могут быть свойства:
+cellid - уникальный id клетки, к которому обращается фишка или другие скрипты
+num - обозначение числа или символа внутри клетки
+type - тип клетки
+coorX - координата left
+coorY - координата top
+stopCondition - специальне стоп-условие, которое выполняется во время движения фишки. Если его нет, то обычное движение.
+teleportTo - если клетка со стрелкой, то указывается id, на какую клетку надо телепортироваться
+shift - направление смещения фишки, если на одну клетку попадает несколько фишек
+countRed - кол-во красных клеток впереди
+stepsToRed - расстояние до ближайшей красной клетки
+countBlack - кол-во чёрных клеток впереди
+stepsToBlack - расстояние до ближайшей чёрной клетки
+stepsToFin - расстояние до финиша
+
+ */
+
+const Map01prise1 = 200;
+const Map01prise2 = 150;
+const Map01prise3 = 100;
+const Map01prise4 = 70;
+let cpId = 15; // чекпойнт
+let redId = 25; // красная
+let finId = 35; // финиш
+
+const Map01 = [
 
     {
         cellid: 0,
         teleportTo: 1,
         idChange: 1,
-        nextStep: "start",
+        stopCondition: "start",
     },
 
     {
         cellid: 1,
         coorX: 200,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -21,7 +50,6 @@ let Map01 = [
         cellid: 2,
         coorX: 240,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -29,7 +57,6 @@ let Map01 = [
         cellid: 3,
         coorX: 280,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -40,7 +67,6 @@ let Map01 = [
         idChange: 3,
         coorX: 320,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -49,7 +75,6 @@ let Map01 = [
         type: "yellow",
         coorX: 360,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -57,7 +82,6 @@ let Map01 = [
         cellid: 6,
         coorX: 400,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -65,7 +89,6 @@ let Map01 = [
         cellid: 7,
         coorX: 440,
         coorY: 560,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -73,7 +96,6 @@ let Map01 = [
         cellid: 8,
         coorX: 480,
         coorY: 560,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -81,7 +103,6 @@ let Map01 = [
         cellid: 9,
         coorX: 480,
         coorY: 520,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -89,7 +110,6 @@ let Map01 = [
         cellid: 10,
         coorX: 480,
         coorY: 480,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -99,8 +119,7 @@ let Map01 = [
         teleportTo: 15,
         idChange: 4,
         coorX: 480,
-        coorY: 480,
-        nextStep: "right",
+        coorY: 440,
         shift: "left",
     },
 
@@ -108,7 +127,6 @@ let Map01 = [
         cellid: 12,
         coorX: 520,
         coorY: 440,
-        nextStep: "right",
         shift: "up",
     },
 
@@ -117,7 +135,6 @@ let Map01 = [
         type: "yellow",
         coorX: 560,
         coorY: 440,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -125,7 +142,6 @@ let Map01 = [
         cellid: 14,
         coorX: 560,
         coorY: 400,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -134,7 +150,6 @@ let Map01 = [
         type: "checkpoint",
         coorX: 560,
         coorY: 360,
-        nextStep: "top",
         shift: "right",
     },
 
@@ -142,16 +157,14 @@ let Map01 = [
         cellid: 16,
         coorX: 560,
         coorY: 320,
-        nextStep: "top",
         shift: "left",
     },
 
     {
         cellid: 17,
         type: "green",
-        coorX: 260,
+        coorX: 560,
         coorY: 280,
-        nextStep: "top",
         shift: "left",
     },
 
@@ -161,8 +174,7 @@ let Map01 = [
         teleportTo: 16,
         idChange: -2,
         coorX: 560,
-        coorY: 280,
-        nextStep: "top",
+        coorY: 240,
         shift: "left",
     },
 
@@ -173,7 +185,6 @@ let Map01 = [
         idChange: 2,
         coorX: 560,
         coorY: 200,
-        nextStep: "top",
         shift: "left",
     },
 
@@ -181,7 +192,6 @@ let Map01 = [
         cellid: 20,
         coorX: 560,
         coorY: 160,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -189,7 +199,6 @@ let Map01 = [
         cellid: 21,
         coorX: 520,
         coorY: 160,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -198,7 +207,6 @@ let Map01 = [
         type: "yellow",
         coorX: 480,
         coorY: 160,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -206,7 +214,6 @@ let Map01 = [
         cellid: 23,
         coorX: 440,
         coorY: 160,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -217,7 +224,6 @@ let Map01 = [
         idChange: 3,
         coorX: 400,
         coorY: 160,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -228,7 +234,6 @@ let Map01 = [
         idChange: -10,
         coorX: 360,
         coorY: 160,
-        nextStep: "down",
         shift: "up",
     },
 
@@ -237,7 +242,6 @@ let Map01 = [
         type: "yellow",
         coorX: 360,
         coorY: 200,
-        nextStep: "left",
         shift: "down",
     },
 
@@ -245,7 +249,6 @@ let Map01 = [
         cellid: 27,
         coorX: 320,
         coorY: 200,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -253,7 +256,6 @@ let Map01 = [
         cellid: 28,
         coorX: 280,
         coorY: 200,
-        nextStep: "down",
         shift: "up",
     },
 
@@ -261,7 +263,6 @@ let Map01 = [
         cellid: 29,
         coorX: 280,
         coorY: 240,
-        nextStep: "left",
         shift: "down",
     },
 
@@ -269,7 +270,6 @@ let Map01 = [
         cellid: 30,
         coorX: 240,
         coorY: 240,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -277,7 +277,6 @@ let Map01 = [
         cellid: 31,
         coorX: 200,
         coorY: 240,
-        nextStep: "left",
         shift: "up",
     },
 
@@ -286,15 +285,13 @@ let Map01 = [
         type: "green",
         coorX: 160,
         coorY: 240,
-        nextStep: "down",
         shift: "up",
     },
 
     {
         cellid: 33,
         coorX: 160,
-        coorY: 240,
-        nextStep: "down",
+        coorY: 280,
         shift: "left",
     },
 
@@ -303,9 +300,8 @@ let Map01 = [
         type: "arrow",
         teleportTo: 31,
         idChange: -3,
-        coorX: 360,
+        coorX: 160,
         coorY: 320,
-        nextStep: "down",
         shift: "left",
     },
 
@@ -314,7 +310,7 @@ let Map01 = [
         type: "finish",
         coorX: 160,
         coorY: 360,
-        nextStep: "pedestal",
+        stopCondition: "pedestal",
     },
 
     {
@@ -341,7 +337,6 @@ let Map01 = [
         coorY: 92,
     },
 ]
-
 
 
 
