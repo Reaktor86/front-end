@@ -332,3 +332,22 @@ function rightToLeft(x) {
 }
 rightToLeft(x);*/
 
+/* ДЕЛЕГИРОВАНИЕ */
+
+let selectedTd;
+let table = document.querySelector("table");
+
+table.onclick = function(event) {
+    if (event.target.tagName == 'TD') {
+        highlight(event.target); // подсветить TD
+    }
+};
+
+function highlight(td) {
+    if (selectedTd) { // убрать существующую подсветку, если есть
+        selectedTd.classList.remove('highlight');
+    }
+    selectedTd = td;
+    selectedTd.classList.add('highlight'); // подсветить новый td
+    console.log("Активировался add highlight");
+}

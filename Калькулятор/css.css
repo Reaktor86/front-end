@@ -23,7 +23,7 @@ p {
     padding: 30px 0 0 20px;
 }
 
-.screen {
+.calc__screen {
     width: 332px;
     height: 40px;
     background-color: #152238;
@@ -32,26 +32,26 @@ p {
     padding: 0 15px;
 }
 
-.screen p {
+.calc__screen-p {
     line-height: 40px;
     text-align: right;
     font-size: 22px;
 }
 
-.block {
+.calc__block {
     width: 332px;
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
 }
 
-.block-wrap {
+.calc__block-wrap {
     flex-wrap: wrap;
     align-content: space-between;
     height: 150px;
 }
 
-.button {
+button {
     width: 60px;
     height: 40px;
     background: linear-gradient(to bottom, #ffffff, #cbcbcb);
@@ -63,30 +63,30 @@ p {
     outline: none;
 }
 
-.button:hover {
+button:hover {
     cursor: pointer;
 }
 
-.reset, .back, .zero, .dot, .equally {
+.calc__reset, .calc__back, .calc__num0, .calc__dot, .calc__equally {
     width: 80px;
 }
 
-.dot {
+.calc__dot {
     margin-left: -70px;
 }
 
-.equally {
+.calc__equally {
     background: linear-gradient(to bottom, #ffefc3, #a89958);
 }
 
-.reset {
+.calc__reset {
     background: linear-gradient(to bottom, #ffa8a8, #a55555);
 }
 
-.screen__p {
+.calc__screen-p {
     color: #e2e2e2;
 }
 
-.pressed {
+.calc__pressed {
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5) inset;
 }
