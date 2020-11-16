@@ -332,22 +332,103 @@ function rightToLeft(x) {
 }
 rightToLeft(x);*/
 
-/* ДЕЛЕГИРОВАНИЕ */
 
-let selectedTd;
-let table = document.querySelector("table");
 
-table.onclick = function(event) {
-    if (event.target.tagName == 'TD') {
-        highlight(event.target); // подсветить TD
+/*СЧИТАЛКА*/
+
+let addressP1 = document.querySelector(".counter1 .div__p");
+let addressP2 = document.querySelector(".counter2 .div__p");
+let addressP3 = document.querySelector(".counter3 .div__p");
+
+let myCounterObj = [0,0,0];
+
+if (getCookie("myCounter3") !== undefined) {
+    let unconvert = getCookie("myCounter3");
+    unconvert = unconvert.split(",");
+    console.log("unconvert = " + unconvert);
+    myCounterObj = unconvert;
+}
+console.log(myCounterObj);
+
+addressP1.innerHTML = myCounterObj[0];
+addressP2.innerHTML = myCounterObj[1];
+addressP3.innerHTML = myCounterObj[2];
+
+document.querySelector(".counter1 .arrow__up").addEventListener("click", function () {
+    let countNow = +addressP1.innerHTML + 1;
+    myCounterObj[0] = countNow;
+    printNumber(addressP1, countNow);
+});
+document.querySelector(".counter1 .arrow__down").addEventListener("click", function () {
+    let countNow = +addressP1.innerHTML - 1;
+    myCounterObj[0] = countNow;
+    printNumber(addressP1, countNow);
+});
+document.querySelector(".counter2 .arrow__up").addEventListener("click", function () {
+    let countNow = +addressP2.innerHTML + 1;
+    myCounterObj[1] = countNow;
+    printNumber(addressP2, countNow);
+});
+document.querySelector(".counter2 .arrow__down").addEventListener("click", function () {
+    let countNow = +addressP2.innerHTML - 1;
+    myCounterObj[1] = countNow;
+    printNumber(addressP2, countNow);
+});
+document.querySelector(".counter3 .arrow__up").addEventListener("click", function () {
+    let countNow = +addressP3.innerHTML + 1;
+    myCounterObj[2] = countNow;
+    printNumber(addressP3, countNow);
+});
+document.querySelector(".counter3 .arrow__down").addEventListener("click", function () {
+    let countNow = +addressP3.innerHTML - 1;
+    myCounterObj[2] = countNow;
+    printNumber(addressP3, countNow);
+});
+
+
+function printNumber(addressP, countNow) {
+    addressP.innerHTML = "" + countNow;
+    if (countNow % 10 == 0) {
+        addressP.style.transform = "rotate(360deg)";
     }
-};
-
-function highlight(td) {
-    if (selectedTd) { // убрать существующую подсветку, если есть
-        selectedTd.classList.remove('highlight');
+    if (countNow % 20 == 0 || countNow == 0) {
+        addressP.style.transform = "rotate(0deg)";
     }
-    selectedTd = td;
-    selectedTd.classList.add('highlight'); // подсветить новый td
-    console.log("Активировался add highlight");
+    
+    let convert = myCounterObj.join();
+
+    console.log("convert = " + convert);
+    setCookie("myCounter3", convert);
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function setCookie(name, value, options = {}) {
+
+    options = {
+        path: '/',
+        // при необходимости добавьте другие значения по умолчанию
+        ...options
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
 }
