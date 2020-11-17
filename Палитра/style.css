@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #cdcdcd;
+    font-family: sans-serif;
+}
+
+p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+section {
+    width: 800px;
+    height: 1500px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #e5ffc3;
+    padding: 10px 40px;
+    margin: 0 auto 15px;
+}
+
+form input, form select {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+}
+
+form button {
+    display: block;
+    margin: 22px auto;
+    outline: none;
+    width: 146px;
+    height: 33px;
+    background: #ffa538;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #ff3e0a;
+    color: white;
+}
+
+.palette__wrap {
+    width: 740px;
+    height: 1080px;
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding: 20px 0 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.palette__wrap > div {
+    width: 220px;
+    height: 120px;
+    background: #499201;
+    margin: 0 20px 20px 0;
+}
+
+.palette__wrap > div > div {
+    width: 150px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 25px auto;
+    padding-top: 5px;
+}
+
+.palette__wrap p {
+    text-align: center;
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+.palette__wrap > div > div p:nth-child(3) {
+    font-weight: bold;
+}
