@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+<section>
+    <form>
+        <p>Широта:</p>
+        <input class="lat" type="text" name="lat"> <!--широта-->
+        <p>Долгота:</p>
+        <input class="lon" type="text" name="lon"> <!--долгота-->
+        <button type="submit">Показать погоду</button>
+    </form>
+
+    <img class="weather__img">
+    <div class="weather">
+        <div class="weather__row">
+            <p>Температура: </p>
+            <p class="temp">тест</p>
+        </div>
+        <div class="weather__row">
+            <p>Ощущается как: </p>
+            <p class="feel">тест</p>
+        </div>
+        <div class="weather__row">
+            <p>Атмосферное давление (мм рт.ст.): </p>
+            <p class="pressure">тест</p>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+<script>
+
+    /*fetch("http://194.58.122.219/test/weather-api-test/?lat=54&lon=37")
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) =>  {
+        console.log(response);
+        document.querySelector(".temp").innerHTML = response.data.fact.temp;
+        document.querySelector(".feel").innerHTML = response.data.fact.feels_like;
+        document.querySelector(".pressure").innerHTML = response.data.fact.pressure_mm;
+    })*/
+
+    let myWeatherObj = {};
+
+    if (getCookie("myWeather") !== undefined) {
+        let unconvert = getCookie("myWeather");
+        unconvert = unconvert.split(",");
+
+        /*console.log("unconvert = " + unconvert);
+        myCounterObj = unconvert;*/
+    }
+
+    document.querySelector("form button").addEventListener("click", function (e) {
+        e.preventDefault();
+        let lat = document.querySelector("form .lat").value;
+        let lon = document.querySelector("form .lon").value;
+
+        let link = "http://194.58.122.219/test/weather-api-test2/?t=5f319cf8-2dbf-4140-abc0-c716561e96e0&lat=" + lat + "&lon=" + lon;
+        fetch(link)
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) =>  {
+                console.log(response);
+                document.querySelector(".temp").innerHTML = response.data.fact.temp;
+                document.querySelector(".feel").innerHTML = response.data.fact.feels_like;
+                document.querySelector(".pressure").innerHTML = response.data.fact.pressure_mm;
+                let pathImg = "https://yastatic.net/weather/i/icons/blueye/color/svg/" + response.data.fact.icon + ".svg";
+                document.querySelector(".weather__img").setAttribute("src", pathImg);
+                myWeatherObj = {
+                    temp: response.data.fact.temp,
+                    feelsLike: response.data.fact.feels_like,
+                    pressure: response.data.fact.pressure_mm,
+                    icon: pathImg,
+                }
+                let myWeatherStr = [];
+                for (let key in myWeatherObj) {
+                    myWeatherStr.push(key);
+                    myWeatherStr.push(myWeatherObj[key]);
+                }
+                myWeatherStr = myWeatherStr.join();
+                console.log("myWeatherStr = " + myWeatherStr);
+                setCookie("myWeather", myWeatherStr);
+            })
+    });
+
+
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    function setCookie(name, value, options = {}) {
+
+        options = {
+            path: '/',
+            // при необходимости добавьте другие значения по умолчанию
+            ...options
+        };
+
+        if (options.expires instanceof Date) {
+            options.expires = options.expires.toUTCString();
+        }
+
+        let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+        for (let optionKey in options) {
+            updatedCookie += "; " + optionKey;
+            let optionValue = options[optionKey];
+            if (optionValue !== true) {
+                updatedCookie += "=" + optionValue;
+            }
+        }
+
+        document.cookie = updatedCookie;
+    }
+
+</script>
+</body>
+</html>
