@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form>
+    <p>Имя</p>
+    <input class="form__name" type="text" name="name">
+    <p>Должность</p>
+    <select class="form__staff" name="staff">
+        <option>менеджер</option>
+        <option>программист</option>
+        <option>секретарь</option>
+        <option>админ</option>
+    </select>
+    <p>Возраст</p>
+    <input class="form__age" type="text" name="age">
+    <p>Пароль</p>
+    <input class="form__pass" type="text" name="pass">
+    <p>Подтвердите пароль</p>
+    <input class="form__pass-confirm" type="text" name="pass-confirm">
+    <input type="submit" value="Отправить">
+</form>
+<p class="error errorName">введите имя</p>
+<p class="error errorAge">введите возраст</p>
+<p class="error errorAgeNotNum">поле возраст должно содержать цифры</p>
+<p class="error errorPass1">введите пароль</p>
+<p class="error errorPass2">подтвердите пароль</p>
+<p class="error errorPassMiss">пароли не совпадают</p>
+
+</body>
+
+<script>
+    $('form').submit(sendData);
+    let inputs = $('form input');
+    let errors = $('.error');
+    inputs.on('focus', function (){
+        errors.css("display", "none");
+    })
+
+
+    function sendData(e) {
+        e.preventDefault();
+
+        let inpName = $(".form__name").val();
+        let inpStaff = $(".form__staff").val();
+        let inpAge = $(".form__age").val();
+
+        if ( inpAge.length != 0 && !( /[0-9]/.test(inpAge) ) ) {
+            $(".errorAgeNotNum").css("display", "block");
+            return;
+        }
+
+        let inpPass = $(".form__pass").val();
+        let inpPassConf = $(".form__pass-confirm").val();
+
+        $.ajax({
+            url: "http://194.58.122.219/test/jq.php",
+            data: {
+                name: inpName,
+                staff: inpStaff,
+                age: inpAge,
+                pass1: inpPass,
+                pass2: inpPassConf,
+                token: "OlegV",
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (error) {
+                for (let i = 0; i < error.responseJSON.length; i++) {
+                    if (error.responseJSON[i] === "Не передали поле name") $(".errorName").css("display", "block");
+                    if (error.responseJSON[i] === "Не передали поле age") $(".errorAge").css("display", "block");
+                    if (error.responseJSON[i] === "Не передали поле pass1") $(".errorPass1").css("display", "block");
+                    if (error.responseJSON[i] === "Не передали поле pass2") $(".errorPass2").css("display", "block");
+                    if (error.responseJSON[i] === "Пароли не совпадают") $(".errorPassMiss").css("display", "block");
+                }
+                console.log(error);
+            }
+        })
+    }
+
+</script>
+
+</html>

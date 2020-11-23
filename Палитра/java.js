@@ -10,10 +10,6 @@ function setColor(e) {
 
     console.log(Name.val() + " " + Type.val() + " " + Code.val());
 
-    if (Code.patternMismatch) {
-        alert("pattern")
-    }
-
     if ( /[0-9]/.test(Name.val()) ) {
         alert("Не должно быть цифр");
         return;
@@ -30,32 +26,24 @@ function setColor(e) {
 
     // код: если RGB, то формат rgb(0-255, 0-255, 0-255) если RGBA, то rgba(0-255, 0-255, 0-255, 0-1), если HEX, то #000000 ( числа 0-9, буквы a,b,c,d,e,f)
 
-    let testCode = true;
-
     switch (inputType) {
         case "RGB":
-
-            let rgb = inputCode.substr(0, 3);
-            if (rgb !== "RGB") {
-                testCode = false;
-            }
-
-
+            let rgb = /^RGB([0-2][0-9][0-9])$/;
+            //alert("Формат должен быть: rgb(0-255, 0-255, 0-255)");
             break;
         case "RGBA":
             break;
         case "HEX":
-
+            let hex = /^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
+            if ( !hex.test(inputCode) ) {
+                alert("Формат должен быть: #XXX или #XXXXXX, где X - цифры 0-9, буквы a-f");
+                return;
+            }
             break;
     }
 
-    if (testCode === false) {
-        alert("Формат должен быть: rgb(0-255, 0-255, 0-255)");
-        return;
-    }
-
     let div1 = document.createElement("div");
-    div1.style.background = "blue";
+    div1.style.background = inputCode;
     $(".palette__wrap").append(div1);
     let div2 = document.createElement("div");
     let pathDiv1 = $(".palette__wrap > div:last-child");
