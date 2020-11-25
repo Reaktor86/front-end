@@ -55,8 +55,22 @@
     if (getCookie("myWeather") !== undefined) {
         let unconvert = getCookie("myWeather");
         unconvert = unconvert.split(",");
+        let property;
+        let value;
+        for (let i = 0; i < unconvert.length; i++) {
 
-        console.log("unconvert = " + unconvert);
+            if (i % 2 == 0) {
+                property = unconvert[i];
+                myWeatherObj[property] = 0;
+            } else {
+                value = unconvert[i];
+                myWeatherObj[property] = value;
+            }
+        }
+        document.querySelector(".temp").innerHTML = myWeatherObj.temp;
+        document.querySelector(".feel").innerHTML = myWeatherObj.feelsLike;
+        document.querySelector(".pressure").innerHTML = myWeatherObj.pressure;
+        document.querySelector(".weather__img").setAttribute("src", myWeatherObj.icon);
     }
 
     document.querySelector("form button").addEventListener("click", function (e) {
@@ -76,6 +90,8 @@
                 document.querySelector(".pressure").innerHTML = response.data.fact.pressure_mm;
                 let pathImg = "https://yastatic.net/weather/i/icons/blueye/color/svg/" + response.data.fact.icon + ".svg";
                 document.querySelector(".weather__img").setAttribute("src", pathImg);
+
+                // куки
                 myWeatherObj = {
                     temp: response.data.fact.temp,
                     feelsLike: response.data.fact.feels_like,
@@ -88,7 +104,6 @@
                     myWeatherStr.push(myWeatherObj[key]);
                 }
                 myWeatherStr = myWeatherStr.join();
-                console.log("myWeatherStr = " + myWeatherStr);
                 setCookie("myWeather", myWeatherStr);
             })
     });

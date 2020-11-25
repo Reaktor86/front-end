@@ -11,16 +11,18 @@
     <section>
         <h1>Добавить новый цвет</h1>
         <form>
-            <p>Название</p>
-            <input class="form__name" type="text" name="name">
+            <p>Название *</p>
+            <input class="form__name" type="text" name="name" required>
+            <p class="error error--name"></p>
             <p>Тип</p>
             <select class="form__type">
+                <option>HEX</option>
                 <option>RGB</option>
                 <option>RGBA</option>
-                <option>HEX</option>
             </select>
             <p>Код</p>
-            <input class="form__code" type="text" name="text" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+            <input class="form__code" type="text" name="text">
+            <p class="error error--code"></p>
             <button type="submit">Сохранить</button>
         </form>
         <div class="palette__wrap">
