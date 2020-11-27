@@ -1,7 +1,7 @@
 
 /*
 
-Пока не работает проверка достоверности на RGB и RGBA. Как разберусь, загружу новую версию
+исправить баг - кодировщик учитывает запятые внутри цвета
 
  */
 
@@ -9,6 +9,7 @@ $("form button").on("click", setColor);
 const Name = $(".form__name");
 const Type = $(".form__type");
 const Code = $(".form__code");
+const Palette = $(".palette__wrap");
 const errorName = $(".error--name");
 const errorCode = $(".error--code");
 let myPalette = {}; // для куки
@@ -56,6 +57,8 @@ if (getCookie("myPalette") !== undefined) {
     }
 }
 
+if (sampleCount == 0) Palette.css("display", "none");
+
 function setColor(e) {
     e.preventDefault();
 
@@ -101,10 +104,20 @@ function setColor(e) {
 
     switch (inputType) {
         case "RGB":
-            // здесь должна быть проверка достоверности
+            let rgb = /^[0-9]{1,3}[,]{1}[0-9]{1,3}[,]{1}[0-9]{1,3}$/;
+            if (!rgb.test(inputCode)) {
+                errorCode.html("формат: 0-255,0-255,0-255");
+                errorCode.css("visibility", "visible");
+                return;
+            }
             break;
         case "RGBA":
-            // здесь должна быть проверка достоверности
+            let rgba = /^[0-9]{1,3}[,]{1}[0-9]{1,3}[,]{1}[0-9]{1,3}[,]{1}[0]{1}[.]{1,5}[0-9]$/;
+            if (!rgba.test(inputCode)) {
+                errorCode.html("формат: 0-255,0-255,0-255,0-1");
+                errorCode.css("visibility", "visible");
+                return;
+            }
             break;
         case "HEX":
             let hex = /^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
@@ -115,6 +128,7 @@ function setColor(e) {
             }
             break;
     }
+
 
     // добавляем образец в DOM
     addColorToDOM(inputName, inputType, inputCode);
@@ -156,8 +170,17 @@ function setColor(e) {
 
 function addColorToDOM(inputName, inputType, inputCode) {
 
+    Palette.css("display", "flex");
     let div1 = document.createElement("div");
-    div1.style.background = inputCode;
+    if (inputType === "RGB") {
+        div1.style.background = "RGB(" + inputCode + ")";
+    }
+    if (inputType === "RGBA") {
+        div1.style.background = "RGBA(" + inputCode + ")";
+    }
+    if (inputType === "HEX") {
+        div1.style.background = inputCode;
+    }
     div1.style.border = "1px solid black";
     $(".palette__wrap").append(div1);
     let div2 = document.createElement("div");
