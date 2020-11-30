@@ -1,0 +1,148 @@
+#starway {
+
+  section {
+    width: 100%;
+    box-sizing: border-box;
+
+    .details {
+      display: flex;
+      width: 1054px;
+      justify-content: space-between;
+      margin: 0 auto;
+
+      &__left-panel {
+        width: 378px;
+
+        .heading {
+          display: flex;
+          width: 100%;
+
+          img {
+            margin-left: 10px;
+          }
+        }
+
+        .cost {
+          font-family: "Cormorant Unicase", sans-serif;
+          font-size: 40px;
+          letter-spacing: -0.02em;
+          color: #313131;
+        }
+
+        .action {
+          width: 370px;
+          height: 60px;
+          background: #FFE2E2;
+          border: 2px solid #FFB0B0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            font-family: Rubik;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: rgba(49, 49, 49, 0.8);
+          }
+        }
+
+        .size {
+          display: flex;
+          width: 340px;
+          justify-content: space-between;
+          align-items: center;
+
+          p, a {
+            font-family: Rubik;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            color: rgba(49, 49, 49, 0.6);
+            margin: 0;
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          a img {
+            margin-left: 7px;
+          }
+        }
+
+        .color {
+          width: 250px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          div {
+            border-radius: 100%;
+          }
+          &__circle-out {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(49, 49, 49, 0.6);
+
+            &--selected {
+              border: 2px solid #313131;
+            }
+
+            .in {
+              width: 24px;
+              height: 24px;
+
+              &--pink {
+                background: #BC737A;
+              }
+              &--yellow {
+                background: #EBCDAA;
+              }
+              &--black {
+                background: black;
+              }
+              &--white {
+                background: white;
+              }
+            }
+          }
+        }
+
+        .buy {
+          width: 240px;
+          height: 60px;
+          background: #FFB0B0;
+          outline: none;
+          border: none;
+          font-family: Rubik;
+          font-weight: bold;
+          font-size: 16px;
+          letter-spacing: 0.05em;
+          color: #313131;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            margin-left: 15px;
+          }
+        }
+      }
+
+      &__mini {
+        width: 100px;
+        height: 200px; /*удалить*/
+      }
+
+      &__slide {
+        width: 500px;
+        height: 200px; /*удалить*/
+      }
+    }
+  }
+
+}
+

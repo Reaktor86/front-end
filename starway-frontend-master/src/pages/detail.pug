@@ -1,0 +1,40 @@
+extends include/layout
+append sharedVars
+    - const pageUrl = '/';
+    - const pageTitle = 'Главная';
+    - const bodyAdditionClass = '';
+    - const pageAdditionClass = 'main-page';
+block content
+    section
+        div.details
+            div.details__left-panel
+                div.heading
+                    h2 Бамбуковые брюки
+                    img(src="images/icons/heart.svg")
+                p.cost 2000 ₽
+                div.action
+                    p Бесплатная доставка от 5000 рублей
+                div.size
+                    p xs
+                    p s
+                    p m
+                    p l
+                    p xl
+                    a(href="#") Узнать размер
+                        img(src="images/icons/link-arrow.svg")
+                div.color
+                    p Цвет
+                    div.color__circle-out.color__circle-out--selected
+                        div.in.in--pink
+                    div.color__circle-out
+                        div.in.in--yellow
+                    div.color__circle-out
+                        div.in.in--black
+                    div.color__circle-out
+                        div.in.in--white
+                button.buy купить
+                    img(src="images/icons/link-arrow.svg")
+                nav
+
+            div.details__mini
+            div.details__slide
