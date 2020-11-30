@@ -1,10 +1,3 @@
-
-/*
-
-исправить баг - кодировщик учитывает запятые внутри цвета
-
- */
-
 $("form button").on("click", setColor);
 const Name = $(".form__name");
 const Type = $(".form__type");
@@ -30,7 +23,7 @@ if (getCookie("myPalette") !== undefined) {
 
     // дешифруем куки в объект
     let unconvert = getCookie("myPalette");
-    unconvert = unconvert.split(",");
+    unconvert = unconvert.split(";");
     let property;
     let value;
     for (let i = 0; i < unconvert.length; i++) {
@@ -144,13 +137,13 @@ function setColor(e) {
     myPalette[propertyType] = inputType;
     myPalette[propertyCode] = inputCode;
 
-    // шифруем объект
+    // шифруем объект в строку
     let myPaletteStr = [];
     for (let key in myPalette) {
         myPaletteStr.push(key);
         myPaletteStr.push(myPalette[key]);
     }
-    myPaletteStr = myPaletteStr.join();
+    myPaletteStr = myPaletteStr.join(";");
 
     // время жизни 3 часа
 
