@@ -4,25 +4,26 @@ append sharedVars
     - const pageTitle = 'Главная';
     - const bodyAdditionClass = '';
     - const pageAdditionClass = 'main-page';
+
 block content
     section
         div.details
             div.details__left-panel
-                div.heading
+                div.details__heading
                     h2 Бамбуковые брюки
-                    img(src="images/icons/heart.svg")
-                p.cost 2000 ₽
-                div.action
+                        span
+                            img(src="images/icons/heart.svg")
+                p.details__cost 2000 ₽
+                div.details__action
                     p Бесплатная доставка от 5000 рублей
-                div.size
+                div.details__size
                     p xs
                     p s
                     p m
                     p l
                     p xl
                     a(href="#") Узнать размер
-                        img(src="images/icons/link-arrow.svg")
-                div.color
+                div.details__color
                     p Цвет
                     div.color__circle-out.color__circle-out--selected
                         div.in.in--pink
@@ -32,9 +33,61 @@ block content
                         div.in.in--black
                     div.color__circle-out
                         div.in.in--white
-                button.buy купить
+                button.details__buy купить
                     img(src="images/icons/link-arrow.svg")
                 nav
+                    a(href="#") Описание
+                    a(href="#") Таблица размеров
+                    a(href="#") Параметры модели
+                    a(href="#") Уход за изделием
 
             div.details__mini
+                img(src="images/stuff/bamboo-pink-mini.png").details__mini--selected
+                img(src="images/stuff/bamboo-black-mini.png")
+                img(src="images/stuff/bamboo-white-mini.png")
+                img(src="images/stuff/bamboo-yellow-mini.png")
             div.details__slide
+                img(src="images/stuff/bamboo-pink.png")
+
+        div.see-more
+            h3 Вам также может понравиться
+            div.see-more__cont.cards
+                div.cards__card
+                    img(src="images/detail/see-more1.png")
+                    p.cards__name Шёлковая пижама
+                    p.cards__cost 2000 ₽
+                div.cards__card
+                    img(src="images/detail/see-more2.png")
+                    p.cards__name Шёлковая пижама
+                    p.cards__cost 2000 ₽
+                div.cards__card
+                    img(src="images/detail/see-more3.png")
+                    p.cards__name Шёлковая пижама
+                    p.cards__cost 2000 ₽
+                div.cards__card
+                    img(src="images/detail/see-more4.png")
+                    p.cards__name Шёлковая пижама
+                    p.cards__cost 2000 ₽
+        div.added
+            h2 Добавлено в корзину
+            div.added__cont
+                img
+                div.added__info
+                    h3 Шёлковая пижама
+                    div.added__count
+                        p Количество:
+                        button.added__minus -
+                        p.added_num 1
+                        button.added__plus +
+                    p Размер:
+                        span s
+                    div.added__color
+                        p Цвет
+                        div.added__circle-out
+                            div.added__circle-in
+                    a(href="#") Удалить
+                p 2000 ₽
+            button.added__see-card Посмотреть корзину
+                img(src="images/icons/link-arrow.svg")
+            a(href="#") Продолжить покупку
+        div.overlay

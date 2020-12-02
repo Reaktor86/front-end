@@ -1,8 +1,7 @@
 import Vue from 'vue'
 //import 'owl.carousel';
 //import '@fancyapps/fancybox'
-
-
+import "./detail.js"
 
 $(document).ready(function () {
     $('.js-show-menu').on('click', function (e) {
@@ -68,3 +67,4 @@ $(document).ready(function () {
 
 
 });
+
