@@ -1,0 +1,116 @@
+/*визуальное оформление клеток */
+
+.cell {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #FFF6DF;
+    border: 1px solid #464646;
+    box-shadow: inset 0 0 7px 4px rgba(158, 155, 70, 0.6);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-start {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: inset 0 0 7px 4px rgba(49, 171, 239, 0.6);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell p {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #C3C3C3;
+}
+
+.cell-start p {
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    color: black;
+}
+
+.cell-finish, .cell-deadend {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.cell-yellow {
+    background-color: #FCF327;
+}
+
+.cell-yellow p {
+    color: #A8A8A8;
+}
+
+.cell-orange {
+    background-color: #ff7700;
+}
+
+.cell-green {
+    background-color: #28DD24;
+}
+
+.cell-green p, .cell-orange p {
+    color: #E7E7E7;
+}
+
+.cell-red {
+    background-color: #EF0000;
+}
+
+.cell-red p {
+    color: #B8B8B8;
+}
+
+.cell-checkpoint {
+    background-color: #94F2FF;
+    box-shadow: inset 0 0 7px 4px rgba(70, 148, 158, 0.6);
+}
+
+.cell-checkpoint div {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #464646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-checkpoint p {
+    color: #464646;
+    font-weight: bold;
+}
+
+.cell-black {
+    background-color: #000000;
+    box-shadow: inset 0 0 6px 3px rgba(255, 255, 255, 0.2);
+}
+
+.cell .cell__bonus {
+    position: absolute;
+    bottom: -2px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cell-arrow-node {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: url("img/cubic/cubic-small.png") no-repeat center white;
+    box-shadow: inset 0 0 7px 5px rgba(0, 87, 255, 0.59);
+}

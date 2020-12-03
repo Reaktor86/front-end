@@ -1,0 +1,622 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #A7A08E;
+}
+
+h1 {
+    font-family: "Roboto Slab", serif;
+    font-size: 16px;
+    color: #c2c2c2;
+}
+
+h2 {
+    font-family: "Roboto Slab", serif;
+    font-size: 11px;
+    color: #c2c2c2;
+    margin: 0;
+}
+
+p {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.map-name {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}
+
+.container {
+    width: 1150px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #FFEAB4;
+    box-shadow: 0 0 94px 49px rgba(0, 0, 0, 0.58);
+    padding: 11px;
+}
+
+.container__flex {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.divs {
+    box-shadow: -1px -1px 2px 2px rgba(255, 255, 255, 0.7), inset 0 0 20px 8px #000000;
+    border-radius: 8px;
+}
+
+.field {
+    width: 100%;
+    height: 840px;
+    background-image: url("img/start-screen-bg.jpg");
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    top: 111px;
+    left: 350px;
+}
+
+.jungles {
+    position: absolute;
+}
+
+.start-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    margin-top: 326px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.start-menu button {
+    width: 190px;
+    height: 35px;
+    font-family: "Roboto Slab", serif;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: black 0 0 4px;
+    box-shadow: 2px 3px 3px -2px rgba(255, 255, 255, 0.6) inset, -2px -3px 3px -2px rgba(0, 0, 0, 0.6) inset, 2px 2px 5px 3px rgba(0, 0, 0, 0.3);
+    justify-content: flex-start;
+}
+
+.start-menu button:hover {
+    background-color: #ff4d00;
+    cursor: pointer;
+}
+
+.start-menu img {
+    height: 75%;
+    margin: 0 11px 0 5px;
+}
+
+.copyright {
+    position: absolute;
+    right: 100px;
+    bottom: 9px;
+    color: #eee;
+}
+
+.right-block {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 840px;
+}
+
+.info {
+    width: 278px;
+    height: 252px;
+    background-image: url("img/info_bg.jpg");
+}
+
+.log {
+    width: 278px;
+    height: 525px;
+    background-image: url("img/info_bg.jpg");
+    background-position-y: -263px;
+    padding: 15px;
+    overflow-y: scroll;
+}
+
+.settings {
+    width: 278px;
+    height: 46px;
+    background-image: url("img/info_bg.jpg");
+    background-position-y: bottom;
+    padding: 5px;
+}
+
+.player {
+    position: absolute;
+    margin: -12px -2px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.42));
+    top: 0;
+    left: 0;
+    transition: .8s;
+    width: 45px;
+    height: 65px;
+    visibility: hidden;
+}
+
+.cubic {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    padding: 8px;
+    border: 2px solid #2D5900;
+    width: 100px;
+    display: none;
+}
+
+.cubic:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px 2px rgba(97, 171, 25, 0.65);
+    border: 2px solid #499201;
+}
+
+.cubic__icon {
+    z-index: 998;
+    width: 25px;
+    position: absolute;
+}
+
+.cubic__icon--magnet {
+    right: 34px;
+    bottom: 26px;
+    display: none;
+}
+
+.move__info {
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    width: auto;
+    height: auto;
+}
+
+.move__info-p {
+    font-size: 20px;
+    color: #bfbfbf;
+    margin: 0 0 28px 0;
+}
+
+.move__info-yours {
+    font-size: 28px;
+    color: orange;
+}
+
+.move__info-skip {
+    font-size: 28px;
+    color: green;
+}
+
+.pedestal {
+    position: absolute;
+    left: 50px;
+    top: 80px;
+    display: none;
+}
+
+.info {
+    padding: 17px 24px;
+}
+
+.info__cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 195px;
+}
+
+.info .info__what {
+    width: 33px;
+    height: 27px;
+    margin: 2px 0 0 185px;
+    display: none;
+}
+
+.info .info__what:hover {
+    box-shadow: 0 0 3px 2px #00ff00 inset;
+    cursor: pointer;
+}
+
+.info__what p {
+    font-family: "Roboto Slab", serif;
+    font-size: 16px;
+    color: #c2c2c2;
+}
+
+.info__player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+}
+
+.info__player-select {
+    border: 2px solid white;
+}
+
+.info__player-right {
+    width: 37px;
+}
+
+.info__place {
+    font-family: "Roboto Slab", serif;
+    font-size: 14px;
+    color: white;
+    margin: 0 3px 0 0;
+}
+
+.info__finish {
+    width: 17px;
+    margin-right: 1px;
+    display: none;
+}
+
+.info__token {
+    width: 28px;
+    height: 28px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 100%;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info__token p {
+    font-family: "Russo One", serif;
+    font-size: 16px;
+    -webkit-text-stroke: 1px black;
+}
+
+.info__place1 {
+    margin-right: 13px;
+}
+
+.info__place2 {
+    margin-right: 9px;
+}
+
+.info__place3 {
+    margin-right: 4px;
+}
+
+.info__player-label {
+    margin: -1px 0 4px 3px;
+}
+
+.info__player-power {
+    width: 114px;
+    height: 9px;
+    background: #151C2C;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1px 3px;
+}
+
+.powercell {
+    width: 9px;
+    height: 7px;
+    background: #2B4370;
+    box-shadow: inset 0 0 2px 1px #1B2434;
+    float: left;
+    margin-right: 2px;
+}
+
+.powercell__off {
+    background: #2B4370;
+    box-shadow: inset 0 0 2px 1px #1B2434;
+}
+
+.powercell__on {
+    background: #E0EAFF;
+    box-shadow: 0 0 3px #BAD2FF, inset 0 0 2px 1px #89AEF9;
+}
+
+.info__player-power > div:last-child {
+    margin-right: 0;
+}
+
+.info__player-money {
+    margin: 0;
+}
+
+.info__player-right {
+    height: 28px;
+}
+
+.log__message {
+    margin-bottom: 5px;
+    padding-left: 5px;
+    transition: .7s;
+    box-shadow: 0 0 6px 3px white, 0 0 6px 10px white inset;
+    border-radius: 10px;
+    opacity: 0.1;
+}
+
+.log__message p:nth-child(n + 2) {
+    font-size: 11px;
+    display: inline;
+    margin-right: 4px;
+}
+
+.log__time {
+    display: inline;
+    font-weight: 100;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.log__player {
+    color: #FFE27A;
+    display: inline;
+    font-size: 11px;
+    margin-right: 4px;
+}
+
+.prize {
+    width: 90px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none;
+}
+
+.prize h2 {
+    border-bottom: 1px solid #c2c2c2;
+    padding-bottom: 8px;
+}
+
+.prize .span__p1 {
+    color: #ffae1a;
+}
+
+.prize .span__p2 {
+    color: #94b5c9;
+}
+
+.prize .span__p3 {
+    color: #a7691f;
+}
+
+.prize .span__p4 {
+    color: #787878;
+}
+
+.span__red {
+    color: red;
+    font-weight: bold;
+}
+
+.span__grey {
+    color: #7c7c7c;
+}
+
+.prize p {
+    font-weight: 300;
+    font-size: 10px;
+    color: #c2c2c2;
+    margin: 0;
+}
+
+.prize table {
+    margin-top: 5px;
+}
+
+.prize table td {
+    width: 50px;
+    padding: 2px;
+}
+
+.player__glow {
+    transition: .5s;
+    box-shadow: none;
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+}
+
+.player__glow-end {
+    filter: drop-shadow( 0 0 3px rgba(255, 255, 255, 1) );
+    opacity: 100%;
+}
+
+.player__glow-start {
+    filter: drop-shadow( 0 0 0 rgba(255, 255, 255, 1) );
+    opacity: 1%;
+}
+
+.player__glow-act {
+    display: block;
+}
+
+.player__shield {
+    position: absolute;
+    display: none;
+}
+
+.player__nail {
+    position: absolute;
+    width: 63%;
+    margin: 2px 0 0 -13px;
+    display: none;
+}
+
+.player__nail-act {
+    display: block;
+}
+
+.player__speed {
+    position: absolute;
+    width: 25px;
+    margin: 4px 0 0 21px;
+    display: none;
+}
+
+.player__think {
+    position: absolute;
+    width: 68%;
+    margin: -10px 0 0 7px;
+    display: none;
+}
+
+.player__think-act {
+    display: block;
+}
+
+.player__label {
+    position: absolute;
+    margin-top: -12px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: 200;
+    white-space: nowrap;
+    display: none;
+}
+
+.arrows {
+    position: absolute;
+}
+
+.branch {
+    display: none;
+    position: absolute;
+    z-index: 499;
+}
+
+.branch__selected {
+    filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 1));
+}
+
+/*ИНВЕНТАРЬ*/
+
+.inventory {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inventory--field {
+    position: absolute;
+    width: 318px;
+    right: 150px;
+    bottom: 15px;
+    display: none;
+}
+
+.inventory-flex {
+    width: 209px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inventory-item {
+    width: 33px;
+    height: 33px;
+    background: #11161d;
+    box-shadow: 0 0 3px 1px #1ab31b inset;
+    margin: 0 5px 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory--magnet3, .inventory--shield3 {
+    margin-right: 15px;
+}
+
+.inventory--manipulator {
+    height: 71px;
+}
+
+.inventory-item img {
+    height: 24px;
+}
+
+.inventory--manipulator img {
+    width: 26px;
+    height: auto;
+}
+
+.inventory--bonus {
+    visibility: hidden;
+    margin: 50px 2px 0 0;
+    width: 62px;
+    font-size: 16px;
+}
+
+/*НАСТРОЙКИ*/
+
+.settings button {
+   width: 50px;
+   height: 36px;
+   border: none;
+}
+
+.settings button:hover {
+    cursor: pointer;
+}
+
+.settings__options {
+    background: #979797;
+}
+
+.settings__options:hover {
+    background: #d5d5d5;
+}
+
+.settings__help {
+    font-family: "Russo One", sans-serif;
+    font-size: 30px;
+    color: black;
+    background: #7BB37D;
+}
+
+.settings__help:hover {
+    background: #a3ffb0;
+}
+
+.settings__pause {
+    background: #d2bc43;
+}
+
+.settings__pause:hover {
+    background: #f6eb7d;
+}
+
+.settings__info {
+    background: #38446E;
+}
+
+.settings__info:hover {
+    background: #5b6eb1;
+}
+
+.settings__end {
+    background: #942222;
+}
+
+.settings__end:hover {
+    background: #cd3131;
+}
