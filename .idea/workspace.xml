@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/pages/detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/pages/detail.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/scripts/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/styles/scss/detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/styles/scss/detail.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +56,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../starway-frontend-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OpenServer/domains/localhost" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -82,6 +79,8 @@
       <workItem from="1606750500784" duration="1376000" />
       <workItem from="1606754200097" duration="180000" />
       <workItem from="1606923340244" duration="9558000" />
+      <workItem from="1607355252779" duration="1549000" />
+      <workItem from="1607361540792" duration="1062000" />
     </task>
     <servers />
   </component>
@@ -105,9 +104,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606923459232" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606751961666">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607362871578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606751961666" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607362871578" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1607362453763">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607362453763" />
   </component>
 </project>

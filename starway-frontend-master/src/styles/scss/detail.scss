@@ -236,8 +236,19 @@
     left: 0;
     right: 0;
     margin: auto;
-    background: white;
+    background: #FCF1F1;
     z-index: 1010;
+    padding: 20px;
+
+    h2 {
+      margin: 45px 0;
+      font-size: 40px;
+      font-family: "Cormorant Unicase", serif;
+      letter-spacing: -0.02em;
+      color: #313131;
+      font-weight: normal;
+    }
+
   }
 
   .overlay {
