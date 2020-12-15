@@ -4,7 +4,7 @@
     <title>Главная</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
-  <link href="styles/app.css" rel="stylesheet" integrity="sha384-Vp86AAJtYQmnOzhri2FZmrE7Kh+rKHQQDIHGAlX44k9dmK8an1S/Q/wJ4EKYQLTa" crossorigin="anonymous"></head>
+  <link href="styles/app.css" rel="stylesheet" integrity="sha384-T0T9rtVF4LlZLB07Y9A9gQhfpCKkeAZttl2icdQ//KhVC1N+mtpiIT2B1Yqgc2Rf" crossorigin="anonymous"></head>
   <body id="starway">
     <header class="header">
       <div class="inner header__wrapper"><a class="header__logo" href="/"><img src="images/common/logo.svg"></a>
@@ -21,21 +21,31 @@
       <section>
         <div class="details">
           <div class="details__left-panel">
-            <div class="heading">
+            <div class="details__heading">
               <h2>Бамбуковые брюки<span><img src="images/icons/heart.svg"></span></h2>
             </div>
-            <p class="cost">2000 ₽</p>
-            <div class="action">
+            <p class="details__cost">2000 ₽</p>
+            <div class="details__action">
               <p>Бесплатная доставка от 5000 рублей</p>
             </div>
-            <div class="size">
+            <div class="details__slide details__slide--mobile"><img src="images/stuff/bamboo-pink.png"></div>
+            <p class="details__size-size">Размер</p>
+            <div class="details__size">
               <p>xs</p>
               <p>s</p>
               <p>m</p>
               <p>l</p>
-              <p>xl</p><a href="#">Узнать размер<img src="images/icons/link-arrow.svg"></a>
-            </div>
-            <div class="color">
+              <p>xl</p><a class="details__size-know" href="#">Узнать размер</a>
+            </div><a class="details__know" href="#">Узнать размер</a>
+            <select class="details__select">
+              <option>xs</option>
+              <option>s</option>
+              <option>m</option>
+              <option>l</option>
+              <option>xl</option>
+            </select>
+            <p class="details__color-mobile">Цвет</p>
+            <div class="details__color">
               <p>Цвет</p>
               <div class="color__circle-out color__circle-out--selected">
                 <div class="in in--pink"></div>
@@ -50,12 +60,58 @@
                 <div class="in in--white"></div>
               </div>
             </div>
-            <button class="buy">купить<img src="images/icons/link-arrow.svg"></button>
-            <nav><a>Описание</a><a>Таблица размеров</a><a>Параметры модели</a><a>Уход за изделием</a></nav>
+            <button class="details__buy button__big">купить<img src="images/icons/link-arrow.svg"></button>
+            <nav><a href="#">Описание</a><a href="#">Таблица размеров</a><a href="#">Параметры модели</a><a href="#">Уход за изделием</a></nav>
           </div>
-          <div class="details__mini"></div>
-          <div class="details__slide"></div>
+          <div class="details__mini"><img class="details__mini--selected" src="images/stuff/bamboo-pink-mini.png"><img src="images/stuff/bamboo-black-mini.png"><img src="images/stuff/bamboo-white-mini.png"><img src="images/stuff/bamboo-yellow-mini.png"></div>
+          <div class="details__slide"><img src="images/stuff/bamboo-pink.png"></div>
         </div>
+        <div class="see-more">
+          <h3>Вам также может понравиться</h3>
+          <div class="see-more__cont cards">
+            <div class="cards__card"><img src="images/detail/see-more1.png">
+              <p class="cards__name">Шёлковая пижама</p>
+              <p class="cards__cost">2000 ₽</p>
+            </div>
+            <div class="cards__card"><img src="images/detail/see-more2.png">
+              <p class="cards__name">Шёлковая пижама</p>
+              <p class="cards__cost">2000 ₽</p>
+            </div>
+            <div class="cards__card"><img src="images/detail/see-more3.png">
+              <p class="cards__name">Шёлковая пижама</p>
+              <p class="cards__cost">2000 ₽</p>
+            </div>
+            <div class="cards__card"><img src="images/detail/see-more4.png">
+              <p class="cards__name">Шёлковая пижама</p>
+              <p class="cards__cost">2000 ₽</p>
+            </div>
+          </div>
+        </div>
+        <div class="added">
+          <h2>Добавлено в корзину</h2>
+          <div class="added__cont"><img src="images/stuff/selected.jpg">
+            <div class="added__info">
+              <h3>Шёлковая пижама</h3>
+              <div class="added__count">
+                <p>Количество:</p>
+                <button class="added__minus">-</button>
+                <p class="added_num">1</p>
+                <button class="added__plus">+</button>
+              </div>
+              <p>Размер: <span>s</span></p>
+              <div class="added__color">
+                <p>Цвет:</p>
+                <div class="added__circle-out">
+                  <div class="added__circle-in"></div>
+                </div>
+              </div><a href="#">Удалить</a>
+            </div>
+            <p>2000 ₽</p>
+          </div>
+          <button class="added__see-card button__big">Посмотреть корзину<img src="images/icons/link-arrow.svg"></button>
+          <button class="added__continue button__big">Продолжить покупки<img src="images/icons/link-arrow.svg"></button><img class="added__close" src="images/icons/close.svg">
+        </div>
+        <div class="overlay"></div>
       </section>
     </main>
     <!-- popup menu-->
@@ -82,5 +138,5 @@
         <div class="footer__social"><a href="#"><img src="images/icons/vk.svg"></a><a href="#"><img src="images/icons/instagram.svg"></a></div>
       </div>
     </footer>
-  <script type="text/javascript" src="scripts/app.js" integrity="sha384-2+ctLz2wtvpinEao/6xwPGUlc+uIsxNzKrWPixyOfsSGIz2sct5a2Kq3gGIp/JC5" crossorigin="anonymous"></script></body>
+  <script type="text/javascript" src="scripts/app.js" integrity="sha384-vBQ44GS2ztWuOtfHMAXlF9Xzo/CGZ4LoWoDiZGg0bdIuevBigBFUOQnOkl1D6py6" crossorigin="anonymous"></script></body>
 </html>

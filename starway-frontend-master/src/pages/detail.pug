@@ -16,13 +16,24 @@ block content
                 p.details__cost 2000 ₽
                 div.details__action
                     p Бесплатная доставка от 5000 рублей
+                div.details__slide.details__slide--mobile
+                    img(src="images/stuff/bamboo-pink.png")
+                p.details__size-size Размер
                 div.details__size
                     p xs
                     p s
                     p m
                     p l
                     p xl
-                    a(href="#") Узнать размер
+                    a(href="#").details__size-know Узнать размер
+                a(href="#").details__know Узнать размер
+                select.details__select
+                    option xs
+                    option s
+                    option m
+                    option l
+                    option xl
+                p.details__color-mobile Цвет
                 div.details__color
                     p Цвет
                     div.color__circle-out.color__circle-out--selected
@@ -33,7 +44,7 @@ block content
                         div.in.in--black
                     div.color__circle-out
                         div.in.in--white
-                button.details__buy купить
+                button.details__buy.button__big купить
                     img(src="images/icons/link-arrow.svg")
                 nav
                     a(href="#") Описание
@@ -71,7 +82,7 @@ block content
         div.added
             h2 Добавлено в корзину
             div.added__cont
-                img(src="images/stuff/bamboo-pink-mini.png")
+                img(src="images/stuff/selected.jpg")
                 div.added__info
                     h3 Шёлковая пижама
                     div.added__count
@@ -79,15 +90,17 @@ block content
                         button.added__minus -
                         p.added_num 1
                         button.added__plus +
-                    p Размер:
+                    p Размер:!{' '}
                         span s
                     div.added__color
-                        p Цвет
+                        p Цвет:
                         div.added__circle-out
                             div.added__circle-in
                     a(href="#") Удалить
                 p 2000 ₽
-            button.added__see-card Посмотреть корзину
+            button.added__see-card.button__big Посмотреть корзину
                 img(src="images/icons/link-arrow.svg")
-            a(href="#") Продолжить покупку
+            button.added__continue.button__big Продолжить покупки
+                img(src="images/icons/link-arrow.svg")
+            img(src="images/icons/close.svg").added__close
         div.overlay
