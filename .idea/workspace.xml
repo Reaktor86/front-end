@@ -21,14 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/scripts/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/dist/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/dist/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/pages/detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/pages/detail.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/scripts/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/scripts/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starway-frontend-master/src/styles/scss/detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/starway-frontend-master/src/styles/scss/detail.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +85,7 @@
       <workItem from="1607957285783" duration="4455000" />
       <workItem from="1607964885076" duration="4440000" />
       <workItem from="1608041961556" duration="3756000" />
+      <workItem from="1608141878594" duration="1015000" />
     </task>
     <servers />
   </component>
