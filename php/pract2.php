@@ -1,6 +1,6 @@
 <?php
 
-// ТЕМА: ФУНКЦИИ
+// ТЕМА: ФУНКЦИИ, запросы
 
 $request = $_REQUEST;
 $array = [];
@@ -9,7 +9,7 @@ foreach ($request as $k => $val) {
     $array[$k] = $val;
 }
 //var_dump($array);
-//file_put_contents("save.txt", $string, FILE_APPEND);
+//file_put_contents("save.txt", $array, FILE_APPEND);
 $userData = json_encode($array);
 echo $userData;
 die();

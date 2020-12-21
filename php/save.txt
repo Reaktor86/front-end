@@ -1,4 +1,0 @@
-name: 1223
-sname: 131
-age: 131
-pass: 131

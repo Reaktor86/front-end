@@ -55,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OpenServer/domains/localhost" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -86,6 +86,7 @@
       <workItem from="1607964885076" duration="4440000" />
       <workItem from="1608041961556" duration="3756000" />
       <workItem from="1608141878594" duration="1015000" />
+      <workItem from="1608404135899" duration="47000" />
     </task>
     <servers />
   </component>
@@ -103,19 +104,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="629" y="298" key="EditFileWatcherDialog" timestamp="1606923459232">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="629" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606923459232" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607362871578">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607362871578" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1607362453763">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607362453763" />
   </component>
 </project>
