@@ -1,14 +1,15 @@
 <?php
 
 // ТЕМА: ФУНКЦИИ, запросы
+$json = file_get_contents('php://input');
+$request = json_decode($json);
 
-$request = $_REQUEST;
 $array = [];
 foreach ($request as $k => $val) {
     $val = trim(strip_tags($val));
     $array[$k] = $val;
 }
-//var_dump($array);
+
 //file_put_contents("save.txt", $array, FILE_APPEND);
 $userData = json_encode($array);
 echo $userData;
