@@ -161,9 +161,11 @@ function salaryCharge($decode)
 salaryCharge($decode);
 
 // генератор юзеров
+echo "<br><br>";
 
+$usersAll = []; // основной массив, в который будут складываться все сгенерированные юзеры
 
-function generateUsers()
+function generateUser($usersAll)
 {
     $namesMale = [
         "Олег",
@@ -175,12 +177,84 @@ function generateUsers()
 
     $namesFemale = [
         "Татьяна",
-        "Юля",
+        "Юлия",
         "Виктория",
+        "Елизавета",
+        "Кристина",
     ];
 
-    $surnames = [
+    $surnamesMale = [
         "Кузнецов",
-        
+        "Васнецов",
+        "Хабенский",
+        "Иванов",
+        "Петров",
+    ];
+
+    $surnamesFemale = [
+        "Кузнецова",
+        "Васнецова",
+        "Хабенская",
+        "Иванова",
+        "Петрова",
+    ];
+
+    // выбрать случайный пол
+    $sex = rand(0,1);
+
+    // выбрать случайное имя
+    if ($sex === 0) {
+        $name = $namesMale[rand(0, count($namesMale)-1)] . " " . $surnamesMale[rand(0, count($namesMale)-1)];
+    } else {
+        $name = $namesFemale[rand(0, count($namesFemale)-1)] . " " . $surnamesFemale[rand(0, count($namesFemale)-1)];
+    }
+
+    // генерация id
+    $num = rand(0, 9999);
+    if ($num < 10) {
+        $num = "000" . $num;
+    } elseif ($num < 100) {
+        $num = "00" . $num;
+    } elseif ($num < 1000) {
+        $num = "0" . $num;
+    }
+
+    $letter = range("A", "Z");
+    $id = $letter[rand(0, count($letter)-1)] . "-" . $num;
+
+    // генерация профессии (может быть только один директор, и он всегда идёт первым)
+    $posArray = ["Бухгалтер", "Админ", "Менеджер", "Программист", "Юрист"];
+    if ($usersAll[0]["position"] === "Директор") {
+        $position = $posArray[rand(0, count($posArray)-1)];
+    } else {
+        $position = "Директор";
+    }
+
+    // генерация возраста
+    $age = rand(18, 60);
+
+    // вывод результата
+
+    return [
+        "id" => $id,
+        "name" => $name,
+        "position" => $position,
+        "age" => $age,
     ];
 }
+
+//print_r(generateUser());
+
+// сгенерировать много юзеров
+echo "<br><br>";
+
+function generateUsersMany($usersAll, $count) {
+    $usersAll = [];
+    for ($i = 0; $i < $count; $i++) {
+        $usersAll[] = generateUser($usersAll);
+    }
+    return $usersAll;
+}
+
+print_r(generateUsersMany($usersAll, 10));
+

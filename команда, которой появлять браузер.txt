@@ -1,1 +1,6 @@
 npm run serve
+
+
+git config --global user.email "mindlock861@gmail.com"
+git config --global user.name "Reaktor86"
+
