@@ -3,10 +3,10 @@
 const Map06param = {
 
     mapName: "Трасса 6: Заколдованное место",
-    prize1: 800,
-    prize2: 560,
-    prize3: 420,
-    prize4: 280,
+    prize1: 1000,
+    prize2: 600,
+    prize3: 450,
+    prize4: 300,
     branchA: true,
     branchA1X: 280,
     branchA1Y: 431,
@@ -16,7 +16,9 @@ const Map06param = {
     branchA2ROTATE: "none",
     arrowsX: 102,
     arrowsY: 180,
-    arrowsUrl: "img/arrows06.svg",
+    arrowsUrl: "img/arrows/arrows06.svg",
+    prizeX: 20,
+    prizeY: 20,
     cpId: [11],
     badId: [9, 231, 235, 241],
     goodId: [8, 10, 126, 128, 226, 230],
@@ -24,7 +26,6 @@ const Map06param = {
     bonId: [1],
     jumpId: [19, 22, 232, 234, 236, 238, 239],
     brId: [24],
-    finId: 243,
 
     pedestalX: 50,
     pedestalY: 80,
@@ -115,6 +116,7 @@ let Map06 = [
         type: "starOrange",
         shift: "up",
         stepsToFin: 40,
+        zone: true,
     },
 
     {
@@ -124,6 +126,7 @@ let Map06 = [
         coorY: 600,
         shift: "up",
         stepsToFin: 39,
+        zone: true,
     },
 
     {
@@ -133,6 +136,7 @@ let Map06 = [
         coorY: 600,
         shift: "up",
         stepsToFin: 38,
+        zone: true,
     },
 
     {
@@ -140,8 +144,10 @@ let Map06 = [
         num: "4",
         coorX: 520,
         coorY: 600,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 37,
+        zone: true,
     },
 
     {
@@ -149,8 +155,10 @@ let Map06 = [
         num: "5",
         coorX: 480,
         coorY: 600,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 36,
+        zone: true,
     },
 
     {
@@ -160,6 +168,7 @@ let Map06 = [
         coorY: 600,
         shift: "down",
         stepsToFin: 35,
+        zone: true,
     },
 
     {
@@ -169,6 +178,7 @@ let Map06 = [
         coorY: 560,
         shift: "up",
         stepsToFin: 34,
+        zone: true,
     },
 
     {
@@ -179,6 +189,7 @@ let Map06 = [
         bonus: 40,
         shift: "up",
         stepsToFin: 33,
+        zone: true,
     },
 
     {
@@ -190,6 +201,7 @@ let Map06 = [
         type2: "arrow",
         teleportTo: 5,
         stepsToFin: 32,
+        zone: true,
     },
 
     {
@@ -199,6 +211,7 @@ let Map06 = [
         coorY: 560,
         type: "yellow",
         stepsToFin: 31,
+        zone: true,
     },
 
     {
@@ -216,6 +229,7 @@ let Map06 = [
         num: "12",
         coorX: 280,
         coorY: 520,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 29,
     },
@@ -243,6 +257,7 @@ let Map06 = [
         num: "15",
         coorX: 160,
         coorY: 520,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 26,
     },
@@ -414,6 +429,8 @@ let Map06 = [
         num: "28",
         coorX: 320,
         coorY: 320,
+        type: "joker",
+        teleportTo: 11,
         shift: "up",
         stepsToFin: 15,
     },
@@ -470,6 +487,7 @@ let Map06 = [
         num: "34",
         coorX: 520,
         coorY: 360,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 9,
     },
@@ -489,6 +507,7 @@ let Map06 = [
         num: "36",
         coorX: 600,
         coorY: 360,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 7,
     },
@@ -570,6 +589,8 @@ let Map06 = [
         dir2: [3,4,5,6],
         tele1: 235,
         tele2: 4,
+        dir1type: "regular",
+        dir2type: "regular",
     },
 
 ]

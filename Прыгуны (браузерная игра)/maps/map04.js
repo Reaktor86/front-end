@@ -37,7 +37,9 @@ const Map04param = {
     branchD2ROTATE: "rotate(-90deg)",
     arrowsX: 218,
     arrowsY: 84,
-    arrowsUrl: "img/arrows04.svg",
+    arrowsUrl: "img/arrows/arrows04.svg",
+    prizeX: 20,
+    prizeY: 20,
     cpId: [230, 137],
     badId: [19, 131, 134, 135, 446, 550, 551, 857, 858, 861, 864, 865],
     goodId: [11, 13, 21, 138, 437, 443, 434, 854, 856, 860],
@@ -45,32 +47,31 @@ const Map04param = {
     bonId: [130, 859],
     jumpId: [20, 23, 136, 863, 860],
     brId: [27, 230, 447, 651],
-    finId: 866,
 
-    pedestalX: 490,
+    pedestalX: 530,
     pedestalY: 80,
     pedestalCoords: [
         {
             cellid: "fin1",
-            coorX: 541,
+            coorX: 581,
             coorY: 47,
         },
 
         {
             cellid: "fin2",
-            coorX: 493,
+            coorX: 533,
             coorY: 59,
         },
 
         {
             cellid: "fin3",
-            coorX: 592,
+            coorX: 632,
             coorY: 67,
         },
 
         {
             cellid: "fin4",
-            coorX: 662,
+            coorX: 702,
             coorY: 92,
         },
     ],
@@ -135,6 +136,7 @@ let Map04 = [
         coorY: 680,
         shift: "up",
         stepsToFin: 47,
+        zone: true,
     },
 
     {
@@ -144,6 +146,7 @@ let Map04 = [
         coorY: 680,
         shift: "up",
         stepsToFin: 46,
+        zone: true,
     },
 
     {
@@ -154,6 +157,7 @@ let Map04 = [
         type: "arrow",
         teleportTo: 7,
         stepsToFin: 45,
+        zone: true,
     },
 
     {
@@ -163,6 +167,7 @@ let Map04 = [
         coorY: 680,
         shift: "down",
         stepsToFin: 44,
+        zone: true,
     },
 
     {
@@ -172,6 +177,7 @@ let Map04 = [
         coorY: 680,
         shift: "down",
         stepsToFin: 43,
+        zone: true,
     },
 
     {
@@ -179,8 +185,10 @@ let Map04 = [
         num: "6",
         coorX: 280,
         coorY: 640,
+        type: "arrowEnd",
         shift: "left",
         stepsToFin: 42,
+        zone: true,
     },
 
     {
@@ -188,8 +196,10 @@ let Map04 = [
         num: "7",
         coorX: 280,
         coorY: 600,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 41,
+        zone: true,
     },
 
     {
@@ -199,6 +209,7 @@ let Map04 = [
         coorY: 600,
         shift: "up",
         stepsToFin: 40,
+        zone: true,
     },
 
     {
@@ -206,8 +217,11 @@ let Map04 = [
         num: "9",
         coorX: 360,
         coorY: 600,
+        type: "joker",
+        teleportTo: 0,
         shift: "down",
         stepsToFin: 39,
+        zone: true,
     },
 
     {
@@ -215,8 +229,10 @@ let Map04 = [
         num: "10",
         coorX: 400,
         coorY: 600,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 38,
+        zone: true,
     },
 
     {
@@ -227,6 +243,7 @@ let Map04 = [
         bonus: 20,
         shift: "right",
         stepsToFin: 37,
+        zone: true,
     },
 
     {
@@ -237,6 +254,7 @@ let Map04 = [
         type: "arrow",
         teleportTo: 6,
         stepsToFin: 36,
+        zone: true,
     },
 
     {
@@ -246,6 +264,7 @@ let Map04 = [
         coorY: 680,
         type: "orange",
         stepsToFin: 35,
+        zone: true,
     },
 
     {
@@ -256,6 +275,7 @@ let Map04 = [
         type: "arrow",
         teleportTo: 16,
         stepsToFin: 34,
+        zone: true,
     },
 
     {
@@ -265,6 +285,7 @@ let Map04 = [
         coorY: 680,
         shift: "up",
         stepsToFin: 33,
+        zone: true,
     },
 
     {
@@ -272,8 +293,10 @@ let Map04 = [
         num: "16",
         coorX: 560,
         coorY: 680,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 32,
+        zone: true,
     },
 
     {
@@ -283,6 +306,7 @@ let Map04 = [
         coorY: 680,
         shift: "right",
         stepsToFin: 31,
+        zone: true,
     },
 
     {
@@ -290,8 +314,10 @@ let Map04 = [
         num: "18",
         coorX: 600,
         coorY: 640,
+        type: "arrowEnd",
         shift: "right",
         stepsToFin: 30,
+        zone: true,
     },
 
     {
@@ -302,6 +328,7 @@ let Map04 = [
         type: "red",
         teleportTo: 0,
         stepsToFin: 29,
+        zone: true,
     },
 
     {
@@ -311,6 +338,7 @@ let Map04 = [
         coorY: 560,
         shift: "left",
         stepsToFin: 28,
+        zone: true,
     },
 
     {
@@ -321,6 +349,7 @@ let Map04 = [
         bonus: 30,
         shift: "left",
         stepsToFin: 27,
+        zone: true,
     },
 
     {
@@ -331,6 +360,7 @@ let Map04 = [
         type: "green",
         shift: "right",
         stepsToFin: 26,
+        zone: true,
     },
 
     {
@@ -340,6 +370,7 @@ let Map04 = [
         coorY: 480,
         shift: "right",
         stepsToFin: 25,
+        zone: true,
     },
 
     {
@@ -350,6 +381,7 @@ let Map04 = [
         type: "arrow",
         teleportTo: 18,
         stepsToFin: 24,
+        zone: true,
     },
 
     {
@@ -359,6 +391,7 @@ let Map04 = [
         coorY: 440,
         shift: "up",
         stepsToFin: 23,
+        zone: true,
     },
 
     {
@@ -368,6 +401,7 @@ let Map04 = [
         coorY: 440,
         shift: "up",
         stepsToFin: 22,
+        zone: true,
     },
 
     {
@@ -381,6 +415,7 @@ let Map04 = [
         branch2Type: "regular", // 200 влево
         shift: "up",
         stepsToFin: 21,
+        zone: true,
     },
 
 // branch A, extreme 100
@@ -428,6 +463,7 @@ let Map04 = [
         num: "32",
         coorX: 400,
         coorY: 520,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 20,
     },
@@ -514,6 +550,7 @@ let Map04 = [
         num: "41",
         coorX: 280,
         coorY: 280,
+        type: "arrowEnd",
         stopCondition: "join",
         joinTo: 650,
         shift: "left",
@@ -529,6 +566,7 @@ let Map04 = [
         coorY: 440,
         shift: "up",
         stepsToFin: 20,
+        zone: true,
     },
 
     {
@@ -540,6 +578,7 @@ let Map04 = [
         teleportTo: 431,
         stepsToFin: 19,
         passCP: true,
+        zone: true,
     },
 
     {
@@ -587,6 +626,7 @@ let Map04 = [
         num: "31",
         coorX: 400,
         coorY: 400,
+        type: "arrowEnd",
         shift: "right",
         stepsToFin: 21,
     },
@@ -605,6 +645,7 @@ let Map04 = [
         num: "33",
         coorX: 400,
         coorY: 320,
+        type: "arrowEnd",
         shift: "left",
         stepsToFin: 19,
     },
@@ -706,6 +747,7 @@ let Map04 = [
         num: "44",
         coorX: 520,
         coorY: 240,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 8,
     },
@@ -715,6 +757,7 @@ let Map04 = [
         num: "45",
         coorX: 480,
         coorY: 240,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 7,
     },
@@ -820,6 +863,8 @@ let Map04 = [
         num: "50",
         coorX: 280,
         coorY: 240,
+        type: "joker",
+        teleportTo: 137,
         shift: "up",
         stepsToFin: 10,
     },
@@ -831,13 +876,13 @@ let Map04 = [
         coorY: 240,
         stopCondition: "branch",
         branchid: "d",
-        branch1Type: "careful", // 700 вверх короткий путь
+        branch1Type: "regular", // 700 вверх короткий путь
         branch2Type: "risky", // 800 влево длинный путь с крупными бонусами
         shift: "down",
         stepsToFin: 9,
     },
 
-// branch D, careful 700
+// branch D, regular 700
 
     {
         cellid: 752,

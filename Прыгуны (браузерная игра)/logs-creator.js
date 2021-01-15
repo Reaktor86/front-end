@@ -1,8 +1,4 @@
-function getNewTimeString() {
-    let date = new Date();
-    let dateStr = date.toString();
-    return dateStr.substr(16,2) + ":" + dateStr.substr(19,2) + ":" + dateStr.substr(22,2);
-}
+﻿
 
 const pathLog = document.querySelector(".log");
 
@@ -140,7 +136,7 @@ function messageYellow() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " попал на ";
+    p2.innerHTML = " попадает на ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -171,7 +167,7 @@ function messageOrange() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " попал на ";
+    p2.innerHTML = " попадает на ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -202,7 +198,7 @@ function messageGreen() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " попал на ";
+    p2.innerHTML = " попадает на ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -233,7 +229,7 @@ function messageCheckpoint() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " достиг ";
+    p2.innerHTML = " достигает ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -251,6 +247,10 @@ function messageRed(black) {
 
 // Игрок X попал на красную клетку! -1 ед. энергии
 
+    if (curMap === Map15 && black && players[current].entity === "sup") {
+        return;
+    }
+
     createNewLog();
     let pathDiv = pathLog.querySelector(".log__message");
 
@@ -260,7 +260,7 @@ function messageRed(black) {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " попал на ";
+    p2.innerHTML = " попадает на ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -273,9 +273,11 @@ function messageRed(black) {
     }
     pathDiv.append(p3);
 
-    let p4 = document.createElement("p");
-    p4.innerHTML = "-1 ед. силы";
-    pathDiv.append(p4);
+    if (curMap !== Map15) {
+        let p4 = document.createElement("p");
+        p4.innerHTML = "-1 ед. силы";
+        pathDiv.append(p4);
+    }
 
     setTimeout( function () {
         pathDiv.style.boxShadow = "none";
@@ -301,7 +303,11 @@ function messageReturnCheckpoint() {
 
     let p3 = document.createElement("p");
     p3.style.color = "#308ae3";
-    p3.innerHTML = "чекпойнт";
+    if (curMap[cellIndex].teleportTo == 0) {
+        p3.innerHTML = "старт";
+    } else {
+        p3.innerHTML = "чекпойнт";
+    }
     pathDiv.append(p3);
 
     setTimeout( function () {
@@ -391,6 +397,65 @@ function messageAttackResult(rival) {
     } , 20);
 }
 
+function messageVampire(rival) {
+
+// Игрок X УКУСИЛ Игрок Y!
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.style.color = "red";
+    p2.innerHTML = " КУСАЕТ ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.className = "log__player";
+    p3.innerHTML = rival.label + "!";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageVampireResult(rival) {
+
+// Игрок Y теряет 1 ед.силы и пропустит ход, а Игрок X получает 1 ед.силы и ходит ещё раз
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = rival.label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " теряет 1 ед.силы и пропустит ход, а ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.className = "log__player";
+    p3.innerHTML = players[current].label;
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = " получает 1 ед.силы и ходит ещё раз";
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
 function messageAttackCancel(rival) {
 
 // Игрок X передумал атаковать Игрок Y
@@ -418,6 +483,33 @@ function messageAttackCancel(rival) {
     } , 20);
 }
 
+function messageHatchCancel(rival) {
+
+// Игрок X не смог атаковать Игрок Y
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " не смог атаковать ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.className = "log__player";
+    p3.innerHTML = rival.label;
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
 function messageAttackNoOne() {
 
 // Игрок X отказался от конфликта
@@ -431,7 +523,7 @@ function messageAttackNoOne() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " отказался от конфликта";
+    p2.innerHTML = " отказывается от конфликта";
     pathDiv.append(p2);
 
     setTimeout( function () {
@@ -454,7 +546,7 @@ function messageFinished() {
 
     let p2 = document.createElement("p");
     p2.style.color = "orange";
-    p2.innerHTML = " ФИНИШИРОВАЛ!";
+    p2.innerHTML = " ФИНИШИРУЕТ!";
     pathDiv.append(p2);
 
     setTimeout( function () {
@@ -463,7 +555,7 @@ function messageFinished() {
     } , 20);
 }
 
-function messageLose() {
+function messageLose(player) {
 
 // Игрок X СОШЁЛ С ДИСТАНЦИИ!
 
@@ -472,12 +564,12 @@ function messageLose() {
 
     let p1 = document.createElement("p");
     p1.className = "log__player";
-    p1.innerHTML = players[current].label;
+    p1.innerHTML = player.label;
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
     p2.style.color = "red";
-    p2.innerHTML = " СОШЁЛ С ДИСТАНЦИИ!";
+    p2.innerHTML = " СХОДИТ С ДИСТАНЦИИ!";
     pathDiv.append(p2);
 
     setTimeout( function () {
@@ -486,7 +578,7 @@ function messageLose() {
     } , 20);
 }
 
-function messagePlace(place) {
+function messagePlace(player, place) {
 
 // Игрок X занял y место
 
@@ -495,11 +587,11 @@ function messagePlace(place) {
 
     let p1 = document.createElement("p");
     p1.className = "log__player";
-    p1.innerHTML = players[current].label;
+    p1.innerHTML = player.label;
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " занял ";
+    p2.innerHTML = " занимает ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -737,13 +829,44 @@ function messageAttackArmor() {
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
-    p3.innerHTML = " сорвалась атака: противник одет в ";
+    p3.innerHTML = " сорвалась атака: соперник одет в ";
     pathDiv.append(p3);
 
     let p4 = document.createElement("p");
     p4.innerHTML = "броню";
-    p1.style.color = "#abc5f4";
+    p4.style.color = "#abc5f4";
     pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageShieldPaid(attacking, defender, paid) {
+    // Игрок X забирает $ 30 у Игрок Y
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = defender.label;
+    pathDiv.append(p1);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = " забирает " + paid + "$";
+    p3.style.color = "#abc5f4";
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = " у ";
+    pathDiv.append(p4);
+
+    let p2 = document.createElement("p");
+    p2.className = "log__player";
+    p2.innerHTML = attacking.label;
+    pathDiv.append(p2);
 
     setTimeout( function () {
         pathDiv.style.boxShadow = "none";
@@ -764,7 +887,7 @@ function messageArmorOn(player, iron) {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " нацепил ";
+    p2.innerHTML = " надевает ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -832,7 +955,7 @@ function messageBonus(bonus) {
         p4.style.color = "#6bec4d";
         pathDiv.append(p4);
     } else {
-        p3.innerHTML = " нарвался на ";
+        p3.innerHTML = " нарывается на ";
         pathDiv.append(p3);
 
         let p4 = document.createElement("p");
@@ -860,7 +983,7 @@ function messageStar(red) {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " выхватил ";
+    p2.innerHTML = " ловит ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -900,7 +1023,7 @@ function messageSpeed() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " зарядился ";
+    p2.innerHTML = " заряжается ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -911,6 +1034,104 @@ function messageSpeed() {
     let p4 = document.createElement("p");
     p4.innerHTML = "Очки на кубике x2 следующие 3 хода!";
     pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageJoker() {
+
+// Клетка-джокер!
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "Клетка-джокер!";
+    p3.style.color = "#a262e4";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageJokerOK() {
+
+// Игрок X открывает сюрприз: тип
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = "Сюрприз: ";
+    p2.style.color = "#a262e4";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    if (selectedType === "yellow") {
+        p3.innerHTML = "ЖЁЛТАЯ КЛЕТКА";
+    }
+    if (selectedType === "orange") {
+        p3.innerHTML = "ОРАНЖЕВАЯ КЛЕТКА";
+    }
+    if (selectedType === "green") {
+        p3.innerHTML = "ЗЕЛЁНАЯ КЛЕТКА";
+    }
+    if (selectedType === "red") {
+        p3.innerHTML = "КРАСНАЯ КЛЕТКА";
+    }
+    if (selectedType === "black") {
+        p3.innerHTML = "ЧЁРНАЯ КЛЕТКА";
+    }
+    if (selectedType === "starOrange") {
+        p3.innerHTML = "ОРАНЖЕВАЯ ЗВЕЗДА";
+    }
+    if (selectedType === "starRed") {
+        p3.innerHTML = "КРАСНАЯ ЗВЕЗДА";
+    }
+    if (selectedType === "speed") {
+        p3.innerHTML = "МОЛНИЯ";
+    }
+    if (typeof selectedType === "number") {
+        if (selectedType < 0) {
+            p3.innerHTML = "ШТРАФ";
+        } else {
+            p3.innerHTML = "БОНУС";
+        }
+    }
+    if (selectedType === "magnet") {
+        p3.innerHTML = "получен предмет МАГНИТ";
+    }
+    if (selectedType === "smagnet") {
+        p3.innerHTML = "получен предмет СУПЕР-МАГНИТ";
+    }
+    if (selectedType === "shield") {
+        p3.innerHTML = "получен предмет ЩИТ";
+    }
+    if (selectedType === "ishield") {
+        p3.innerHTML = "получен предмет ЖЕЛЕЗНЫЙ ЩИТ";
+    }
+    if (selectedType === "trap") {
+        p3.innerHTML = "получен предмет КАПКАН";
+    }
+    if (selectedType === "vampire") {
+        p3.innerHTML = "получен предмет ВАМПИРСКИЕ КЛЫКИ";
+    }
+    if (!selectedType) {
+        p3.innerHTML = "предмет не получен";
+        p3.style.color = "#ff0000";
+    }
+    pathDiv.append(p3);
+
+    if (!selectedType) {
+        let p4 = document.createElement("p");
+        p4.innerHTML = " (инвентарь игрока переполнен)";
+        pathDiv.append(p4);
+    }
 
     setTimeout( function () {
         pathDiv.style.boxShadow = "none";
@@ -931,7 +1152,7 @@ function messageSpeedOver() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " остался без ";
+    p2.innerHTML = " остаётся без ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -958,7 +1179,7 @@ function messageDeadend() {
     pathDiv.append(p1);
 
     let p2 = document.createElement("p");
-    p2.innerHTML = " упёрся лбом в ";
+    p2.innerHTML = " упирается лбом в ";
     pathDiv.append(p2);
 
     let p3 = document.createElement("p");
@@ -1047,6 +1268,585 @@ function messageBuyModel(player, model) {
     let p4 = document.createElement("p");
     p4.innerHTML = " фишку";
     pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageCatch() {
+
+    // Игрок X далеко ПОЗАДИ! Очки на кубике x2
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " отстаёт от соперников! ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "Очки на кубике x2";
+    p3.style.color = "#308ae3";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageIMP(yes) {
+
+// Невозможный кубик сработал! Выпало: x
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    if (players[current].type === "human") {
+        p1.innerHTML = "Невозможный кубик ";
+    } else {
+        p1.innerHTML = "Секретный предмет ";
+    }
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    if (yes) {
+        p2.innerHTML = "сработал! ";
+        p2.style.color = "#6bec4d";
+    } else {
+        p2.innerHTML = "не сработал! ";
+        p2.style.color = "#ff0000";
+    }
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = " Выпало: " + "<b>" + cubicScore + "</b>";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageIMPmove() {
+
+// Ход невозможным кубиком
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = "Ход ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    if (players[current].type === "human") {
+        p3.innerHTML = "невозможным кубиком";
+    } else {
+        p3.innerHTML = "секретным предметом";
+    }
+    p3.style.color = "#fff64d";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageMop(num) {
+
+// Игрок X удалил красную клетку № Y
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " УДАЛЯЕТ ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "красную клетку ";
+    p3.style.color = "#ff0000";
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = "№ " + num;
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageTrap(num) {
+
+// Игрок X поставил КАПКАН на клетку № Y
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " размещает ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "КАПКАН ";
+    p3.style.color = "#c9712e";
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = "на клетке № " + num;
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageTrapSelf() {
+
+// Игрок X попадает в свой же КАПКАН! Пропустит ход
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " попадает в свой же ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "КАПКАН! ";
+    p3.style.color = "#c9712e";
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = "Теперь пропустит ход";
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageTrapSuccess(owner) {
+
+// Игрок X попадает в КАПКАН! Игрок X выплатит Игрок Y 400$ и пропустит ход
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " попадает в ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "КАПКАН! ";
+    p3.style.color = "#c9712e";
+    pathDiv.append(p3);
+
+    if (players[current].entity !== "none") {
+        let p5 = document.createElement("p");
+        p5.innerHTML = "Пропустит ход";
+        pathDiv.append(p5);
+
+    } else {
+        let p4 = document.createElement("p");
+        p4.className = "log__player";
+        p4.innerHTML = players[current].label;
+        pathDiv.append(p4);
+
+        let p5 = document.createElement("p");
+        p5.innerHTML = " выплатит ";
+        pathDiv.append(p5);
+
+        let p6 = document.createElement("p");
+        p6.className = "log__player";
+        p6.innerHTML = owner.label;
+        pathDiv.append(p6);
+
+        let p7 = document.createElement("p");
+        p7.innerHTML = " " + trapPower + "$ и пропустит ход";
+        pathDiv.append(p7);
+    }
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageTrapRemove(num) {
+
+// КАПКАН на клетке № ХХ разобран
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.innerHTML = "КАПКАН ";
+    p1.style.color = "#c9712e";
+    pathDiv.append(p1);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = "на клетке № " + num + " разобран";
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageHatched(rival) {
+
+// Игрок Х ВЫКИНУЛ Игрок Y с трассы!
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " УДАЛЯЕТ ";
+    p2.style.color = "#ff0000";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.className = "log__player";
+    p3.innerHTML = rival.label;
+    pathDiv.append(p3);
+
+    let p4 = document.createElement("p");
+    p4.innerHTML = " с трассы!";
+    pathDiv.append(p4);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageMB(player) {
+
+// Игрок X попал в КОПИЛКУ
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = player.label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " попадает в ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "КОПИЛКУ";
+    p3.style.color = "#b7ff35";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageMBno() {
+
+// Игрок X не стал пользоваться КОПИЛКОЙ
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " выходит из ";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = "КОПИЛКИ";
+    p3.style.color = "#b7ff35";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageMByes() {
+
+// Игрок X взял из КОПИЛКИ бонус: +40$ +1 ед.силы
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " берёт из ";
+    pathDiv.append(p2);
+
+    let p5 = document.createElement("p");
+    p5.innerHTML = "КОПИЛКИ";
+    p5.style.color = "#b7ff35";
+    pathDiv.append(p5);
+
+    let p6 = document.createElement("p");
+    p6.innerHTML = " бонус: ";
+    pathDiv.append(p6);
+
+    let p3 = document.createElement("p");
+    p3.style.color = "#6bec4d";
+    if (moneybagStep < 6) {
+        p3.innerHTML = "+" + mbPrize1 + "$";
+        pathDiv.append(p3);
+    } else {
+        p3.innerHTML = "+" + mbPrize2 + "$";
+        pathDiv.append(p3);
+        let p4 = document.createElement("p");
+        p4.style.color = "#95caff";
+        p4.innerHTML = " +1 ед.силы";
+        pathDiv.append(p4);
+    }
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageManip(num) {
+
+// Игрок X переместил зелёную клетку № X
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " переместил зелёную клетку № " + num;
+    pathDiv.append(p2);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageSkull() {
+
+// Игрок X УКУШЕН черепом!
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[3].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    if (players[3].power < 0) {
+        p2.innerHTML = " СЪЕДЕН ЧЕРЕПОМ!";
+    } else {
+        p2.innerHTML = " УКУШЕН ЧЕРЕПОМ!";
+    }
+    p2.style.color = "#ff0000";
+    pathDiv.append(p2);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageSuper(type) {
+
+// Вы попали на супер-фишку! -1 ед. силы
+// На Вас встала супер-фишка! -2 ед. силы
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let p4 = document.createElement("p");
+
+    if (type === "user") {
+        p2.innerHTML = "На Вас встала ";
+        pathDiv.append(p2);
+
+        p3.innerHTML = "супер-фишка! ";
+        p3.style.color = "#ffb637";
+        pathDiv.append(p3);
+
+        p4.innerHTML = "-2 ед. силы";
+        pathDiv.append(p4);
+    }
+
+    if (type === "super") {
+        p2.innerHTML = "Вы попали на ";
+        pathDiv.append(p2);
+
+        p3.innerHTML = "супер-фишку! ";
+        p3.style.color = "#ffb637";
+        pathDiv.append(p3);
+
+        p4.innerHTML = "-1 ед. силы";
+        pathDiv.append(p4);
+    }
+
+    if (type === "hatch") {
+        p2.innerHTML = "Вы попали на ";
+        pathDiv.append(p2);
+
+        p3.innerHTML = "супер-фишку ";
+        p3.style.color = "#ffb637";
+        pathDiv.append(p3);
+
+        p4.innerHTML = "в ЗОНЕ ЗАХВАТА! -2 ед. силы";
+        pathDiv.append(p4);
+    }
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageSuperShield() {
+
+// Ваша броня снизила урон на 1 ед.
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.innerHTML = "Ваша ";
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = "броня";
+    p2.style.color = "#abc5f4";
+    pathDiv.append(p2);
+
+    let p3 = document.createElement("p");
+    p3.innerHTML = " снизила урон на 1 ед.";
+    pathDiv.append(p3);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageStartEscape() {
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = "ПОБЕГ НАЧИНАЕТСЯ! ";
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = "Успейте дойти до финиша вдвоём за " + bombTimer + " ходов";
+    pathDiv.append(p2);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+
+    messageMoving();
+}
+
+function messageHostageLose() {
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = players[current].label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " не смогла дойти до выхода";
+    p2.style.color = "red";
+    pathDiv.append(p2);
+
+    setTimeout( function () {
+        pathDiv.style.boxShadow = "none";
+        pathDiv.style.opacity = "1";
+    } , 20);
+}
+
+function messageEscapeSuccess(player) {
+
+    createNewLog();
+    let pathDiv = pathLog.querySelector(".log__message");
+
+    let p1 = document.createElement("p");
+    p1.className = "log__player";
+    p1.innerHTML = player.label;
+    pathDiv.append(p1);
+
+    let p2 = document.createElement("p");
+    p2.innerHTML = " УСПЕВАЕТ СБЕЖАТЬ!";
+    p2.style.color = "orange";
+    pathDiv.append(p2);
 
     setTimeout( function () {
         pathDiv.style.boxShadow = "none";

@@ -9,7 +9,7 @@ const Map02param = {
     prize4: 100,
     arrowsX: 92,
     arrowsY: 104,
-    arrowsUrl: "img/arrows02.svg",
+    arrowsUrl: "img/arrows/arrows02.svg",
     branchA: true,
     branchA1X: 353,
     branchA1Y: 222,
@@ -17,6 +17,13 @@ const Map02param = {
     branchA2X: 400,
     branchA2Y: 286,
     branchA2ROTATE: "rotate(90deg)",
+    branchB: true,
+    branchB1X: 392,
+    branchB1Y: 520,
+    branchB1ROTATE: "rotate(180deg)",
+    branchB2X: 322,
+    branchB2Y: 449,
+    branchB2ROTATE: "rotate(-90deg)",
 
     // !!! эти бранчи не удалять, если больше нигде не пригодятся
     branchA3: false,
@@ -27,20 +34,25 @@ const Map02param = {
     branchC3X: 0,
     branchC3Y: 0,
     branchC3ROTATE: "none",
-    branchD3: false,
-    branchD3X: 0,
-    branchD3Y: 0,
-    branchD3ROTATE: "none",
+    branchE3: false,
+    branchE3X: 0,
+    branchE3Y: 0,
+    branchE3ROTATE: "none",
+    branchF3: false,
+    branchF3X: 0,
+    branchF3Y: 0,
+    branchF3ROTATE: "none",
     // !!! эти бранчи не удалять, если больше нигде не пригодятся
 
+    prizeX: 20,
+    prizeY: 20,
     cpId: [14],
     badId: [122, 126],
-    goodId: [7, 123, 218, 222, 229, 236],
-    unwId: [124, 227, 226, 243],
-    bonId: [],
+    goodId: [7, 123, 218, 222, 428, 429, 436], // 428 добавлена для баланса
+    unwId: [124, 427, 426, 443],
+    bonId: [430],
     jumpId: [125],
-    brId: [14],
-    finId: 250,
+    brId: [14, 224],
 
     pedestalX: 50,
     pedestalY: 80,
@@ -130,6 +142,7 @@ let Map02 = [
         coorY: 560,
         shift: "left",
         stepsToFin: 29,
+        zone: true,
     },
 
     {
@@ -139,6 +152,7 @@ let Map02 = [
         coorY: 520,
         shift: "left",
         stepsToFin: 28,
+        zone: true,
     },
 
     {
@@ -148,6 +162,7 @@ let Map02 = [
         coorY: 480,
         shift: "left",
         stepsToFin: 27,
+        zone: true,
     },
 
     {
@@ -158,6 +173,7 @@ let Map02 = [
         coorX: 80,
         coorY: 440,
         stepsToFin: 26,
+        zone: true,
     },
 
     {
@@ -167,6 +183,7 @@ let Map02 = [
         coorY: 400,
         shift: "left",
         stepsToFin: 25,
+        zone: true,
     },
 
     {
@@ -174,8 +191,10 @@ let Map02 = [
         num: "6",
         coorX: 80,
         coorY: 360,
+        type: "arrowEnd",
         shift: "left",
         stepsToFin: 24,
+        zone: true,
     },
 
     {
@@ -185,6 +204,7 @@ let Map02 = [
         coorX: 120,
         coorY: 360,
         stepsToFin: 23,
+        zone: true,
     },
 
     {
@@ -192,8 +212,10 @@ let Map02 = [
         num: "8",
         coorX: 160,
         coorY: 360,
+        type: "arrowEnd",
         shift: "right",
         stepsToFin: 22,
+        zone: true,
     },
 
     {
@@ -203,6 +225,7 @@ let Map02 = [
         coorY: 320,
         shift: "right",
         stepsToFin: 21,
+        zone: true,
     },
 
     {
@@ -213,6 +236,7 @@ let Map02 = [
         coorX: 160,
         coorY: 280,
         stepsToFin: 20,
+        zone: true,
     },
 
     {
@@ -222,6 +246,7 @@ let Map02 = [
         coorY: 280,
         shift: "up",
         stepsToFin: 19,
+        zone: true,
     },
 
     {
@@ -231,6 +256,7 @@ let Map02 = [
         coorY: 280,
         shift: "up",
         stepsToFin: 18,
+        zone: true,
     },
 
     {
@@ -238,8 +264,10 @@ let Map02 = [
         num: "13",
         coorX: 280,
         coorY: 280,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 17,
+        zone: true,
     },
 
     {
@@ -279,6 +307,7 @@ let Map02 = [
         num: "17",
         coorX: 320,
         coorY: 160,
+        type: "arrowEnd",
         shift: "left",
         stepsToFin: 13,
     },
@@ -366,7 +395,7 @@ let Map02 = [
         coorX: 600,
         coorY: 240,
         stopCondition: "join",
-        joinTo: 247,
+        joinTo: 447,
         stepsToFin: 4,
     },
 
@@ -375,6 +404,7 @@ let Map02 = [
         num: "15",
         coorX: 320,
         coorY: 320,
+        type: "arrowEnd",
         shift: "down",
         stepsToFin: 35,
     },
@@ -457,12 +487,31 @@ let Map02 = [
         num: "24",
         coorX: 360,
         coorY: 480,
+        stopCondition: "branch",
+        branchid: "b",
+        branch1Type: "regular", // 300 вниз
+        branch2Type: "regular", // 400 влево к молнии
         shift: "up",
         stepsToFin: 26,
     },
+    
+// branch B - 300
 
     {
-        cellid: 225,
+        cellid: 325,
+        num: "25",
+        coorX: 360,
+        coorY: 520,
+        stopCondition: "join",
+        joinTo: 432,
+        shift: "left",
+        stepsToFin: 25,
+    },
+    
+// branch B - 400    
+
+    {
+        cellid: 425,
         num: "25",
         coorX: 320,
         coorY: 480,
@@ -471,7 +520,7 @@ let Map02 = [
     },
 
     {
-        cellid: 226,
+        cellid: 426,
         num: "26",
         type: "arrow",
         teleportTo: 13,
@@ -481,7 +530,7 @@ let Map02 = [
     },
 
     {
-        cellid: 227,
+        cellid: 427,
         num: "27",
         type: "green",
         coorX: 240,
@@ -491,7 +540,7 @@ let Map02 = [
     },
 
     {
-        cellid: 228,
+        cellid: 428,
         num: "28",
         coorX: 240,
         coorY: 520,
@@ -500,72 +549,77 @@ let Map02 = [
     },
 
     {
-        cellid: 229,
+        cellid: 429,
         num: "29",
         type: "arrow",
-        teleportTo: 235,
+        teleportTo: 435,
         coorX: 240,
         coorY: 560,
         stepsToFin: 21,
     },
 
     {
-        cellid: 230,
+        cellid: 430,
         num: "30",
         coorX: 280,
         coorY: 560,
+        type: "speed",
         shift: "up",
         stepsToFin: 20,
     },
 
     {
-        cellid: 231,
+        cellid: 431,
         num: "31",
         coorX: 320,
         coorY: 560,
-        shift: "up",
+        shift: "down",
         stepsToFin: 19,
     },
 
     {
-        cellid: 232,
+        cellid: 432,
         num: "32",
         coorX: 360,
         coorY: 560,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 18,
     },
 
     {
-        cellid: 233,
+        cellid: 433,
         num: "33",
         coorX: 400,
         coorY: 560,
+        type: "joker",
+        teleportTo: 14,
         shift: "up",
         stepsToFin: 17,
     },
 
     {
-        cellid: 234,
+        cellid: 434,
         num: "34",
         type: "arrow",
-        teleportTo: 232,
+        teleportTo: 432,
         coorX: 440,
         coorY: 560,
         stepsToFin: 16,
     },
 
     {
-        cellid: 235,
+        cellid: 435,
         num: "35",
         coorX: 480,
         coorY: 560,
+        type: "arrowEnd",
         shift: "up",
         stepsToFin: 15,
     },
 
     {
-        cellid: 236,
+        cellid: 436,
         num: "36",
         type: "yellow",
         coorX: 520,
@@ -574,17 +628,17 @@ let Map02 = [
     },
 
     {
-        cellid: 237,
+        cellid: 437,
         num: "37",
         type: "arrow",
-        teleportTo: 239,
+        teleportTo: 439,
         coorX: 560,
         coorY: 560,
         stepsToFin: 13,
     },
 
     {
-        cellid: 238,
+        cellid: 438,
         num: "38",
         coorX: 600,
         coorY: 560,
@@ -593,16 +647,17 @@ let Map02 = [
     },
 
     {
-        cellid: 239,
+        cellid: 439,
         num: "39",
         coorX: 640,
         coorY: 560,
+        type: "arrowEnd",
         shift: "right",
         stepsToFin: 11,
     },
 
     {
-        cellid: 240,
+        cellid: 440,
         num: "40",
         coorX: 640,
         coorY: 520,
@@ -611,26 +666,27 @@ let Map02 = [
     },
 
     {
-        cellid: 241,
+        cellid: 441,
         num: "41",
         coorX: 640,
         coorY: 480,
+        type: "arrowEnd",
         shift: "left",
         stepsToFin: 9,
     },
 
     {
-        cellid: 242,
+        cellid: 442,
         num: "42",
         type: "arrow",
-        teleportTo: 244,
+        teleportTo: 444,
         coorX: 640,
         coorY: 440,
         stepsToFin: 8,
     },
 
     {
-        cellid: 243,
+        cellid: 443,
         num: "43",
         type: "green",
         coorX: 640,
@@ -640,26 +696,27 @@ let Map02 = [
     },
 
     {
-        cellid: 244,
+        cellid: 444,
         num: "44",
         coorX: 640,
         coorY: 360,
+        type: "arrowEnd",
         shift: "right",
         stepsToFin: 6,
     },
 
     {
-        cellid: 245,
+        cellid: 445,
         num: "45",
         type: "arrow",
-        teleportTo: 241,
+        teleportTo: 441,
         coorX: 640,
         coorY: 320,
         stepsToFin: 5,
     },
 
     {
-        cellid: 246,
+        cellid: 446,
         num: "46",
         coorX: 640,
         coorY: 280,
@@ -668,7 +725,7 @@ let Map02 = [
     },
 
     {
-        cellid: 247,
+        cellid: 447,
         num: "47",
         coorX: 640,
         coorY: 240,
@@ -677,16 +734,18 @@ let Map02 = [
     },
 
     {
-        cellid: 248,
+        cellid: 448,
         num: "48",
         coorX: 640,
         coorY: 200,
+        type: "joker",
+        teleportTo: 14,
         shift: "left",
         stepsToFin: 2,
     },
 
     {
-        cellid: 249,
+        cellid: 449,
         num: "49",
         type: "arrow",
         teleportTo: 123,
@@ -696,7 +755,7 @@ let Map02 = [
     },
 
     {
-        cellid: 250,
+        cellid: 450,
         type: "finish",
         coorX: 640,
         coorY: 120,

@@ -103,7 +103,7 @@
     bottom: -2px;
     margin: 0 auto;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .cell-arrow-node {
@@ -113,4 +113,83 @@
     border-radius: 100%;
     background: url("img/cubic/cubic-small.png") no-repeat center white;
     box-shadow: inset 0 0 7px 5px rgba(0, 87, 255, 0.59);
+}
+
+.cell-hatched {
+    background-image: url("img/cell-hatched.png");
+}
+
+.cell-hatched p {
+    color: red;
+}
+
+.cell-joker {
+    box-shadow: inset 0 0 7px 4px #8c2bd299;
+}
+
+.cell-joker-item {
+    width: 40px;
+    height: 40px;
+    background: #11161d;
+    box-shadow: 0 0 3px 1px #1ab31b inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 45px;
+}
+
+.cell-joker-item img {
+    height: 32px;
+}
+
+.cell-joker p {
+    color: rgb(127, 61, 177);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.cell-jail {
+    position: absolute;
+    width: 45px;
+    height: 65px;
+    margin: -25px 0 0 -2px;
+    background-image: url("img/tokens/token-white.png");
+}
+
+.cell-jail img {
+    transform-origin: 0;
+}
+
+.cell-chest {
+    position: absolute;
+    width: 80px;
+    height: 71px;
+    background-image: url("img/chest/chest-closed.png");
+}
+
+.cell-chest img {
+    position: absolute;
+    visibility: hidden;
+}
+
+.cell-chest p {
+    position: absolute;
+    color: #1ab31b;
+    bottom: 3px;
+    left: 32px;
+    font-size: 15px;
+    margin: 0;
+}
+
+.chest__bomb {
+    bottom: 0;
+    transition: 1.5s;
+}
+
+.cell-chest .blast {
+    bottom: -95px;
+    left: -109px;
+    z-index: 510;
+    transition: .2s linear;
+    transform: scale(0.1);
 }
