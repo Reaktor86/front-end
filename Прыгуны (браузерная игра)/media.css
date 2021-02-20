@@ -1,0 +1,429 @@
+/* ЛЭПТОП */
+
+@media all and (max-width: 1110px) {
+
+    h1 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p, a {
+        font-size: 13px;
+    }
+
+    .header__cont {
+        width: 460px;
+    }
+
+    .header__button {
+        width: 85px;
+    }
+
+    .header__button button {
+        width: 73px;
+        font-size: 13px;
+        padding: 0;
+    }
+
+    .start-screen {
+        height: 572px;
+    }
+
+    .start-screen__div {
+        width: 450px;
+        top: 37px;
+    }
+
+    .start-screen__div h1 {
+        font-size: 16px;
+        width: 220px;
+        left: 292px;
+        top: 25px;
+    }
+
+    .start-screen__logo {
+        width: 220px;
+        top: 34px;
+        left: 20px;
+    }
+
+    .start-screen__d {
+        width: 42px;
+    }
+
+    .start-screen__enter {
+        top: 185px;
+    }
+
+    .jungles__left, .jungles__right {
+        width: 300px;
+    }
+
+    .enter {
+        width: 280px;
+        height: 237px;
+        padding-top: 20px;
+    }
+
+    .enter__form {
+        width: 203px;
+    }
+
+    .enter__button {
+        width: 103px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    .enter__reg {
+        font-size: 14px;
+    }
+
+    .enter__cubic {
+        width: 40px;
+        top: -25px;
+        right: -12px;
+    }
+
+    .enter__footer {
+        width: 280px;
+        height: 46px;
+        padding: 12px 23px;
+    }
+
+    .enter__error {
+        margin: 1px 0 9px 3px;
+        font-size: 12px;
+    }
+
+    .pres {
+        padding: 30px;
+    }
+
+    .pres__head:first-child{
+        margin-bottom: 20px;
+    }
+
+    .pres__ss-cont {
+        width: 517px;
+        height: 210px;
+    }
+
+    .pres__ss-1 {
+        width: 180px;
+    }
+
+    .pres__ss-2 {
+        width: 197px;
+        left: 168px;
+        top: 13px;
+    }
+
+    .pres__ss-3 {
+        width: 167px;
+        top: 57px
+    }
+
+    .pres__bullets-cont {
+        width: 540px;
+        margin: 0 auto 50px;
+    }
+
+    .pres__bullet {
+        width: 161px;
+        height: 132px;
+        padding: 10px;
+    }
+
+    .pres__more-cont {
+        width: 470px;
+    }
+
+    .pres__more-cont img {
+        width: 68px;
+    }
+
+    .pres__cup {
+        margin-left: 25px;
+    }
+
+    .pres__head--russo {
+        margin-bottom: 30px;
+    }
+
+    .gallery {
+        padding: 30px;
+    }
+
+    .stat {
+        padding: 30px 0;
+    }
+
+    .top-heading, .stat-heading {
+        width: 628px;
+        height: 32px;
+        padding-left: 15px;
+    }
+
+    .top-item, .stat-item {
+        width: 628px;
+        height: 24px;
+        margin: 4px auto 0;
+        padding-left: 24px;
+    }
+
+    .stat-heading {
+        padding-left: 24px;
+        width: 628px;
+    }
+
+    .top-heading p, .stat-heading p {
+        font-size: 12px;
+        line-height: 32px;
+    }
+
+    .top-item p, .stat-item p {
+        font-size: 11px;
+        line-height: 24px;
+    }
+
+    .top-heading__place {
+        width: 54px;
+    }
+
+    .top-heading__username, .top__username {
+        width: 123px;
+    }
+
+    .top-heading__character, .top__character {
+        width: 118px;
+    }
+
+    .top-heading__money, .top__money {
+        width: 57px;
+    }
+
+    .top-heading__rep, .top__rep-div {
+        width: 91px;
+    }
+
+    .top-heading__time, .top__time {
+        width: 70px;
+    }
+
+    .top__rep-div {
+        height: 24px;
+    }
+
+    .top__rep-div img {
+        width: 13px;
+    }
+
+    .top__place {
+        width: 45px;
+    }
+
+    .media-hide {
+        display: none;
+    }
+
+    .stat__cont-btn {
+        width: 628px;
+        margin: 36px auto 10px;
+    }
+
+    .stat__btn {
+        width: 204px;
+        height: 31px;
+        font-size: 12px;
+    }
+
+    .stat__btn img {
+        margin-left: 10px;
+        width: 8px;
+    }
+
+    .stat__cont {
+        width: 628px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-scroll {
+        height: 220px;
+    }
+
+    .stat-item {
+        width: 613px;
+    }
+
+    .stat__trophy {
+        width: 14px;
+    }
+
+    .stat-heading__name {
+        width: 200px;
+    }
+
+    .stat-heading__des, .stat__des {
+        width: 264px;
+    }
+
+    .stat__name {
+        width: 161px;
+    }
+
+    .common {
+        margin: 25px 0 40px 50px;
+    }
+
+    .common__h2 {
+        font-size: 13px;
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+
+    .common__wrap {
+        width: 520px;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .common__wrap p {
+        font-size: 13px;
+        width: 240px;
+    }
+
+    .stat__reg {
+        width: 543px;
+        margin: 30px auto;
+        align-items: center;
+    }
+
+    .stat__reg > img {
+        width: 243px;
+    }
+
+    .about {
+        padding-top: 30px;
+    }
+
+    .about h1 {
+        margin: 0 0 30px 0;
+    }
+
+    .about__cont {
+        width: 490px;
+    }
+
+    .about__block {
+        margin-bottom: 30px;
+    }
+
+    .about__block > *:first-child {
+        margin-right: 33px;
+    }
+
+    .about__img {
+        height: 104px;
+    }
+
+    .about__block--reaktor img {
+        width: 77px;
+    }
+
+    .about__block h2 {
+        font-size: 14px;
+        margin: 0 0 10px 0;
+    }
+
+    .about__block p, .about__block a {
+        font-size: 12px;
+    }
+
+    .about__block--reaktor p {
+        width: 380px;
+    }
+
+    .adult {
+        right: 10px;
+        bottom: 10px;
+        width: 25px;
+    }
+
+    .about__block--trap {
+        margin: -38px 0 18px 0;
+    }
+
+    .about__block--trap {
+        margin: 0 0 30px 0;
+    }
+
+    .about__block--jumpers {
+        margin-top: 46px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+
+    .footer__cont {
+        width: 628px;
+    }
+
+    .footer__block a, .footer__block p {
+        font-size: 13px;
+        margin: 2px;
+    }
+
+}
+
+@media all and (max-width: 580px) {
+
+    .header {
+        display: none;
+    }
+
+    .jungles img {
+        display: none;
+    }
+
+    .start-screen {
+        height: 480px;
+        background-image: url("site/img/bg-jungles-mobile.png");
+        background-repeat: no-repeat;
+    }
+
+    .start-screen__div {
+        top: 23px;
+        width: 280px;
+    }
+
+    .start-screen__logo {
+        width: 153px;
+        top: 0;
+        left: 0;
+    }
+
+    .start-screen__d {
+        width: 56px;
+        top: 50px;
+        left: 42px;
+    }
+
+    .start-screen__div h1 {
+        font-size: 12px;
+        width: 152px;
+        top: 46px;
+        left: 125px;
+    }
+
+    .start-screen__enter {
+        top: 158px;
+    }
+
+}
