@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 88px;
+            color: #F3C10B;
+            text-shadow: 5px 5px 0px #404040;
+        }
+        
+        .flex {
+            width: 1170px;
+            height: 450px;
+            margin: 0 auto;
+            margin-top: 110px;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+        
+        .flex>div {
+            width: 370px;
+        }
+        
+        .flex div p {
+            margin-top: 45px;
+            line-height: 125%;
+            color: #5A5A5A;
+        }
+    </style>
+</head>
+<body>
+    <h1>Какой результат<br>вы получаете?</h1>
+    <div class="flex">
+        <div>
+            <img src="images/crm.png" alt="crm">
+            <p>Все клиенты автоматически попадают и фиксируются в CRM</p>
+        </div>
+        <div>
+            <img src="images/execution.png" alt="execution">
+            <p>Задачи по каждому клиенту ставятся автоматически с учетом нужных бизнес-процессов</p>
+        </div>
+        <div>
+            <img src="images/protection.png" alt="protection">
+            <p>Все данные о клиентах хранятся в единой защищенной системе</p>
+        </div>
+        <div>
+            <img src="images/analysis.png" alt="analysis">
+            <p>Управление продажами становится прозрачным — понятно, где можно получить больше прибыли</p>
+        </div>
+        <div>
+            <img src="images/customer-service.png" alt="customer-service">
+            <p>Вся коммуникация с клиентом (чаты, разговоры, заметки) хранятся в одном месте и доступны при передаче клиента</p>
+        </div>
+        <div>
+            <img src="images/thumb-up.png" alt="thumb-up">
+            <p>Финансовые интересы менеджера совпадают с целями компании</p>
+        </div>
+    </div>
+</body>
+</html>

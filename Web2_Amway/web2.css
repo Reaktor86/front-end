@@ -1,0 +1,326 @@
+* {
+    font-family: Source Sans Pro, sans-serif;
+    font-size: 24px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: Roboto Condensed;
+    font-weight: bold;
+    font-size: 80px;
+    color: white;
+}
+
+h2 {
+    font-family: Roboto Condensed;
+    font-weight: bold;
+    font-size: 56px;
+}
+
+h3 {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 120.7%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0 0 73px 0;
+}
+
+/*Стартовая секция*/
+
+.start {
+    background-image: url(images/image_3.png);
+    background-size: cover;
+    width: auto;
+    height: 601px;
+}
+
+.start-container {
+    width: 1200px;
+    height: 601px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.start-left-block {
+    width: 700px;
+    height: 528px;
+}
+
+.h1-logo-container h1 {
+    margin: 0 45px 0 0;
+}
+
+.h1-logo-container {
+    display: flex;
+    align-items: center;
+    margin-top: 53px;
+}
+
+.start-left-block p {
+    color: white;
+    line-height: 116.7%;
+    font-weight: 600;
+}
+
+.start-right-block {
+    width: 500px;
+    height: 528px;
+}
+
+.download-container {
+    display: flex;
+    width: 365px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 190px;
+}
+
+.download-container p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*Три шага к успеху*/
+
+.three-steps-container {
+    width: 1200px;
+    height: 710px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.three-steps-left-block {
+    width: 600px;
+    height: 710px;
+}
+
+.three-steps-right-block {
+    width: 600px;
+    height: 710px;
+}
+
+.three-steps-right-block p {
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.three-steps-left-block h2 {
+    margin: 186px 0 35px 0;
+}
+
+.three-steps-left-block .download-container {
+    margin-top: 88px;
+}
+
+.step-metodology {
+    display: flex;
+    align-items: center;
+    color: #D13855;
+}
+
+.step-interactive {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #91BE48;
+    margin-top: -80px;
+}
+
+.step-team {
+    display: flex;
+    align-items: center;
+    color: #2C5074;
+    margin-top: -80px;
+}
+
+/*Новый Amway Start*/
+
+.amway-start {
+    width: auto;
+    height: 820px;
+    background: linear-gradient(244.05deg, #B8B042 -0.27%, #B8B042 -0.26%, #559F54 100%);
+    padding-top: 60px;
+}
+
+.amway-start-container {
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.amway-start h1 {
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.new-user {
+    width: 400px;
+}
+
+.new-user p, .leader p {
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #333333;
+    margin: 0;
+}
+
+.amway-smartphone {
+    width: 310px;
+}
+
+.leader {
+    width: 400px;
+}
+
+.leader h3 {
+    margin-left: 68px;
+}
+
+.new-user div, .leader div {
+    background: white;
+    border-radius: 10px;
+    padding: 13px 0 0 30px;
+}
+
+.new-user div::after, .leader div::after {
+    content: "";
+    display: block;
+    border: 22px solid transparent;
+    border-left-color: white;
+}
+
+.rectangle-1 {
+    width: 203px;
+    height: 85px;
+    margin-bottom: 63px;
+}
+
+.rectangle-2 {
+    width: 348px;
+    height: 85px;
+    margin: 0 0 65px 52px;
+}
+
+.rectangle-3 {
+    width: 212px;
+    height: 85px;
+}
+
+.rectangle-4 {
+    width: 372px;
+    height: 85px;
+    margin: 0 0 76px 28px;
+}
+
+.rectangle-5 {
+    width: 227px;
+    height: 85px;
+    margin: 0 0 65px 128px;
+}
+
+.rectangle-6 {
+    width: 356px;
+    height: 85px;
+    margin-left: 28px;
+}
+
+/*Ждите обновлений*/
+
+.update {
+    height: 658px;
+    background: linear-gradient(180deg, #5B63D9 0%, #3BAEE4 100%);
+}
+
+.update-container {
+    width: 1200px;
+    height: 658px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.upd-txt {
+    color: white;
+}
+
+.upd-picture {
+    
+}
+
+.upd-features {
+    width: 293px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upd-features > div {
+    height: 70px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.upd-features p {
+    font-size: 20px;
+    margin-left: 14px;
+}
+
+.feature-1 { width: 236px; }
+.feature-2 { width: 236px; }
+.feature-3 { width: 195px; }
+.feature-4 { width: 254px; }
+.feature-5 { width: 293px; }
+
+.billets {
+    width: 48px;
+    height: 70px;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.billet-1 { background: #94D9BB; }
+.billet-2 { background: #3BAEE4; }
+.billet-3 { background: #DF488B; }
+.billet-4 { background: #5B63D9; }
+.billet-5 { background: #FDD130; }
+
+/*Начните путь (футер)*/
+
+footer {
+    height: 658px;
+}
+
+.footer-container {
+    margin: 0 auto;
+    width: 1200px;
+    height: 658px;
+    display: flex;
+    align-items: center;
+}
+
+.your-way {
+    width: 475px;
+    margin-left: -100px;
+}
+
+.your-way .download-container {
+    margin-top: 45px;
+}

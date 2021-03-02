@@ -1,0 +1,49 @@
+div {
+    width: 200px;
+    height: 400px;
+    padding: 25px;
+    border: 2px solid black;
+    margin-top: 30px;
+}
+
+div:nth-child(-n + 3) {
+    width: 300px;
+    height: 300px;
+}
+
+.block-01, .block-04 {
+    background-color: blue;
+    padding: 10px;
+}
+
+.block-02, .block-05 {
+    background-color: orange;
+}
+
+.block-03 {
+    background-color: violet;
+    border-color: green;
+}
+
+.block-02, .block-04 p {
+    color: #555555;
+}
+
+.block-06, .block-07 {
+    background-color: black;
+    margin-top: 20px;
+}
+
+.block-07, .block-08 {
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    border: 3px solid #red;
+}
+
+.block-06 p, .block-07 p, .block-08 p {
+    color: red;
+}
+
+/*
++ 3 блока, весь фон покрасить в черный, первые 2 отступ сверху 20 пкс, последние 2 имеют ширину и выс 500 пкс, текст везде красный*/

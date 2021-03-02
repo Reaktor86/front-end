@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    margin-top: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+header div p {
+    color: #303030;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: black;
+    display: inline;
+    margin-right: 20px;
+}
+
+.hyperlinks {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    color: #F2C94C;
+    text-decoration-line: none;
+}
+
+/*Преимущества*/
+
+header {
+    width: 1410px;
+    margin: 0 auto;
+    display: flex;
+}
+
+header div {
+    width: 25%;
+    height: 100px;
+    padding-left: 40px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header div img {
+    margin-right: 35px;
+}
+
+/*Популярные категории*/
+
+.pop-categories {
+    width: 1410px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.pop-images {
+    display: flex;
+    justify-content: space-between;
+    width: 1410px;
+}
+
+.pop-images>div {
+    width: 330px;
+    height: 560px;
+    padding: 246px 50px 0 50px;
+    margin-top: 35px;
+}
+
+.pop-images>div p {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.soaring {
+    background-image: url(images/soaring.jpg);
+}
+
+.sweet-fluids {
+    background-image: url(images/sweet_fluids.jpg);
+}
+
+.accessories {
+    background-image: url(images/accessories.jpg);
+}
+
+.pod {
+    background-image: url(images/pod.jpg);
+}
+
+/*Рекламные баннеры*/
+
+.ad {
+    width: 1410px;
+    margin: 0 auto;
+    margin-top: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ad>div {
+    width: 450px;
+    height: 153px;
+    padding: 32px 200px 0 38px;
+}
+
+.banner-1 {
+    background-image: url(images/banner-1.jpg);
+}
+
+.banner-2 {
+    background-image: url(images/banner-2.jpg);
+}
+
+.banner-3 {
+    background-image: url(images/banner-3.jpg);
+}
+
+.banner-heading {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.banner-descr {
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin: 18px 0;
+}
+
+/*Ютуб и блог*/
+
+.youtube-blogs {
+    width: 1410px;
+    margin: 0 auto;
+    margin-top: 62px;
+    display: flex;
+    justify-content: space-between;
+}
+
+iframe {
+    margin-top: 30px;
+}
+
+.blogs-container>div {
+    width: 248px;
+    height: 348px;
+    margin-top: 30px;
+    border: 1px solid #EEEEEE;
+}
+
+.blogs-container {
+    display: flex;
+    justify-content: space-between;
+    width: 810px;
+}
+
+.blogs-heading {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #303030;
+    margin: 24px 0 42px 16px;
+}
+
+.blogs-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #868686;
+    margin-left: 16px;
+    margin-top: 0;
+}
+
+.blog:hover {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+/*О магазине*/
+
+.about {
+    width: 1410px;
+    margin: 0 auto;
+    margin-top: 62px;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.about-text p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 125%;
+    text-align: justify;
+    color: #6D6D6D;
+}
+
+.advantages-container {
+    display: flex;
+}
+
+.advantages {
+    width: 33.3%;
+    padding: 0 15px;
+}
+
+.advantages:first-child {
+    padding-left: 0;
+}
+
+.about-heading {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #303030;
+    margin-bottom: 15px;
+}
+
+.about-discr {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #6D6D6D;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.div-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #303030;
+    width: 197px;
+    height: 44px;
+    background: #FFE601;
+    border-radius: 2px;
+}
+
+button:hover {
+    color: white;
+}
+

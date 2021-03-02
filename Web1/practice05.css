@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 190px;
+    background: #8EA7CC;
+    border-top: 10px solid #5479B2;
+    border-bottom: 10px solid #5479B2;
+}
+
+.main, .about, .catalog, .contacts {
+    font-weight: bold;
+    font-size: 36px;
+    margin: 0 37px;
+    display: inline;
+}
+
+.logo-white {
+    color: white;
+}
+
+.logo-blue {
+    color: #5479B2;
+}
+
+.logo-text {
+    display: inline;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 72px;
+}
+
+.main {
+    color: white;
+    border-bottom: 9px solid white;
+}
+
+.contacts {
+    margin-right: 0;
+}
+
+.container-menu {
+    width: 1190px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.container-menu div {
+    position: absolute;
+    right: 0;
+    bottom: 9px;
+}
+
+main {
+    width: 1190px;
+    margin: 65px auto;
+}
+
+.photo {
+    float: left;
+    margin: 0 32px 10px 0;
+}
+
+h1 {
+    font-size: 48px;
+    margin-top: 0;
+}
+
+h1::after {
+    content: url(images/star.png);
+    margin-left: 30px;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 25px;
+}
