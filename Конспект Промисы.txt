@@ -1,0 +1,4 @@
+const p = new Promise(function(resolve, reject) {
+	
+	resolve() - здесь эта функция даёт понять промису, что он выполнился успешно
+})
