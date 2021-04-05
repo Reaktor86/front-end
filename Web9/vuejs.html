@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}<br>
+        <div v-if="check">ЧекЧек</div><br>
+        <button @click="showMe">Нажать</button>
+
+        <ul>
+            <li v-for="item in list">{{item.text}}</li>
+        </ul>
+
+        <!--Сделать викторину-->
+
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Привет, Vue!',
+                check: false,
+                list: [
+                    {text: 'Elem1'},
+                    {text: 'Elem2'},
+                    {text: 'Elem3'},
+                    {text: 'Elem4'},
+                ]
+            },
+            methods: {
+                showMe: function () {
+                    this.check = !this.check;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
