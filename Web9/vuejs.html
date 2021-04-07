@@ -17,13 +17,26 @@
 
         <!--Сделать викторину-->
 
-        
+        <form>
+            <input type="text" placeholder="имя" v-model="formName"><br>
+            <p>{{ nameError }}</p>
+            <input type="text" placeholder="телефон" v-model="formPhone"><br>
+            <p>{{ phoneError }}</p>
+            <input type="text" placeholder="email" v-model="formEmail"><br>
+            <p>{{ emailError }}</p>
+        </form>
     </div>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
                 message: 'Привет, Vue!',
+                formName: '',
+                formPhone: '',
+                formEmail: '',
+                nameError: '',
+                phoneError: '',
+                emailError: '',
                 check: false,
                 list: [
                     {text: 'Elem1'},
@@ -32,11 +45,38 @@
                     {text: 'Elem4'},
                 ]
             },
+            watch: {
+                formName: function () {
+                    if (this.formName.length < 3) {
+                        this.nameError = 'имя не менее 3 символов';
+                    } else {
+                        this.nameError = '';
+                    }
+                },
+                formPhone: function () {
+                    if (/^[0-9]+$/.exec(this.formPhone)) {
+                        this.phoneError = '';
+                    } else {
+                        this.phoneError = 'введите номер';
+                    }
+                },
+                formEmail: function () {
+                    if (/.+\@.+\..+/.exec(this.formPhone)) {
+                        this.phoneError = '';
+                    } else {
+                        this.phoneError = 'введите номер';
+                    }
+                },
+            },
             methods: {
                 showMe: function () {
                     this.check = !this.check;
-                }
-            }
+                },
+                checkName: function () {
+                    console.log('работает')
+
+                },
+            },
         })
     </script>
 </body>

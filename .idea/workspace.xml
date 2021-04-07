@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Web9/vuejs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web9/vuejs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Web9/vuejs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +95,7 @@
       <workItem from="1613407912704" duration="612000" />
       <workItem from="1613583328887" duration="19000" />
       <workItem from="1617640049774" duration="2391000" />
+      <workItem from="1617809553915" duration="6672000" />
     </task>
     <servers />
   </component>
@@ -112,5 +113,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Deployment" timestamp="1617815406199">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1617815406199" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1617817733763">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617817733763" />
   </component>
 </project>
