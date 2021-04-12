@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web9/vuejs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Web9/vuejs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Конспект Промисы.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Конспект Промисы.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,10 @@
       <recent name="D:\Верушкин Олег\front-end\Web9" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="" />
@@ -96,11 +99,12 @@
       <workItem from="1613583328887" duration="19000" />
       <workItem from="1617640049774" duration="2391000" />
       <workItem from="1617809553915" duration="6672000" />
+      <workItem from="1618223570296" duration="575000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

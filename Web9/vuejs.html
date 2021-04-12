@@ -15,8 +15,6 @@
             <li v-for="item in list">{{item.text}}</li>
         </ul>
 
-        <!--Сделать викторину-->
-
         <form>
             <input type="text" placeholder="имя" v-model="formName"><br>
             <p>{{ nameError }}</p>
@@ -26,8 +24,33 @@
             <p>{{ emailError }}</p>
         </form>
     </div>
+
+    <div id="quiz">
+        
+    </div>
+
     <script>
-        var app = new Vue({
+        let quiz = new Vue({
+            el: '#quiz',
+            data: {
+                q1: 'Сколько будет 2 + 2?',
+                list1: [
+                    {q1a: '0'},
+                    {q1b: '2'},
+                    {q1c: '4'},
+                    {q1d: '5'},
+                ],
+                q2: 'Столица Великобритании?',
+                list2: [
+                    {q2a: 'Лондон'},
+                    {q2b: 'Париж'},
+                    {q2c: 'Стамбул'},
+                    {q2d: 'Москва'},
+                ],
+            }
+        });
+
+        let app = new Vue({
             el: '#app',
             data: {
                 message: 'Привет, Vue!',
