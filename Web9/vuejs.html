@@ -26,7 +26,11 @@
     </div>
 
     <div id="quiz">
-        
+        <p v-if="next === 'q1'">{{ q1 }}</p>
+
+        <form>
+            <input type="radio" v-for="answer in list1">{{answer.text}}</input>
+        </form>
     </div>
 
     <script>
@@ -35,18 +39,19 @@
             data: {
                 q1: 'Сколько будет 2 + 2?',
                 list1: [
-                    {q1a: '0'},
-                    {q1b: '2'},
-                    {q1c: '4'},
-                    {q1d: '5'},
+                    {text: '0'},
+                    {text: '2'},
+                    {text: '4'},
+                    {text: '5'},
                 ],
                 q2: 'Столица Великобритании?',
                 list2: [
-                    {q2a: 'Лондон'},
-                    {q2b: 'Париж'},
-                    {q2c: 'Стамбул'},
-                    {q2d: 'Москва'},
+                    {text: 'Лондон'},
+                    {text: 'Париж'},
+                    {text: 'Стамбул'},
+                    {text: 'Москва'},
                 ],
+                next: 'q1',
             }
         });
 
