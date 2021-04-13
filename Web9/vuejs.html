@@ -26,33 +26,84 @@
     </div>
 
     <div id="quiz">
+
         <p v-if="next === 'q1'">{{ q1 }}</p>
 
         <form>
-            <input type="radio" v-for="answer in list1">{{answer.text}}</input>
+            <input class="inp1" type="radio" v-model="answer1">
+            <label v-if="next === 'q1'">{{list1.var1}}</label>
         </form>
+
+    </div>
+
+    <div id="calc" class="my-calc">
+        <p class="my-calc__price">Цена: {{ price }}</p>
+        <label>Кол-во<input type="number" v-model="quantity"></label><br>
+        <label>Валюта
+            <select v-model="currency">
+                <option>RUR</option>
+                <option>EUR</option>
+                <option>USD</option>
+            </select>
+        </label>
+        <p class="my-calc__total-price">Финальная цена: {{ totalPrice }}</p>
     </div>
 
     <script>
+        let calc = new Vue({
+            el: '#calc',
+            data() {
+                return {
+                    totalPrice: 1000,
+                    price: 1000,
+                    quantity: 1,
+                    currency: 'RUR',
+                    course: {
+                        RUR: 1,
+                        EUR: 99,
+                        USD: 77,
+                    },
+                }
+            },
+            computed: {
+                totalPrice: function () {
+                    return this.quantity * this.priceSelectCurrency;
+                },
+                priceSelectCurrency: function () {
+                    let res = this.course[this.currency];
+                    // копировать код Ивана
+                },
+            },
+        })
+
+
         let quiz = new Vue({
             el: '#quiz',
             data: {
+
                 q1: 'Сколько будет 2 + 2?',
                 list1: [
-                    {text: '0'},
-                    {text: '2'},
-                    {text: '4'},
-                    {text: '5'},
+                    {var1: '0'},
+                    {var2: '2'},
+                    {var3: '4'},
+                    {var4: '5'},
                 ],
+
                 q2: 'Столица Великобритании?',
                 list2: [
-                    {text: 'Лондон'},
-                    {text: 'Париж'},
-                    {text: 'Стамбул'},
-                    {text: 'Москва'},
+                    {var1: 'Лондон'},
+                    {var2: 'Париж'},
+                    {var3: 'Стамбул'},
+                    {var4: 'Москва'},
                 ],
+
                 next: 'q1',
-            }
+            },
+            watch: {
+                answer1: function () {
+
+                },
+            },
         });
 
         let app = new Vue({

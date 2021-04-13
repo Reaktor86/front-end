@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="quiz">
+    <div class="quiz__question">{{ currentQuestion.question}}</div>
+    <ul class="quiz__answers">
+        <li v-for="item in currentQuestion.answers" @click="doAnswer(item)">{{ item.value }}</li>
+    </ul>
+
+</div>
+
+<script>
+    let quiz = new Vue({
+        el: '#quiz',
+        data() {
+            return {
+                counter: 0,
+                questions: [
+                    {
+                        question: 'Вопрос 1',
+                        answers: [
+                            { value: 'Ответ 1', check: true },
+                            { value: 'Ответ 2'},
+                            { value: 'Ответ 3'},
+                            { value: 'Ответ 4'},
+                        ],
+                    },
+                    {
+                        question: 'Вопрос 2',
+                        answers: [
+                            { value: 'Ответ 5', check: true },
+                            { value: 'Ответ 6'},
+                            { value: 'Ответ 7'},
+                            { value: 'Ответ 8'},
+                        ],
+                    },
+                ],
+            }
+        },
+        computed: {
+            currentQuestion: function () {
+                return this.questions[this.counter];
+            }
+        },
+        methods: {
+        },
+    });
+
+
+</script>
+
+</body>
+</html>
