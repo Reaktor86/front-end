@@ -1,0 +1,72 @@
+<div id="app">
+  {{ message }}
+</div>
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Привет, Vue!'
+  }
+})
+
+<span v-if="seen">Сейчас меня видно</span>
+<span v-else>Иначе показать меня</span> (должен быть сразу после блока с условием)
+если seen === true, то элемент будет показан (тоже самое, что display, в DOM не рисуется)
+
+v-show - тоже самое, что if, но в DOM рисуется
+
+Можно еще так:
+<span v-else-if="seen == 1">Иначе показать меня</span>
+
+<li v-for="todo in todos">
+используется для отображения списков
+
+<template> - сборный контейнер для элементов, который не виден в DOM
+
+Связывание атрибутов:
+<span v-bind:title="message">
+где message - переменная
+
+Сокращённая запись:
+<span :title="message">
+
+<div v-bind:class="{ active: isActive }">
+data: {
+	isActive: true
+}
+
+если isActive === true, то присвоить класс под названием "active"
+
+Много классов:
+<div class="static" :class="{ active: isActive, active2: isActive2 }">
+
+Стили:
+<div :style="{ color: red, width: 120px }"
+
+События:
+v-on:click="func";
+
+Сокращенная запись:
+@click="func";
+
+Функции жизненного цикла:
+created (писать на одном уровне с data и methods)
+
+axios - библиотека для запросов в vue (подключается также, как vue)
+
+axios.get('ссылка').then
+в принципе, все тоже самое, что и fetch
+
+Стрелочные функции, в отличии от коллбек, умеют работать с this
+
+v-model - используется в инпутах и заменяет собой name и value
+
+watch - наблюдатель за изменением свойств
+
+watch: {
+	<название наблюдаемого свойства>: {
+		что сделать при его изменении
+	}
+}
+
+
