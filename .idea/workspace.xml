@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc4d4742-e6c2-473d-8d8a-7f698d6df35f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Web9/vuejs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Web9/vuejs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +100,7 @@
       <workItem from="1617809553915" duration="6672000" />
       <workItem from="1618223570296" duration="610000" />
       <workItem from="1618247700923" duration="972000" />
+      <workItem from="1618468629602" duration="27000" />
     </task>
     <servers />
   </component>
